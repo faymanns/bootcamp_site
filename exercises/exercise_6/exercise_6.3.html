@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 6.3: Long-term trends in hybridization of Darwin finches &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 7" href="../exercise_7/index.html" />
+    <link rel="prev" title="Exercise 6.2: Automating scatter plots" href="exercise_6.2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 6</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="exercise_6.1.html">Exercise 6.1: Axes with logarithmic scale and error bars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_6.2.html">Exercise 6.2: Automating scatter plots</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 6.3: Long-term trends in hybridization of Darwin finches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 6</a> &raquo;</li>
+        
+      <li>Exercise 6.3: Long-term trends in hybridization of Darwin finches</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercises/exercise_6/exercise_6.3.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-6.3:-Long-term-trends-in-hybridization-of-Darwin-finches">
+<h1>Exercise 6.3: Long-term trends in hybridization of Darwin finches<a class="headerlink" href="#Exercise-6.3:-Long-term-trends-in-hybridization-of-Darwin-finches" title="Permalink to this headline">¶</a></h1>
+<hr><p><a class="reference external" href="https://en.wikipedia.org/wiki/Peter_and_Rosemary_Grant">Peter and Rosemary Grant</a> have been working on the Galápagos island of Daphne Major for over forty years. During this time, they have collected lots and lots of data about physiological features of finches. In 2014, they published a book with a summary of some of their major results (Grant P. R., Grant B. R., <em>40 years of evolution. Darwin’s finches on Daphne Major Island</em>, Princeton University Press, 2014). They made their data from
+the book publicly available via the <a class="reference external" href="http://dx.doi.org/10.5061/dryad.g6g3h">Dryad Digital Repository</a>.</p>
+<p>We will investigate their measurements of beak depth (the distance, top to bottom, of a closed beak) and beak length (base to tip on the top) of Darwin’s finches. We will look at data from two species, <em>Geospiza fortis</em> and <em>Geospiza scandens</em>. The Grants provided data on the finches of Daphne for the years 1973, 1975, 1987, 1991, and 2012. I have included the data in the files <code class="docutils literal notranslate"><span class="pre">grant_1973.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">grant_1975.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">grant_1987.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">grant_1991.csv</span></code>, and <code class="docutils literal notranslate"><span class="pre">grant_2012.csv</span></code>. They are in
+almost exactly the same format is in the Dryad repository; I have only deleted blank entries at the end of the files.</p>
+<p><strong>Note</strong>: If you want to skip the wrangling (which is very valuable experience), you can go directly to part (d). You can load in the data frame you generate in parts (a) through (c) from the file <code class="docutils literal notranslate"><span class="pre">~/git/bootcamp/data/grant_complete.csv</span></code>.</p>
+<p><strong>a)</strong> Load each of the files into separate Pandas data frames. You might want to inspect the file first to make sure you know what character the comments start with and if there is a header row.</p>
+<p><strong>b)</strong> We would like to merge these all into one data frame. The problem is that they have different header names, and only the 1973 file has a year entry (called <code class="docutils literal notranslate"><span class="pre">yearband</span></code>). This is common with real data. It is often a bit messy and requires some wrangling.</p>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">First, change the name of the <code class="docutils literal notranslate"><span class="pre">yearband</span></code> column of the 1973 data to <code class="docutils literal notranslate"><span class="pre">year</span></code>. Also, make sure the year format is four digits, not two!</div>
+</div>
+</li>
+<li><p>Next, add a <code class="docutils literal notranslate"><span class="pre">year</span></code> column to the other four data frames. You want tidy data, so each row in the data frame should have an entry for the year.</p></li>
+<li><p>Change the column names so that all the data frames have the same column names. I would choose column names</p>
+<p><code class="docutils literal notranslate"><span class="pre">['band',</span> <span class="pre">'species',</span> <span class="pre">'beak</span> <span class="pre">length</span> <span class="pre">(mm)',</span> <span class="pre">'beak</span> <span class="pre">depth</span> <span class="pre">(mm)',</span> <span class="pre">'year']</span></code></p>
+</li>
+<li><p>Concatenate the data frames into a single data frame. Be careful with indices! If you use <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code>, you will need to use the <code class="docutils literal notranslate"><span class="pre">ignore_index=True</span></code> kwarg. You might also need to use the <code class="docutils literal notranslate"><span class="pre">axis</span></code> kwarg.</p></li>
+</ol>
+<p><strong>c)</strong> The <code class="docutils literal notranslate"><span class="pre">band</span></code> field gives the number of the band on the bird’s leg that was used to tag it. Are some birds counted twice? Are they counted twice in the same year? Do you think you should drop duplicate birds from the same year? How about different years? My opinion is that you should drop duplicate birds from the same year and keep the others, but I would be open to discussion on that. To practice your Pandas skills, though, let’s delete only duplicate birds from the same year from the
+data frame. When you have made this data frame, save it as a CSV file.</p>
+<p><em>Hint</em>: The data frame methods <code class="docutils literal notranslate"><span class="pre">duplicated()</span></code> and <code class="docutils literal notranslate"><span class="pre">drop_duplicates()</span></code> will be useful.</p>
+<p>After doing this work, it is worth saving your tidy data frame in a CSV document. To this using the <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method of your data frame. Since the indices are uninformative, you should use the <code class="docutils literal notranslate"><span class="pre">index=False</span></code> kwarg. (I have already done this and saved it as <code class="docutils literal notranslate"><span class="pre">~/git/bootcamp/data/grant_complete.csv</span></code>, which will help you do the rest of the exercise if you have problems with this part.)</p>
+<p><strong>d)</strong> Make a plots exploring how beak depth changes over time for each species. Think about what might be effective ways to display the data.</p>
+<p><strong>e)</strong> It is informative to plot the measurement of each bird’s beak as a point in the beak depth-beak length plane. For the 1987 data, plot beak depth vs. beak width for <em>Geospiza fortis</em> and for <em>Geospiza scandens</em>. The function you wrote in <a class="reference internal" href="exercise_6.2.html"><span class="doc">Exercise 6.2</span></a> will be useful to do this.</p>
+<p><strong>f)</strong> Do part (d) again for all years. <em>Hint</em>: To display all of the plots, check out the <a class="reference external" href="https://bokeh.pydata.org/en/latest/docs/user_guide/layout.html">Bokeh documentation for layouts</a>. In your plots, make sure all plots have the same range on the axes. If you want to set two plots, say <code class="docutils literal notranslate"><span class="pre">p1</span></code> and <code class="docutils literal notranslate"><span class="pre">p2</span></code> to have the same axis ranges, you can do the following.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span><span class="o">.</span><span class="n">x_range</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">x_range</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">y_range</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">y_range</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../exercise_7/index.html" class="btn btn-neutral float-right" title="Exercise 7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="exercise_6.2.html" class="btn btn-neutral float-left" title="Exercise 6.2: Automating scatter plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1166 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 0: Configuring your computer &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 1: Welcome and Introduction to JupyterLab" href="l01_welcome.html" />
+    <link rel="prev" title="Introduction to Programming in the Biological Sciences Bootcamp" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 0: Configuring your computer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Why-install-on-my-own-machine?">Why install on my own machine?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macOS-users:-Install-XCode">macOS users: Install XCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Windows-users:-Install-Git-and-Chrome-or-Firefox">Windows users: Install Git and Chrome or Firefox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Uninstalling-Anaconda">Uninstalling Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Downloading-and-installing-Anaconda">Downloading and installing Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Installing-node.js">Installing node.js</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Launching-JupyterLab-and-a-terminal">Launching JupyterLab and a terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Launching-JupyterLab-from-the-command-line">Launching JupyterLab from the command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-conda-package-manager">The conda package manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Installations">Installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Setting-up-Git">Setting up Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Set-up-a-GitHub-account">Set up a GitHub account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Set-up-your-token">Set up your token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Forking-the-bootcamp-repository">Forking the bootcamp repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Cloning-your-fork-to-your-local-machine">Cloning your fork to your local machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Syncing-your-forked-repository-to-the-upstream-repository">Syncing your forked repository to the upstream repository</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Checking-your-distribution">Checking your distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 0: Configuring your computer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l00_configuring_your_computer.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-0:-Configuring-your-computer">
+<h1>Lesson 0: Configuring your computer<a class="headerlink" href="#Lesson-0:-Configuring-your-computer" title="Permalink to this headline">¶</a></h1>
+<hr/><p>In this lesson, you will set up a Python computing environment for scientific computing. There are two main ways people set up Python for scientific computing on their own machine.</p>
+<ol class="arabic simple">
+<li><p>By downloading and installing package by package with tools like <a class="reference external" href="https://help.ubuntu.com/community/AptGet/Howto">apt-get</a>, <a class="reference external" href="https://docs.python.org/3/installing/">pip</a>, etc.</p></li>
+<li><p>By downloading and installing a Python distribution that contains binaries of many of the scientific packages needed. One widely used distribution is from <a class="reference external" href="https://www.anaconda.com">Anaconda</a>.</p></li>
+</ol>
+<p>In this class, we will use Anaconda, with its associated package manager, <code class="docutils literal notranslate"><span class="pre">conda</span></code>. It has become the de facto package manager/distribution for scientific use.</p>
+<div class="section" id="Why-install-on-my-own-machine?">
+<h2>Why install on my own machine?<a class="headerlink" href="#Why-install-on-my-own-machine?" title="Permalink to this headline">¶</a></h2>
+<p>We toyed with using <a class="reference external" href="http://colab.research.google.com/">Google Colab</a> for the bootcamp, and we may in fact encourage you to use it when you are working on exercises. This offers many advantages.</p>
+<ol class="arabic simple">
+<li><p>You get a dedicated powerful machine that is part of Google’s cloud resources for your computing.</p></li>
+<li><p>Most of what you need is pre-installed.</p></li>
+<li><p>You can easily share the notebook with collaborators in near-real time.</p></li>
+<li><p>It is free!</p></li>
+<li><p>There are many more advanced features that are not covered in the bootcamp, such as easy GPU computing.</p></li>
+</ol>
+<p>We chose not to do this for several reasons, the first being the most important.</p>
+<ol class="arabic simple">
+<li><p>It is important that you learn how to set up your own machine, including using the command line.</p></li>
+<li><p>Unless you have a pro account (not free), your Colab instance will shut down after a period of latency.</p></li>
+<li><p>It is not as easy to integrate into your own software development pipeline.</p></li>
+<li><p>Along those same lines, it is not as easy to install custom software, or software that you write, using Colab as it is on your own machine.</p></li>
+</ol>
+<p>You may also want to use other cloud computing resources like <a class="reference external" href="https://aws.amazon.com">AWS</a>, <a class="reference external" href="https://azure.microsoft.com/en-us/">Microsoft Azure</a>, or <a class="reference external" href="https://www.hpc.caltech.edu">Caltech’s HPC</a>. We are not using those because we do not need more computing power than is available on a standard laptop. Furthermore, setting up your own machine will help prepare you for setting up instances on those services.</p>
+<p>Before we get rolling with the Anaconda distribution on your own machine, we have some considerations and installations to get out of the way first.</p>
+</div>
+<div class="section" id="macOS-users:-Install-XCode">
+<h2>macOS users: Install XCode<a class="headerlink" href="#macOS-users:-Install-XCode" title="Permalink to this headline">¶</a></h2>
+<p>If you are using macOS, you should install <a class="reference external" href="https://developer.apple.com/xcode/">XCode</a>, if you haven’t already. It’s a large piece of software, taking up about 5GB on your hard drive, so make sure you have enough space. Please install this ahead of the bootcamp, as it takes a long time to install. You can install it through the App Store.</p>
+<p>After installing it, you need to open the program. Be sure to do that, for example by clicking on the XCode icon in your Applications folder. Upon opening XCode, it may perform more installations. You can let it go ahead and do this, and then close XCode.</p>
+</div>
+<div class="section" id="Windows-users:-Install-Git-and-Chrome-or-Firefox">
+<h2>Windows users: Install Git and Chrome or Firefox<a class="headerlink" href="#Windows-users:-Install-Git-and-Chrome-or-Firefox" title="Permalink to this headline">¶</a></h2>
+<p>We will be using <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> in the bootcamp. It is browser-based, and Chrome, Firefox, and Safari are supported. Microsoft Edge is <strong>not</strong>. Therefore, if you are a Windows user, you need to be sure you have either Chrome of Firefox installed.</p>
+<p>Git is installed on Macs with XCode. For Windows users, you need to install Git. You can do this by following the instructions <a class="reference external" href="https://gitforwindows.org">here</a>.</p>
+</div>
+<div class="section" id="Uninstalling-Anaconda">
+<h2>Uninstalling Anaconda<a class="headerlink" href="#Uninstalling-Anaconda" title="Permalink to this headline">¶</a></h2>
+<p>If you have previously installed Anaconda with a version of Python other than 3.8, you need to uninstall it, removing it completely from your computer. You can find instructions on how to do that from the <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">official uninstallation documentation</a>.</p>
+</div>
+<div class="section" id="Downloading-and-installing-Anaconda">
+<h2>Downloading and installing Anaconda<a class="headerlink" href="#Downloading-and-installing-Anaconda" title="Permalink to this headline">¶</a></h2>
+<p>Downloading and installing Anaconda is simple.</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda homepage</a> and download the graphical installer.</p></li>
+<li><p>Install Anaconda with Python 3.8.</p></li>
+<li><p>You may be prompted for your email address, which you should provide. If you are at a university, you may want to use your university email address because educational users can get some of the non-free goodies in Anaconda.</p></li>
+<li><p>Follow the on-screen instructions for installation. While doing so, be sure that Anaconda is installed in your home directory, not in root.</p></li>
+</ol>
+<p>That’s it! After you do that, you will have a functioning Python distribution.</p>
+</div>
+<div class="section" id="Installing-node.js">
+<h2>Installing node.js<a class="headerlink" href="#Installing-node.js" title="Permalink to this headline">¶</a></h2>
+<p>node.js is a platform that enables you to run JavaScript outside of the browser. We will not use it directly, but it needs to be installed for some of the more sophisticated JupyterLab functionality. Install node.js by following the instructions <a class="reference external" href="https://nodejs.dev">here</a>.</p>
+</div>
+<div class="section" id="Launching-JupyterLab-and-a-terminal">
+<h2>Launching JupyterLab and a terminal<a class="headerlink" href="#Launching-JupyterLab-and-a-terminal" title="Permalink to this headline">¶</a></h2>
+<p>You can alternatively launch JupyterLab via the <strong>Anaconda Navigator</strong> or vial your operating system’s terminal program (Terminal on macOS and PowerShell on Windows). If you wish to launch using the latter, skip to the next section.</p>
+<p>If you’re using macOS, Anaconda Navigator will be available in your <code class="docutils literal notranslate"><span class="pre">Applications</span></code> menu. If you are using Windows, you can launch Anaconda Navigator from the Start menu.</p>
+<p>We will be using JupyterLab throughout the bootcamp (more on that in <a class="reference internal" href="l01_welcome.html"><span class="doc">Lesson 1</span></a>). You should see an option to launch JupyterLab from within Anaconda Navigator. When you do that, a new browser window or tab will open with JupyterLab running. Within the JupyterLab window, you will have the option to launch a notebook, a console, a terminal, or a text editor. We will use all of these during the bootcamp. For the updating and installation of necessary packages, click on
+<code class="docutils literal notranslate"><span class="pre">Terminal</span></code> to launch a terminal. You will get a terminal window (probably black) with a bash prompt. We refer to this text interface in the terminal as the <strong>command line</strong>.</p>
+</div>
+<div class="section" id="Launching-JupyterLab-from-the-command-line">
+<h2>Launching JupyterLab from the command line<a class="headerlink" href="#Launching-JupyterLab-from-the-command-line" title="Permalink to this headline">¶</a></h2>
+<p>While launching JupyterLab from the Anaconda Navigator is fine, I generally prefer to launch it from the command line on my own machine. If you are on a Mac, open the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> program. You can do this hitting <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">+</span> <span class="pre">space</span> <span class="pre">bar</span></code> and searching for “terminal.” Using Windows, you should launch PowerShell. You can do this by hitting <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">+</span> <span class="pre">R</span></code> and typing <code class="docutils literal notranslate"><span class="pre">powershell</span></code> in the text box.</p>
+<p>Once you have a terminal or PowerShell window open, you will have a prompt. At the prompt, type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter lab
+</pre></div>
+</div>
+<p>and you will have an instance of JupyterLab running in your browser. If you want to specify the browser, you can, for example, type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter lab --browser=firefox
+</pre></div>
+</div>
+<p>on the command line.</p>
+<p>It is up to you if you want to launch JupyterLab from the Anaconda Navigator or command line.</p>
+</div>
+<div class="section" id="The-conda-package-manager">
+<h2>The conda package manager<a class="headerlink" href="#The-conda-package-manager" title="Permalink to this headline">¶</a></h2>
+<p>conda is a package manager for keeping all of your packages up-to-date. It has plenty of functionality beyond our basic usage in class, which you can learn more about by reading the <a class="reference external" href="https://docs.conda.io/en/latest/">docs</a>. We will primarily be using conda to install and update packages.</p>
+<p>conda works from the command line. Now that you know how to get a command line prompt, you can start using conda. The first thing we’ll do is update conda itself. Enter the following on the command line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda update conda
+</pre></div>
+</div>
+<p>You can press <code class="docutils literal notranslate"><span class="pre">y</span></code> to continue. You should do this once more, again entering</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda update conda
+</pre></div>
+</div>
+<p>on the commmand line.</p>
+<p>Next, we will update the packages that came with the Anaconda distribution. To do this, enter the following on the command line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda update --all
+</pre></div>
+</div>
+<p>If anything is out of date, you will be prompted to perform the updates, and press <code class="docutils literal notranslate"><span class="pre">y</span></code> to continue. (If everything is up to date, you will just see a list of all the installed packages.) They may even be some downgrades. This happens when there are package conflicts where one package requires an earlier version of another. conda is very smart and figures all of this out for you, so you can almost always say “yes” (or “<code class="docutils literal notranslate"><span class="pre">y</span></code>”) to conda when it prompts you.</p>
+</div>
+<div class="section" id="Installations">
+<h2>Installations<a class="headerlink" href="#Installations" title="Permalink to this headline">¶</a></h2>
+<p>There are several additional installations of Python pacakges you need to do for the bootcamp. Many of these packages are available through conda. First, we need to install <code class="docutils literal notranslate"><span class="pre">jupyter_bokeh</span></code>, which allows Bokeh plots to be displayed withing Jupyter notebooks. Do the following on the command line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c bokeh jupyter_bokeh
+</pre></div>
+</div>
+<p>Now, we can proceed with the rest of our installations.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install colorcet holoviews hvplot param panel datashader pyserial hypothesis netcdf4
+</pre></div>
+</div>
+<p>There are a few other packages from pip we will need for the bootcamp, so we can go ahead and install those now.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install iqplot watermark blackcellmagic jupyterlab-spellchecker
+</pre></div>
+</div>
+<p>You should close your JupyterLab session and terminate Anaconda Navigator after you have completed the build. Relaunch Anaconda Navigator and launch a fresh JupyterLab instance. As before, after JupyterLab launches, launch a new terminal window so that you can proceed with setting up Git.</p>
+</div>
+<div class="section" id="Setting-up-Git">
+<h2>Setting up Git<a class="headerlink" href="#Setting-up-Git" title="Permalink to this headline">¶</a></h2>
+<p>Git features heavily in the bootcamp. We use it for <strong>version control</strong> and also for sharing files, data, and code we will use in the bootcamp.</p>
+<div class="section" id="Set-up-a-GitHub-account">
+<h3>Set up a GitHub account<a class="headerlink" href="#Set-up-a-GitHub-account" title="Permalink to this headline">¶</a></h3>
+<p>Go to <a class="reference external" href="http://github.com/">http://github.com/</a> to get an account. You should register with your academic email address so you get free private repositories as academics. You should also think carefully about picking your user name. There is a good chance other people in your professional life will see this.</p>
+</div>
+<div class="section" id="Set-up-your-token">
+<h3>Set up your token<a class="headerlink" href="#Set-up-your-token" title="Permalink to this headline">¶</a></h3>
+<p>You will need to set up a token to be used to access GitHub via the command line. To do so, complete <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">these instructions</a>.</p>
+</div>
+<div class="section" id="Forking-the-bootcamp-repository">
+<h3>Forking the bootcamp repository<a class="headerlink" href="#Forking-the-bootcamp-repository" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say you want to do some work on a project with code stored in a <strong>repository</strong>, but you are not an active collaborator. For example, there could be a useful package a lab at another university put on GitHub for a certain kind of image segmentation that is useful for your research. You want to do something <em>almost</em> exactly like the package does, but need to make some small modifications yourself. You want to clone the repository and add a couple functions and maybe modify one or two they
+already have, leaving much of the rest of the repository untouched. Of course, you also want to update your local copy of all that untouched (but still used) code when the maintainers update it.</p>
+<p>This is kind of exactly what you want to do here in the bootcamp. We have a repository that has data sets and a couple tutorials, but you want to write your Python code right in that repository. If I update the data sets, you want to be able to pull in my changes, but still have your code in place.</p>
+<p>There is a nice way to do this called <strong>forking</strong>. To fork a repository on GitHub, simply navigate got the website of the repository and click the Fork button. Be sure you are logged in as yourself when you do this. Click <a class="reference external" href="https://github.com/justinbois/bootcamp/">this link</a> to go to the GitHub page for the bootcamp.</p>
+<div style="margin: auto; width: 500px;"><img alt="Bootcamp github page" src="../_images/bootcamp_github_page.png" />
+</div><p>The fork button is in the upper right. Just click the button, and you now have a <strong>fork</strong> of the bootcamp repository on your GitHub account.</p>
+</div>
+<div class="section" id="Cloning-your-fork-to-your-local-machine">
+<h3>Cloning your fork to your local machine<a class="headerlink" href="#Cloning-your-fork-to-your-local-machine" title="Permalink to this headline">¶</a></h3>
+<p>Now you can clone your fork of the repository to your local machine. We will keep all of your material under version control in a directory called <code class="docutils literal notranslate"><span class="pre">git</span></code> in your home directory. Do the following on the command line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/git
+</pre></div>
+</div>
+<p>Now you can clone <em>your forked copy of the repository</em> (not the original <code class="docutils literal notranslate"><span class="pre">bootcamp</span></code> repository). To do this, navigate your browser to the forked copy of the <code class="docutils literal notranslate"><span class="pre">bootcamp</span></code> repository on your account (this is where clicking the “Fork” button took you in your browser). The browser URL will be: <code class="docutils literal notranslate"><span class="pre">https://github.com/yourusername/bootcamp</span></code>, and the top left of the website will say “<code class="docutils literal notranslate"><span class="pre">yourusername/bootcamp</span></code> forked from <code class="docutils literal notranslate"><span class="pre">justinbois/bootcamp</span></code>, like below for user <code class="docutils literal notranslate"><span class="pre">cgoecknerwald</span></code>.</p>
+<div style="margin: auto; width: 200px;"><img alt="fork icon" src="../_images/fork_icon.png" />
+</div><p>Click the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> button (shown below) and copy the URL of the forked repository.</p>
+<div style="margin: auto; width: 200px;"><img alt="GitHub clone" src="../_images/github_clone.png" />
+</div><p>Now, you can clone it by doing the following on the command line, making the obvious substitution for <code class="docutils literal notranslate"><span class="pre">the_url_you_just_copied</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/git
+git clone --depth 5 the_url_you_just_copied
+</pre></div>
+</div>
+<p>You now have a local copy of your own fork of the bootcamp repository. You can add files and edit it. When you commit and push, it will all be on your account, and the original repository will not see the changes. (Don’t worry if you do not understand all of this now; we will cover it all in subsequent lessons.)</p>
+</div>
+<div class="section" id="Syncing-your-forked-repository-to-the-upstream-repository">
+<h3>Syncing your forked repository to the upstream repository<a class="headerlink" href="#Syncing-your-forked-repository-to-the-upstream-repository" title="Permalink to this headline">¶</a></h3>
+<p>As I mentioned before, you want to be able to sync your repository with the original <code class="docutils literal notranslate"><span class="pre">bootcamp</span></code> repository so you can retrieve any updates in it. The original repository is typically called the <strong>upstream repository</strong>, since presumably you are changing it, so you are downstream. You want the upstream repository to be a <strong>remote</strong> repository, which is just what we call a repository we track and fetch and merge from. To see which repositories are remote, do the following on the command line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd bootcamp
+git remote -v
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-v</span></code> just means “verbose,” so it will also tell you the URLs. Entering that now will show a single repository, <code class="docutils literal notranslate"><span class="pre">origin</span></code>, which you can fetch from and push to. In your case, <code class="docutils literal notranslate"><span class="pre">origin</span></code> your fork of the bootcamp repository.</p>
+<p>We now want to add the upstream repository. To do this, add the <strong>original</strong> bootcamp repository as the upstream repository.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote add upstream https://github.com/justinbois/bootcamp.git
+</pre></div>
+</div>
+<p>Now try doing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>, and you will see that you are now also tracking the upstream repository.</p>
+</div>
+</div>
+<div class="section" id="Checking-your-distribution">
+<h2>Checking your distribution<a class="headerlink" href="#Checking-your-distribution" title="Permalink to this headline">¶</a></h2>
+<p>We’ll now run a quick test to make sure things are working properly. = We will make a quick plot that requires some of the scientific libraries we will use in the bootcamp.</p>
+<p>Use the JupyterLab launcher (you can get a new launcher by clicking on the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon on the left pane of your JupyterLab window) to launch a notebook. In the first cell (the box next to the <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]:</span></code> prompt), paste the code below. To run the code, press <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code> while the cursor is active inside the cell. You should see a plot that looks like the one below. If you do, you have a functioning Python environment for scientific computing!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+
+<span class="c1"># Generate plotting values</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">275</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;bootcamp&#39;</span><span class="p">,</span> <span class="n">text_align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1002">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1002");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js": "XypntL49z55iwGVUW4qsEu83zKL3XEcz0MjuGOQ9SlaaQ68X/g+k1FcioZi7oQAc", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.2.min.js": "bEsM86IHGDTLCS0Zod8a8WM6Y4+lafAL/eSiyQcuPzinmWNgNO2/olUF0Z2Dkn5i", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.2.min.js": "TX0gSQTdXTTeScqxj6PVQxTiRW8DOoGVwinyi1D3kxv7wuxQ02XkOxv0xwiypcAH"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.2.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1002")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root" id="47ac1d6b-2860-4060-829d-6e3eea300d1f" data-root-id="1003"></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+(function(root) {
+  function embed_document(root) {
+
+  var docs_json = {"98faaa56-674e-4f59-b840-4f9eb4ed09b2":{"defs":[],"roots":{"references":[{"attributes":{"below":[{"id":"1012"}],"center":[{"id":"1015"},{"id":"1019"},{"id":"1039"}],"height":250,"left":[{"id":"1016"}],"renderers":[{"id":"1037"}],"title":{"id":"1041"},"toolbar":{"id":"1027"},"width":275,"x_range":{"id":"1004"},"x_scale":{"id":"1008"},"y_range":{"id":"1006"},"y_scale":{"id":"1010"}},"id":"1003","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{},"id":"1046","type":"BasicTickFormatter"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{"formatter":{"id":"1043"},"major_label_policy":{"id":"1044"},"ticker":{"id":"1013"}},"id":"1012","type":"LinearAxis"},{"attributes":{},"id":"1047","type":"AllLabels"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{},"id":"1049","type":"UnionRenderers"},{"attributes":{"data":{"x":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[200]},"y":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[200]}},"selected":{"id":"1050"},"selection_policy":{"id":"1049"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{},"id":"1050","type":"Selection"},{"attributes":{"data_source":{"id":"1034"},"glyph":{"id":"1035"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1036"},"view":{"id":"1038"}},"id":"1037","type":"GlyphRenderer"},{"attributes":{},"id":"1025","type":"HelpTool"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{"active_multi":null,"tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"}]},"id":"1027","type":"Toolbar"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{"overlay":{"id":"1026"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{"source":{"id":"1034"}},"id":"1038","type":"CDSView"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{"line_color":"red","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"red","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Line"},{"attributes":{},"id":"1041","type":"Title"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1026","type":"BoxAnnotation"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{},"id":"1006","type":"DataRange1d"},{"attributes":{},"id":"1044","type":"AllLabels"},{"attributes":{"axis":{"id":"1016"},"dimension":1,"ticker":null},"id":"1019","type":"Grid"},{"attributes":{},"id":"1004","type":"DataRange1d"},{"attributes":{"axis":{"id":"1012"},"ticker":null},"id":"1015","type":"Grid"},{"attributes":{"text":"bootcamp","text_align":"center","x":0,"y":0},"id":"1039","type":"Label"},{"attributes":{"formatter":{"id":"1046"},"major_label_policy":{"id":"1047"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"}],"root_ids":["1003"]},"title":"Bokeh Application","version":"2.3.2"}};
+  var render_items = [{"docid":"98faaa56-674e-4f59-b840-4f9eb4ed09b2","root_ids":["1003"],"roots":{"1003":"47ac1d6b-2860-4060-829d-6e3eea300d1f"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script></div>
+</div>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,bokeh,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+numpy     : 1.20.2
+bokeh     : 2.3.2
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l01_welcome.html" class="btn btn-neutral float-right" title="Lesson 1: Welcome and Introduction to JupyterLab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Introduction to Programming in the Biological Sciences Bootcamp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

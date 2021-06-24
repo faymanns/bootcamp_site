@@ -1,0 +1,2280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 19: Introduction to Numpy and Scipy &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 20: Plotting time series and generated data" href="l20_plotting_time_series_generated_data.html" />
+    <link rel="prev" title="Lesson 18: High level plotting" href="l18_high_level_plotting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 19: Introduction to Numpy and Scipy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#A-very-brief-introduction-to-NumPy-arrays">A very brief introduction to NumPy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Other-ways-to-make-NumPy-arrays">Other ways to make NumPy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Extracting-Numpy-arrays-from-Pandas-data-frames">Extracting Numpy arrays from Pandas data frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Slicing-NumPy-arrays">Slicing NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Fancy-indexing">Fancy indexing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#NumPy-arrays-are-mutable">NumPy arrays are mutable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Slices-of-NumPy-arrays-are-views,-not-copies">Slices of NumPy arrays are <strong>views</strong>, not copies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Mathematical-operations-with-arrays">Mathematical operations with arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Indexing-2D-NumPy-arrays">Indexing 2D NumPy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Concatenating-arrays">Concatenating arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NumPy-has-useful-mathematical-functions">NumPy has useful mathematical functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#SciPy-has-even-more-useful-functions-(in-modules)">SciPy has even more useful functions (in modules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Vectorization-and-Numpy-arrays">Vectorization and Numpy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Slicing-Numpy-arrays">Slicing Numpy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NumPy-and-SciPy-are-highly-optimized">NumPy and SciPy are highly optimized</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Interpreted-and-compiled-languages">Interpreted and compiled languages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#NumPy-and-SciPy-use-compiled-code!">NumPy and SciPy use compiled code!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Word-of-advice:-use-NumPy-and-SciPy">Word of advice: use NumPy and SciPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 19: Introduction to Numpy and Scipy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l19_intro_to_numpy_and_scipy.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-19:-Introduction-to-Numpy-and-Scipy">
+<h1>Lesson 19: Introduction to Numpy and Scipy<a class="headerlink" href="#Lesson-19:-Introduction-to-Numpy-and-Scipy" title="Permalink to this headline">¶</a></h1>
+<hr><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># We&#39;ll demo a bit of Scipy</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span>
+
+<span class="kn">import</span> <span class="nn">iqplot</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1002">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1002");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js": "XypntL49z55iwGVUW4qsEu83zKL3XEcz0MjuGOQ9SlaaQ68X/g+k1FcioZi7oQAc", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.2.min.js": "bEsM86IHGDTLCS0Zod8a8WM6Y4+lafAL/eSiyQcuPzinmWNgNO2/olUF0Z2Dkn5i", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.2.min.js": "TX0gSQTdXTTeScqxj6PVQxTiRW8DOoGVwinyi1D3kxv7wuxQ02XkOxv0xwiypcAH"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.2.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1002")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<hr><p>In this lesson, you will learn about <a class="reference external" href="http://www.numpy.org">NumPy</a>, arguably <em>the</em> most important package for scientific computing, and SciPy, a package containing lots of goodies for scientific computing, like special functions and numerical integrators.</p>
+<div class="section" id="A-very-brief-introduction-to-NumPy-arrays">
+<h2>A very brief introduction to NumPy arrays<a class="headerlink" href="#A-very-brief-introduction-to-NumPy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>The central object for NumPy and SciPy is the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, commonly referred to as a “NumPy array.” This is an array object that is convenient for scientific computing. We will go over it in depth in the next lesson, but for now, let’s just create some NumPy arrays and see how operators work on them.</p>
+<p>Just like with type conversions with lists, tuples, and other data types we’ve looked at, we can convert a list to a NumPy array using</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>np.array()
+</pre></div>
+</div>
+<p>Note that above we imported the NumPy package with the <code class="docutils literal notranslate"><span class="pre">np</span></code> alias. This is for convenience; it allow us to use <code class="docutils literal notranslate"><span class="pre">np</span></code> as a prefix instead of <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. NumPy is in <em>very</em> widespread use, and the convention is to use the <code class="docutils literal notranslate"><span class="pre">np</span></code> abbreviation.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create a NumPy array from a list</span>
+<span class="n">my_ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># Look at it</span>
+<span class="n">my_ar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 3, 4])
+</pre></div></div>
+</div>
+<p>We see that the list has been converted, and it is explicitly shown as an array. It has several attributes and lots of methods. The most important attributes are probably the data type of its elements and the shape of the array.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># The data type of stored entries</span>
+<span class="n">my_ar</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dtype(&#39;int64&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># The shape of the array</span>
+<span class="n">my_ar</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(4,)
+</pre></div></div>
+</div>
+<p>There are also lots of methods. The one I use most often is <code class="docutils literal notranslate"><span class="pre">astype()</span></code>, which converts the data type of the array.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_ar</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1., 2., 3., 4.])
+</pre></div></div>
+</div>
+<p>There are many others. For example, we can compute summary statistics about the entries in the array, very similar to what we have see with Pandas.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_ar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_ar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_ar</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_ar</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_ar</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4
+1
+10
+2.5
+1.118033988749895
+</pre></div></div>
+</div>
+<p>Importantly, NumPy arrays can be arguments to NumPy functions. In this case, these functions do the same operations as the methods we just looked at.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">my_ar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">my_ar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">my_ar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">my_ar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">my_ar</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4
+1
+10
+2.5
+1.118033988749895
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Other-ways-to-make-NumPy-arrays">
+<h2>Other ways to make NumPy arrays<a class="headerlink" href="#Other-ways-to-make-NumPy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>There are many other ways to make NumPy arrays besides just converting lists or tuples. Below are some examples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># How long our arrays will be</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Make a NumPy array of length n filled with zeros</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make a NumPy array of length n filled with ones</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make an empty NumPy array of length n without initializing entries</span>
+<span class="c1"># (while it initially holds whatever values were previously in the memory</span>
+<span class="c1"># locations assigned, ones will be displayed)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make a NumPy array filled with zeros the same shape as another NumPy array</span>
+<span class="n">my_ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">my_ar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0, 0],
+       [0, 0]])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Extracting-Numpy-arrays-from-Pandas-data-frames">
+<h2>Extracting Numpy arrays from Pandas data frames<a class="headerlink" href="#Extracting-Numpy-arrays-from-Pandas-data-frames" title="Permalink to this headline">¶</a></h2>
+<p>NumPy has a primitive function for loading in data from text files, <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code>, but with Pandas’s <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>, there is really no reason to ever use it. Instead, we may sometimes wish to extract NumPy arrays out of Pandas data frames. This is almost always for speed reasons, which we will see when we do hacker stats. NumPy arrays are highly optimized for computing speed.</p>
+<p>As it is always more fun to work with a real biological application, we will populate our NumPy arrays with data. In their 2011 <a class="reference external" href="https://doi.org/10.1371/journal.pone.0025840">paper in PLoS ONE</a>, Harvey and Orbidans measured the cross-sectional area of <em>C. elegans</em> eggs that came from mothers who had a high concentration of food and from mothers of a low concentration of food. I digitized the data from their plots, and they are available in the file <code class="docutils literal notranslate"><span class="pre">~/git/bootcamp/data/c_elegans_egg_xa.csv</span></code>
+in the bootcamp repository.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/c_elegans_egg_xa.csv&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>food</th>
+      <th>area (sq. um)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>high</td>
+      <td>1683</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>high</td>
+      <td>2061</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>high</td>
+      <td>1792</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>high</td>
+      <td>1852</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>high</td>
+      <td>2091</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>It’s always a good idea to do a quick look at a data set by making a plot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">p</span> <span class="o">=</span> <span class="n">iqplot</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">q</span><span class="o">=</span><span class="s2">&quot;area (sq. um)&quot;</span><span class="p">,</span>
+    <span class="n">cats</span><span class="o">=</span><span class="s2">&quot;food&quot;</span><span class="p">,</span>
+    <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">],</span>
+    <span class="n">jitter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;amount of food&quot;</span><span class="p">,</span>
+    <span class="n">frame_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root" id="ffa5dcbd-d811-4b53-867f-cfd5d14d84f0" data-root-id="1004"></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+(function(root) {
+  function embed_document(root) {
+
+  var docs_json = {"65776396-da8a-4178-8e5c-ec100326e353":{"defs":[],"roots":{"references":[{"attributes":{"below":[{"id":"1012"}],"center":[{"id":"1015"},{"id":"1018"}],"frame_height":200,"frame_width":375,"left":[{"id":"1016"}],"renderers":[{"id":"1039"}],"title":{"id":"1042"},"toolbar":{"id":"1026"},"toolbar_location":"above","x_range":{"id":"1005"},"x_scale":{"id":"1008"},"y_range":{"id":"1003"},"y_scale":{"id":"1010"}},"id":"1004","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1022","type":"SaveTool"},{"attributes":{},"id":"1047","type":"AllLabels"},{"attributes":{},"id":"1023","type":"ResetTool"},{"attributes":{"overlay":{"id":"1025"}},"id":"1021","type":"BoxZoomTool"},{"attributes":{"active_multi":null,"tools":[{"id":"1019"},{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"}]},"id":"1026","type":"Toolbar"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1025","type":"BoxAnnotation"},{"attributes":{"factors":["high","low"]},"id":"1003","type":"FactorRange"},{"attributes":{},"id":"1020","type":"WheelZoomTool"},{"attributes":{"data_source":{"id":"1034"},"glyph":{"id":"1037"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1038"},"view":{"id":"1040"}},"id":"1039","type":"GlyphRenderer"},{"attributes":{},"id":"1019","type":"PanTool"},{"attributes":{},"id":"1024","type":"HelpTool"},{"attributes":{},"id":"1050","type":"Selection"},{"attributes":{},"id":"1051","type":"UnionRenderers"},{"attributes":{"axis_label":"amount of food","formatter":{"id":"1046"},"major_label_policy":{"id":"1047"},"ticker":{"id":"1017"}},"id":"1016","type":"CategoricalAxis"},{"attributes":{"data":{"__label":["high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low"],"area (sq. um)":[1683,2061,1792,1852,2091,1781,1912,1802,1751,1731,1892,1951,1809,1683,1787,1840,1821,1910,1930,1800,1833,1683,1671,1680,1692,1800,1821,1882,1642,1749,1712,1661,1701,2141,1863,1752,1740,1721,1660,1930,2030,1851,2131,1828,1840,2090,2169,1988,2212,2339,1989,2144,2290,1920,2280,1809,2158,1800,2133,2060,2160,2001,2030,2088,1951,2460,2021,2010,2139,2160,2106,2171,2113,2179,1890,2179,2021,1969,2150,1900,2267,1711,1901,2114,2112,2361,2130,2061,2121,1832,2210,2130,2153,2009,2100,2252,2143,2252,2222,2121,2409],"cat":["high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low"],"food":["high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","high","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low","low"]},"selected":{"id":"1050"},"selection_policy":{"id":"1051"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{"factors":["low","high"],"palette":["#1f77b3","#ff7e0e","#2ba02b","#d62628","#9367bc","#8c564b","#e277c1","#7e7e7e","#bcbc21","#16bdcf","#3a0182","#004201","#0fffa8","#5d003f","#bcbcff","#d8afa1","#b80080","#004d52","#6b6400","#7c0100","#6026ff","#ffff9a","#564964","#8cb893","#93fbff","#018267","#90ff00","#8200a0","#ac8944","#5b3400","#ffbff2","#ff6e75","#798cff","#dd00ff","#505646","#004489","#ffbf60","#ff018c","#bdc8cf","#af97b5","#b65600","#017000","#cd87ff","#1cd646","#bfebc3","#7997b5","#a56089","#6e8956","#bc7c75","#8a2844","#00acff","#8ed4ff","#4b6d77","#00d4b1","#9300f2","#8a9500","#5d5b9e","#fddfba","#00939e","#ffdb00","#00aa79","#520067","#000091","#0a5d3d","#a5e275","#623b41","#c6c689","#ff9eb5","#cd4f6b","#ff07d6","#8a3a05","#7e3d70","#ff4901","#602ba5","#1c00ff","#e6dfff","#aa3baf","#d89c00","#a3a39e","#3f69ff","#46490c","#7b6985","#6b978c","#ff9a75","#835bff","#7c6b46","#80b654","#bc0049","#fd93ff","#5d0018","#89d1d1","#9c8cd3","#da6d42","#8a5700","#3b5069","#4b6b3b","#edcfd8","#cfedff","#aa1500","#dfff4f","#ff2a56","#d1499e","#707cb8","#598000","#00e4fd","#774b95","#67d48c","#3d3a72","#ac413f","#d6a166","#c169cd","#69595d","#87aced","#a0a569","#d1aae6","#870062","#00fddb","#672818","#b342ff","#0e59c4","#168742","#90d300","#cd7900","#f959ff","#5b7466","#8eaeb3","#9c7c8c","#4600c6","#6b4d2d","#a56d46","#9e8972","#a8afca","#cd8ca7","#00fd64","#917900","#ff62a1","#f4ffd8","#018cf0","#13aca0","#5b2d59","#89859e","#cfccba","#d4afc4","#dbdd6d","#cffff4","#006485","#006962","#a84167","#2d97c4","#a874ff","#26ba5d","#57b600","#caffa7","#a379aa","#ffbc93","#89e2c1","#0fc8ff","#d400c4","#626d89","#69858e","#4b4d52","#aa6067","#79b5d4","#2b5916","#9a0024","#bdd1f2","#896e67","#69a56b","#855467","#aecdba","#87997e","#cadb00","#9a0390","#ebbc1a","#eb9cd1","#70006e","#b1a131","#ca6b93","#4146a3","#e48c89","#d44400","#c68aca","#b69597","#d41f75","#724bcc","#674d00","#672138","#38564f","#6ebaaa","#853a31","#a5d397","#b8af8e","#d8e4df","#aa00df","#cac1db","#ffdf8c","#e2524d","#66696e","#ff001c","#522d72","#4d906b","#a86d11","#ff9e26","#5ea3af","#c88556","#915997","#a3a1ff","#fdbaba","#242a87","#dbe6a8","#97f2a7","#6793d6","#ba5b3f","#3a5d91","#364f2f","#267c95","#89959a","#cfb356","#004664","#5e5d2f","#8e8e41","#ac3f13","#69953b","#a13d85","#bfb6ba","#acc667","#6469cf","#91af00","#2be2da","#016e36","#ff7952","#42807e","#4fe800","#995428","#5d0a00","#a30057","#0c8700","#5982a7","#ffebfb","#4b6901","#8775d4","#e6c6ff","#a5ffda","#d86e77","#df014b","#69675b","#776ba1","#7e8067","#594685","#0000ca","#7c002a","#97ff72","#b5e2e1","#db52c8","#777734","#57bd8e"]},"id":"1033","type":"CategoricalColorMapper"},{"attributes":{"fill_color":{"field":"cat","transform":{"id":"1033"}},"line_color":{"field":"cat","transform":{"id":"1033"}},"x":{"field":"area (sq. um)"},"y":{"field":"cat","transform":{"id":"1035"}}},"id":"1037","type":"Circle"},{"attributes":{},"id":"1010","type":"CategoricalScale"},{"attributes":{},"id":"1005","type":"DataRange1d"},{"attributes":{"axis":{"id":"1016"},"dimension":1,"grid_line_color":null,"ticker":null},"id":"1018","type":"Grid"},{"attributes":{"axis_label":"area (sq. um)","formatter":{"id":"1043"},"major_label_policy":{"id":"1044"},"ticker":{"id":"1013"}},"id":"1012","type":"LinearAxis"},{"attributes":{"distribution":"normal","range":{"id":"1003"},"width":0.1},"id":"1035","type":"Jitter"},{"attributes":{},"id":"1042","type":"Title"},{"attributes":{},"id":"1017","type":"CategoricalTicker"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"1012"},"ticker":null},"id":"1015","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"cat","transform":{"id":"1033"}},"line_alpha":{"value":0.1},"line_color":{"field":"cat","transform":{"id":"1033"}},"x":{"field":"area (sq. um)"},"y":{"field":"cat","transform":{"id":"1035"}}},"id":"1038","type":"Circle"},{"attributes":{},"id":"1044","type":"AllLabels"},{"attributes":{"source":{"id":"1034"}},"id":"1040","type":"CDSView"},{"attributes":{},"id":"1046","type":"CategoricalTickFormatter"}],"root_ids":["1004"]},"title":"Bokeh Application","version":"2.3.2"}};
+  var render_items = [{"docid":"65776396-da8a-4178-8e5c-ec100326e353","root_ids":["1004"],"roots":{"1004":"ffa5dcbd-d811-4b53-867f-cfd5d14d84f0"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script></div>
+</div>
+<p>It looks like worms that eat more food have smaller eggs.</p>
+<p>If we wanted to extract the measurements for worms with high food, we can do so using Boolean indexing in Pandas.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_high</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;food&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;high&quot;</span><span class="p">,</span> <span class="s2">&quot;area (sq. um)&quot;</span><span class="p">]</span>
+
+<span class="c1"># Take a look at the data type</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">xa_high</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pandas.core.series.Series
+</pre></div></div>
+</div>
+<p>The result is a Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code>, which is kind of like a single-column <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. If we want to convert this to a Numpy array, we use the <code class="docutils literal notranslate"><span class="pre">.values</span></code> attribute.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_high</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;food&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;high&quot;</span><span class="p">,</span> <span class="s2">&quot;area (sq. um)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">xa_high</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+numpy.ndarray
+</pre></div></div>
+</div>
+<p>Now we have a Numpy array! Let’s pull out the low food cross sectional areas as well.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_low</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;food&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;area (sq. um)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<p>And now let’s take a look at these arrays.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_high</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1683, 2061, 1792, 1852, 2091, 1781, 1912, 1802, 1751, 1731, 1892,
+       1951, 1809, 1683, 1787, 1840, 1821, 1910, 1930, 1800, 1833, 1683,
+       1671, 1680, 1692, 1800, 1821, 1882, 1642, 1749, 1712, 1661, 1701,
+       2141, 1863, 1752, 1740, 1721, 1660, 1930, 2030, 1851, 2131, 1828])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_low</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1840, 2090, 2169, 1988, 2212, 2339, 1989, 2144, 2290, 1920, 2280,
+       1809, 2158, 1800, 2133, 2060, 2160, 2001, 2030, 2088, 1951, 2460,
+       2021, 2010, 2139, 2160, 2106, 2171, 2113, 2179, 1890, 2179, 2021,
+       1969, 2150, 1900, 2267, 1711, 1901, 2114, 2112, 2361, 2130, 2061,
+       2121, 1832, 2210, 2130, 2153, 2009, 2100, 2252, 2143, 2252, 2222,
+       2121, 2409])
+</pre></div></div>
+</div>
+<p>We will use these arrays as examples to learn about NumPy arrays.</p>
+</div>
+<div class="section" id="Slicing-NumPy-arrays">
+<h2>Slicing NumPy arrays<a class="headerlink" href="#Slicing-NumPy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>We can slice NumPy arrays like lists and tuples. Here are a few examples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Reversed array</span>
+<span class="n">xa_high</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1828, 2131, 1851, 2030, 1930, 1660, 1721, 1740, 1752, 1863, 2141,
+       1701, 1661, 1712, 1749, 1642, 1882, 1821, 1800, 1692, 1680, 1671,
+       1683, 1833, 1800, 1930, 1910, 1821, 1840, 1787, 1683, 1809, 1951,
+       1892, 1731, 1751, 1802, 1912, 1781, 2091, 1852, 1792, 2061, 1683])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Every 5th element, starting at index 3</span>
+<span class="n">xa_high</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1852, 1751, 1683, 1930, 1680, 1642, 2141, 1660, 1828])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Entries 10 to 20</span>
+<span class="n">xa_high</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">21</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1892, 1951, 1809, 1683, 1787, 1840, 1821, 1910, 1930, 1800, 1833])
+</pre></div></div>
+</div>
+<div class="section" id="Fancy-indexing">
+<h3>Fancy indexing<a class="headerlink" href="#Fancy-indexing" title="Permalink to this headline">¶</a></h3>
+<p>NumPy arrays also allow <strong>fancy indexing</strong>, where we can slice out specific values. For example, say we wanted indices 1, 19, and 6 (in that order) from <code class="docutils literal notranslate"><span class="pre">xa_high</span></code>. We just index with a list of the indices we want.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_high</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2061, 1800, 1912])
+</pre></div></div>
+</div>
+<p>Instead of a list, we could also use a NumPy array.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_high</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">6</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2061, 1800, 1912])
+</pre></div></div>
+</div>
+<p>As a very nice feature, we can use Boolean indexing with Numpy arrays, just like with Pandas using <code class="docutils literal notranslate"><span class="pre">.loc</span></code>. Say we only want the egg cross sectional areas that are greater than 2000 µm².</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Just slice out the big ones</span>
+<span class="n">xa_high</span><span class="p">[</span><span class="n">xa_high</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2061, 2091, 2141, 2030, 2131])
+</pre></div></div>
+</div>
+<p>If we want to know the indices where the values are high, we can use the <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_high</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([ 1,  4, 33, 40, 42]),)
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="NumPy-arrays-are-mutable">
+<h2>NumPy arrays are mutable<a class="headerlink" href="#NumPy-arrays-are-mutable" title="Permalink to this headline">¶</a></h2>
+<p>Yes, NumPy arrays are mutable. Let’s look at some consequences.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make an array</span>
+<span class="n">my_ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># Change an element</span>
+<span class="n">my_ar</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># See the result</span>
+<span class="n">my_ar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 6, 4])
+</pre></div></div>
+</div>
+<p>Now, let’s try attaching another variable to the NumPy array.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Attach a new variable</span>
+<span class="n">my_ar2</span> <span class="o">=</span> <span class="n">my_ar</span>
+
+<span class="c1"># Set an entry using the new variable</span>
+<span class="n">my_ar2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="c1"># Does the original change? (yes.)</span>
+<span class="n">my_ar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 6, 9])
+</pre></div></div>
+</div>
+<p>Let’s see how messing with NumPy in functions affects things.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Re-instantiate my_ar</span>
+<span class="n">my_ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Function to normalize x (note that /= works with mutable objects)</span>
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Pass it through a function</span>
+<span class="n">normalize</span><span class="p">(</span><span class="n">my_ar</span><span class="p">)</span>
+
+<span class="c1"># Is it normalized even though we didn&#39;t return anything? (Yes.)</span>
+<span class="n">my_ar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.1, 0.2, 0.3, 0.4])
+</pre></div></div>
+</div>
+<p>So, be careful when writing functions. What you do to your NumPy array inside the function will happen outside of the function as well. Always remember that:</p>
+<div style="color: dodgerblue; font-weight: bold; text-align: center;"><p>NumPy arrays are mutable.</p>
+</div><div class="section" id="Slices-of-NumPy-arrays-are-views,-not-copies">
+<h3>Slices of NumPy arrays are <strong>views</strong>, not copies<a class="headerlink" href="#Slices-of-NumPy-arrays-are-views,-not-copies" title="Permalink to this headline">¶</a></h3>
+<p>A very important distinction between NumPy arrays and lists is that slices of NumPy arrays are <strong>views</strong> into the original NumPy array, NOT copies.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make list and array</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">my_ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+
+<span class="c1"># Slice out of each</span>
+<span class="n">my_list_slice</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">my_ar_slice</span> <span class="o">=</span> <span class="n">my_ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Mess with the slices</span>
+<span class="n">my_list_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">my_ar_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="c1"># Look at originals</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_ar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, 4]
+[1 9 3 4]
+</pre></div></div>
+</div>
+<p>Messing with an element of a slice of a NumPy array messes with that element in the original! This is not the case with lists. Let’s issue a warning.</p>
+<div style="color: dodgerblue; font-weight: bold; text-align: center;"><p>Slices of NumPy arrays are views, not copies.</p>
+</div><p>Fortunately, you can make a copy of an array using the <code class="docutils literal notranslate"><span class="pre">np.copy()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make a copy</span>
+<span class="n">xa_high_copy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">xa_high</span><span class="p">)</span>
+
+<span class="c1"># Mess with an entry</span>
+<span class="n">xa_high_copy</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="c1"># Check equality</span>
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">xa_high</span><span class="p">,</span> <span class="n">xa_high_copy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+<p>So, messing with an entry in the copy did not affect the original.</p>
+</div>
+</div>
+<div class="section" id="Mathematical-operations-with-arrays">
+<h2>Mathematical operations with arrays<a class="headerlink" href="#Mathematical-operations-with-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Mathematical operations on arrays are done elementwise to all elements, as we saw with Pandas data frames.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Divide one array be another</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([5.        , 3.        , 2.33333333, 2.        ])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Multiply by scalar</span>
+<span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">xa_high</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([-6732, -8244, -7168, -7408, -8364, -7124, -7648, -7208, -7004,
+       -6924, -7568, -7804, -7236, -6732, -7148, -7360, -7284, -7640,
+       -7720, -7200, -7332, -6732, -6684, -6720, -6768, -7200, -7284,
+       -7528, -6568, -6996, -6848, -6644, -6804, -8564, -7452, -7008,
+       -6960, -6884, -6640, -7720, -8120, -7404, -8524, -7312])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Raise to power</span>
+<span class="n">xa_high</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2832489, 4247721, 3211264, 3429904, 4372281, 3171961, 3655744,
+       3247204, 3066001, 2996361, 3579664, 3806401, 3272481, 2832489,
+       3193369, 3385600, 3316041, 3648100, 3724900, 3240000, 3359889,
+       2832489, 2792241, 2822400, 2862864, 3240000, 3316041, 3541924,
+       2696164, 3059001, 2930944, 2758921, 2893401, 4583881, 3470769,
+       3069504, 3027600, 2961841, 2755600, 3724900, 4120900, 3426201,
+       4541161, 3341584])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Indexing-2D-NumPy-arrays">
+<h2>Indexing 2D NumPy arrays<a class="headerlink" href="#Indexing-2D-NumPy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>NumPy arrays need not be one-dimensional. We’ll create a two-dimensional NumPy array by reshaping our <code class="docutils literal notranslate"><span class="pre">xa_high</span></code> array from having shape <code class="docutils literal notranslate"><span class="pre">(44,)</span></code> to having shape <code class="docutils literal notranslate"><span class="pre">(11,</span> <span class="pre">4)</span></code>. That is, it will become an array with 11 rows and 4 columns. (The 2D nature of this array has no meaning in this case; it’s just meant for demonstration.)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># New 2D array using the reshape() method</span>
+<span class="n">my_ar</span> <span class="o">=</span> <span class="n">xa_high</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Look at it</span>
+<span class="n">my_ar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1683, 2061, 1792, 1852],
+       [2091, 1781, 1912, 1802],
+       [1751, 1731, 1892, 1951],
+       [1809, 1683, 1787, 1840],
+       [1821, 1910, 1930, 1800],
+       [1833, 1683, 1671, 1680],
+       [1692, 1800, 1821, 1882],
+       [1642, 1749, 1712, 1661],
+       [1701, 2141, 1863, 1752],
+       [1740, 1721, 1660, 1930],
+       [2030, 1851, 2131, 1828]])
+</pre></div></div>
+</div>
+<p>Notice that it is represented as an array made out of a list of lists. If we had a list of lists, we would index it like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list_of_lists[i][j]
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make list of lists</span>
+<span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+
+<span class="c1"># Pull out value in first row, second column</span>
+<span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+</pre></div></div>
+</div>
+<p>Though this will work with NumPy arrays, this is <em>not</em> how NumPy arrays are indexed. They are indexed much more conveniently.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_ar</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2061
+</pre></div></div>
+</div>
+<p>We essentially have a tuple in the indexing brackets. Now, say we wanted the second row (indexing starting at 0).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_ar</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1751, 1731, 1892, 1951])
+</pre></div></div>
+</div>
+<p>We can use Boolean indexing as before.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_ar</span><span class="p">[</span><span class="n">my_ar</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2061, 2091, 2141, 2030, 2131])
+</pre></div></div>
+</div>
+<p>Note that this gives a one-dimensional array of the entries greater than 2000. If we wanted indices where this is the case, we can again use <code class="docutils literal notranslate"><span class="pre">np.where()</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">my_ar</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([ 0,  1,  8, 10, 10]), array([1, 0, 1, 0, 2]))
+</pre></div></div>
+</div>
+<p>This tuple of NumPy arrays is how we would index using fancy indexing to pull those values out using fancy indexing.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_ar</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2061, 2091, 2141, 2030, 2131])
+</pre></div></div>
+</div>
+<p>NumPy arrays can be of arbitrary integer dimension, and these principles extrapolate to 3D, 4D, etc., arrays.</p>
+</div>
+<div class="section" id="Concatenating-arrays">
+<h2>Concatenating arrays<a class="headerlink" href="#Concatenating-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say we want to study all cross sectional areas and don’t care if the mother was well-fed or not. We would want to concatenate our arrays. The <code class="docutils literal notranslate"><span class="pre">np.concatenate()</span></code> function accomplishes this. We simply have to pass it a tuple containing the NumPy arrays we want to concatenate.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">xa_high</span><span class="p">,</span> <span class="n">xa_low</span><span class="p">))</span>
+
+<span class="c1"># Look at it</span>
+<span class="n">combined</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1683, 2061, 1792, 1852, 2091, 1781, 1912, 1802, 1751, 1731, 1892,
+       1951, 1809, 1683, 1787, 1840, 1821, 1910, 1930, 1800, 1833, 1683,
+       1671, 1680, 1692, 1800, 1821, 1882, 1642, 1749, 1712, 1661, 1701,
+       2141, 1863, 1752, 1740, 1721, 1660, 1930, 2030, 1851, 2131, 1828,
+       1840, 2090, 2169, 1988, 2212, 2339, 1989, 2144, 2290, 1920, 2280,
+       1809, 2158, 1800, 2133, 2060, 2160, 2001, 2030, 2088, 1951, 2460,
+       2021, 2010, 2139, 2160, 2106, 2171, 2113, 2179, 1890, 2179, 2021,
+       1969, 2150, 1900, 2267, 1711, 1901, 2114, 2112, 2361, 2130, 2061,
+       2121, 1832, 2210, 2130, 2153, 2009, 2100, 2252, 2143, 2252, 2222,
+       2121, 2409])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="NumPy-has-useful-mathematical-functions">
+<h2>NumPy has useful mathematical functions<a class="headerlink" href="#NumPy-has-useful-mathematical-functions" title="Permalink to this headline">¶</a></h2>
+<p>So far, we have not done much mathematics with Python. We have done some adding and division, but nothing like computing a logarithm or cosine. The NumPy functions also work elementwise on the arrays when it is intuitive to do so (just like we have seen in Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s). That is, they apply the function to each entry in the array. Check it out (even though exponentiating cross sectional areas is nonsensical).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Exponential</span>
+<span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xa_high</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([5.38167681, 7.8538197 , 6.00144336, 6.37255189, 8.09300412,
+       5.93578924, 6.76660849, 6.06175887, 5.76036016, 5.64629738,
+       6.63262067, 7.03571978, 6.10434004, 5.38167681, 5.97151103,
+       6.29653826, 6.1780334 , 6.7530888 , 6.88951024, 6.04964746,
+       6.2526164 , 5.38167681, 5.31748262, 5.36555597, 5.43033051,
+       6.04964746, 6.1780334 , 6.56662499, 5.16549017, 5.74885095,
+       5.54003047, 5.26457279, 5.47942408, 8.50794132, 6.44303692,
+       5.7661234 , 5.69734342, 5.59011579, 5.25931084, 6.88951024,
+       7.61408636, 6.36618252, 8.42328589, 6.22143134])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Cosine</span>
+<span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xa_high</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 0.62656192,  0.9933696 ,  0.27501843,  0.03112568,  0.26681725,
+       -0.96021239, -0.33430744,  0.29228295, -0.42404251, -0.99984597,
+        0.72399324, -0.99748325,  0.84865001,  0.62656192, -0.84393482,
+        0.56257847,  0.43231386,  0.99610114,  0.48702972, -0.99122275,
+       -0.11903049,  0.62656192,  0.94691648, -0.73027654, -0.24968607,
+       -0.99122275,  0.43231386, -0.98275172, -0.49500319, -0.64703425,
+       -0.98592179, -0.61963892, -0.17156886,  0.00460656, -0.99936794,
+        0.53296056,  0.90375673,  0.82939405,  0.3256673 ,  0.48702972,
+        0.86222727, -0.824246  ,  0.5401501 ,  0.91834245])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Square root</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xa_high</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([41.02438299, 45.39823785, 42.33202098, 43.03486958, 45.72745346,
+       42.20189569, 43.72642222, 42.44997055, 41.84495191, 41.60528813,
+       43.49712634, 44.17012565, 42.53234064, 41.02438299, 42.27292278,
+       42.89522118, 42.67317659, 43.70354677, 43.93176527, 42.42640687,
+       42.81354926, 41.02438299, 40.87786687, 40.98780306, 41.1339276 ,
+       42.42640687, 42.67317659, 43.38202393, 40.52159918, 41.82104733,
+       41.37632173, 40.75536774, 41.24318125, 46.27094121, 43.16248371,
+       41.85689907, 41.71330723, 41.48493703, 40.74309757, 43.93176527,
+       45.0555213 , 43.02324953, 46.16275555, 42.75511665])
+</pre></div></div>
+</div>
+<p>We can even do some matrix operations (which are obviously not done elementwise), like dot products.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">xa_high</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">xa_high</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+146.360195
+</pre></div></div>
+</div>
+<p>NumPy also has useful attributes, like <code class="docutils literal notranslate"><span class="pre">np.pi</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3.141592653589793
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="SciPy-has-even-more-useful-functions-(in-modules)">
+<h2>SciPy has even more useful functions (in modules)<a class="headerlink" href="#SciPy-has-even-more-useful-functions-(in-modules)" title="Permalink to this headline">¶</a></h2>
+<p>SciPy actually began life as a library of special functions that operate on NumPy arrays. For example, we can compute an error function using the <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code> module, which contains lots of special functions. Note that you often have to individually import the SciPy module you want to use, for example with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.special</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">xa_high</span> <span class="o">/</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.76597747, 0.8549794 , 0.7948931 , 0.80965587, 0.86074212,
+       0.79209865, 0.8236209 , 0.79740973, 0.78433732, 0.77904847,
+       0.81905337, 0.83227948, 0.79915793, 0.76597747, 0.7936263 ,
+       0.80676772, 0.8021292 , 0.82316805, 0.8276577 , 0.79690821,
+       0.80506817, 0.76597747, 0.76262579, 0.76514271, 0.76846912,
+       0.79690821, 0.8021292 , 0.81673693, 0.7543863 , 0.78381257,
+       0.77393853, 0.75980693, 0.77094188, 0.86995276, 0.81227529,
+       0.78459935, 0.78143985, 0.77636944, 0.75952376, 0.8276577 ,
+       0.84883448, 0.80941641, 0.86814949, 0.80384751])
+</pre></div></div>
+</div>
+<p>There are many SciPy submodules which give plenty or rich functionality for scientific computing. You can check out the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">SciPy docs</a> to learn about all of the functionality. In my own work, I use the following extensively.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.special</span></code>: Special functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>: Functions for statistical analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>: Numerical optimization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>: Numerical solutions to differential equations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code>: Smooth interpolation of functions.</p></li>
+</ul>
+</div>
+<div class="section" id="Vectorization-and-Numpy-arrays">
+<h2>Vectorization and Numpy arrays<a class="headerlink" href="#Vectorization-and-Numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Like operations on Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> that we have already seen, operations on Numpy arrays are also vectorized and binary operations typically work elementwise.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">xa_high</span> <span class="o">+</span> <span class="n">xa_high</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([3366, 4122, 3584, 3704, 4182, 3562, 3824, 3604, 3502, 3462, 3784,
+       3902, 3618, 3366, 3574, 3680, 3642, 3820, 3860, 3600, 3666, 3366,
+       3342, 3360, 3384, 3600, 3642, 3764, 3284, 3498, 3424, 3322, 3402,
+       4282, 3726, 3504, 3480, 3442, 3320, 3860, 4060, 3702, 4262, 3656])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Slicing-Numpy-arrays">
+<h2>Slicing Numpy arrays<a class="headerlink" href="#Slicing-Numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Numpy arrays are ordered and strictly indexed by integers. There are therefore sliced just like lists, tuples, and strings as we have seen before. Conveniently we can also use Boolean indexing on Numpy arrays, just like with Pandas.</p>
+</div>
+<div class="section" id="NumPy-and-SciPy-are-highly-optimized">
+<h2>NumPy and SciPy are highly optimized<a class="headerlink" href="#NumPy-and-SciPy-are-highly-optimized" title="Permalink to this headline">¶</a></h2>
+<p>Importantly, NumPy and SciPy routines are often <em>fast</em>. To understand why, we need to think a bit about how your computer actually runs code you write.</p>
+<div class="section" id="Interpreted-and-compiled-languages">
+<h3>Interpreted and compiled languages<a class="headerlink" href="#Interpreted-and-compiled-languages" title="Permalink to this headline">¶</a></h3>
+<p>We have touched on the fact that Python is an <strong>interpreted language</strong>. This means that the Python interpreter reads through your code, line by line, translates the commands into instructions that your computer’s processor can execute, and then these are executed. It also does <a class="reference external" href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">garbage collection</a>, which manages memory usage in your programs for you. As an interpreted language, code is often much easier to write, and
+development time is much shorter. It is often easier to debug. By contrast, with <strong>compiled languages</strong> (the dominant ones being Fortran, C, and C++), your entire source code is translated into machine code before you ever run it. When you execute your program, it is already in machine code. As a result, compiled code is often much faster than interpreted code. The speed difference depends largely on the task at hand, but there is often over a 100-fold difference.</p>
+<p>First, we’ll demonstrate the difference between compiled and interpreted languages by looking at a function to sum the elements of an array. Note that Python is <a class="reference external" href="http://stackoverflow.com/a/34004445/2320823">dynamically typed</a>, so the function below works for multiple data types, but the C function works only for <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision floating point</a> numbers.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Python code to sum an array and print the result to the screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">my_ar</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[19793 20111 20171 19978]
+</pre></div></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* C code to sum an array and print the result to the screen */</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">sum_array</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">sum_array</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+   <span class="kt">double</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+       <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+   <span class="p">}</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%g</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The C code won’t even execute without another function called <code class="docutils literal notranslate"><span class="pre">main</span></code> to call it. You should notice the difference in complexity of the code. Interpreted code is very often much easier to write!</p>
+</div>
+<div class="section" id="NumPy-and-SciPy-use-compiled-code!">
+<h3>NumPy and SciPy use compiled code!<a class="headerlink" href="#NumPy-and-SciPy-use-compiled-code!" title="Permalink to this headline">¶</a></h3>
+<p>Under the hood, when you call a NumPy or SciPy function, or use one of the methods, the Python interpreter passes the arrays into pre-compiled functions. (They are usually C or Fortran functions.) That means that you get to use an interpreted language with near-compiled speed! We can demonstrate the speed by comparing an explicit sum of elements of an array using a Python <code class="docutils literal notranslate"><span class="pre">for</span></code> loop versus NumPy. We will use the <code class="docutils literal notranslate"><span class="pre">np.random</span></code> module to generate a large array of random numbers (we will visit
+random number generation in a coming lesson). We then use the <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> magic function of IPython to time the execution of the sum of the elements of the array.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make array of 10,000 random numbers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Sum with Python for loop</span>
+<span class="k">def</span> <span class="nf">python_sum</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">x_sum</span> <span class="o">+=</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">x_sum</span>
+
+<span class="c1"># Test speed</span>
+<span class="o">%</span><span class="k">timeit</span> python_sum(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+799 µs ± 3.91 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre></div></div>
+</div>
+<p>Now we’ll do the same test with the NumPy implementation.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeit</span> np.sum(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+6.32 µs ± 76.8 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div></div>
+</div>
+<p>Wow! We went from a millisecond to <em>micro</em>seconds!</p>
+</div>
+</div>
+<div class="section" id="Word-of-advice:-use-NumPy-and-SciPy">
+<h2>Word of advice: use NumPy and SciPy<a class="headerlink" href="#Word-of-advice:-use-NumPy-and-SciPy" title="Permalink to this headline">¶</a></h2>
+<p>If you are writing code and you think to yourself, “This seems like a pretty common things to do,” there is a good chance the someone really smart has written code to do it. If it’s something numerical, there is a good chance it is in NumPy or SciPy. <strong>Use these packages.</strong> Do not reinvent the wheel. It is very rare you can beat them for performance, error checking, etc.</p>
+<p>Furthermore, NumPy and SciPy are very well tested (and we learned the importance of that in the test-driven development lessons). In general, you do not need to write unit tests for well-established packages. Obviously, if you use NumPy or SciPy within your own functions, you still need to test what you wrote.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,scipy,pandas,bokeh,iqplot,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+numpy     : 1.20.2
+scipy     : 1.6.2
+pandas    : 1.2.4
+bokeh     : 2.3.2
+iqplot    : 0.2.3
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l20_plotting_time_series_generated_data.html" class="btn btn-neutral float-right" title="Lesson 20: Plotting time series and generated data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l18_high_level_plotting.html" class="btn btn-neutral float-left" title="Lesson 18: High level plotting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

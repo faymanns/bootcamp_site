@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 2: Basic command line skills &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 3: Variables, operators, and types" href="l03_variables_operators_types.html" />
+    <link rel="prev" title="Lesson 1: Welcome and Introduction to JupyterLab" href="l01_welcome.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 2: Basic command line skills</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#What-is-a-shell?">What is a shell?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#A-very-brief-historical-overview">A very brief historical overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Windows-vs. macOS/Linux">Windows vs. macOS/Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Getting-started-with-the-command-line">Getting started with the command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pwd-and-ls">pwd and ls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cd,-change-directory:">cd, change directory:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mkdir-and-rmdir">mkdir and rmdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git">git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Word-to-the-wise:-NO-SPACES">Word to the wise: <strong>NO SPACES</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mv:-renaming-files">mv: renaming files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Exploring-file-content">Exploring file content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cat">cat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#head">head</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tail">tail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Copying-files-and-directories:-cp">Copying files and directories: cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Removing-files-and-directories-with-rm">Removing files and directories with rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Aliases-(PowerShell-users,-skip-this-section)">Aliases (PowerShell users, skip this section)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Updating-your-bootcamp-directory">Updating your bootcamp directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#You-are-now-empowered">You are now empowered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 2: Basic command line skills</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l02_basic_command_line_skills.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-2:-Basic-command-line-skills">
+<h1>Lesson 2: Basic command line skills<a class="headerlink" href="#Lesson-2:-Basic-command-line-skills" title="Permalink to this headline">¶</a></h1>
+<hr/><p>Perhaps the first step toward really empowering you to command your computer to do whatever you will is to learn how to use the command line. This lesson provides a brief introduction to command line skills.</p>
+<div class="section" id="What-is-a-shell?">
+<h2>What is a shell?<a class="headerlink" href="#What-is-a-shell?" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>shell</strong> is a program that takes commands from files or entered interactively through the keyboard and passes them on to the operating system to be executed. A shell is accessed through a <strong>terminal</strong> or <strong>terminal emulator</strong>.</p>
+<p>We will use JupyterLab’s terminal in this tutorial and throughout most of the bootcamp. However, you need not limit yourself to using this. If you are using macOS, you can use the Terminal application. For a Mac, you can fire up the Terminal application. It is typically in the <code class="docutils literal notranslate"><span class="pre">/Applications/Utilities</span></code> folder. Otherwise, hit ⌘-space bar and type <code class="docutils literal notranslate"><span class="pre">terminal</span></code> in the search box, and select the Terminal Application. For Windows, you can use PowerShell, which you can launch through the <code class="docutils literal notranslate"><span class="pre">Start</span></code>
+menu. If you are using Linux, it’s a good bet you already know how to navigate a terminal, so we will not give specific instructions for Linux.</p>
+</div>
+<div class="section" id="A-very-brief-historical-overview">
+<h2>A very brief historical overview<a class="headerlink" href="#A-very-brief-historical-overview" title="Permalink to this headline">¶</a></h2>
+<p>Ken Thompson of Bell Labs developed the predecessor to the modern shell for the first release of UNIX in 1971. In 1977, Stephen Bourne introduced the Bourne shell (<code class="docutils literal notranslate"><span class="pre">sh</span></code>) which added the ability to invoke scripts (small reusable programs) from within the shell. The Bourne shell remains relevant. In some cases it is still the default root shell. Shortly afterwards, the C shell (<code class="docutils literal notranslate"><span class="pre">csh</span></code>) was developed which made use of a C-like scripting language. <code class="docutils literal notranslate"><span class="pre">tcsh</span></code> is built on <code class="docutils literal notranslate"><span class="pre">csh</span></code> and is still very
+common. Bash, the Bourne again shell, was developed by Brian Fox to replace the Bourne shell. It adds many useful features to sh and is the default shell for macOS and several Linux distributions. In 1990, Paul Falsted developed Zsh (pronounced Z-shell) as a further improvement of Bash. Starting in October of 2019, Zsh is the default shell for macOS.</p>
+</div>
+<div class="section" id="Windows-vs. macOS/Linux">
+<h2>Windows vs. macOS/Linux<a class="headerlink" href="#Windows-vs. macOS/Linux" title="Permalink to this headline">¶</a></h2>
+<p>Windows 10 enables you to also use Bash, but you need to activate the <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux</a>. We will not use <code class="docutils literal notranslate"><span class="pre">bash</span></code> for Windows users in the bootcamp (unless you want to), but will instead use <a class="reference external" href="https://en.wikipedia.org/wiki/PowerShell">PowerShell</a>, which is also the default shell in JupyterLab’s terminal for Windows users. For the simple command line operations we will do in the bootcamp, PowerShell is almost always sufficient
+and the syntax is the same. <a class="reference external" href="http://cecs.wright.edu/~pmateti/Courses/233/Top/233-CheatSheet.html#Bash_and_PowerShell_Quick_Reference">This cheatsheet</a> is a useful reference for comparing Bash and PowerShell commands.</p>
+<p>In what follows in this lesson, we will show the Zsh commands and sometimes provide commentary for Windows users. Here is a brief table comparing Bash and Zsh to PowerShell commands.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bash/Zsh</p></th>
+<th class="head"><p>PowerShell</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mv</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-Hidden</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">-Force</span> <span class="pre">-Recurse</span> <span class="pre">.\mydirectory</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">more</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">more</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">less</span></code></p></td>
+<td><p>Does not exist</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-5</span> <span class="pre">myfile.txt</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gc</span> <span class="pre">myfile.txt</span> <span class="pre">-head</span> <span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-5</span> <span class="pre">myfile.txt</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gc</span> <span class="pre">myfile.txt</span> <span class="pre">-tail</span> <span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">./dir/myfile.txt</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!type</span> <span class="pre">&quot;dir\myfile.txt&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="Getting-started-with-the-command-line">
+<h2>Getting started with the command line<a class="headerlink" href="#Getting-started-with-the-command-line" title="Permalink to this headline">¶</a></h2>
+<p>Now, as you did in <a class="reference external" href="l00_configuring_your_machine.ipynb">Lesson 0</a>, launch a terminal in JupyterLab.</p>
+<p>As we go through this tutorial, any text in boxes (or indented fixed-width text in the Jupyter notebook version of this tutorial) contains commands you should enter at the command line.</p>
+<div class="section" id="pwd-and-ls">
+<h3>pwd and ls<a class="headerlink" href="#pwd-and-ls" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start out by using the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command to figure out what directory we’re in.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pwd
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> tells you the <strong>path</strong> of your current directory. A path for a directory or file is the list of all its parent directories, separated by slashes (<code class="docutils literal notranslate"><span class="pre">/</span></code>), up to the root directory signified by the initial <code class="docutils literal notranslate"><span class="pre">/</span></code>. You are probably in your home directory.</p>
+<p>To list all files and folders in the current directory, we employ the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+</div>
+<div class="section" id="cd,-change-directory:">
+<h3>cd, change directory:<a class="headerlink" href="#cd,-change-directory:" title="Permalink to this headline">¶</a></h3>
+<p>Let’s make sure we are in the home directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> to check where you are now. Invoking the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command without specifying a target directory defaults to the home directory. Another way to specify your home directory is by its shortcut, <code class="docutils literal notranslate"><span class="pre">~/</span></code>. In general, the tilde-slash means “home directory.”</p>
+</div>
+<div class="section" id="mkdir-and-rmdir">
+<h3>mkdir and rmdir<a class="headerlink" href="#mkdir-and-rmdir" title="Permalink to this headline">¶</a></h3>
+<p>To make a directory, the command is <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>, hence the name <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory. followed by the name of the directory you want to create. For example, to make a directory called <code class="docutils literal notranslate"><span class="pre">bootcamp</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir bootcamp
+</pre></div>
+</div>
+<p>You now have an empty directory called bootcamp. You can see it if you list the contents of the directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>We do not need (nor want) this directory, since we will be using the bootcamp directory under version control with Git, so let’s delete it. To delete an <em>empty</em> directory, the command is <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rmdir bootcamp
+</pre></div>
+</div>
+</div>
+<div class="section" id="git">
+<h3>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+<p>We will be using <code class="docutils literal notranslate"><span class="pre">git</span></code> a <strong>lot</strong> starting with the second day of the bootcamp, and will in fact use it right now to set things up for you for this tutorial. Put briefly, <code class="docutils literal notranslate"><span class="pre">git</span></code> is a <strong>version control system</strong> that allows multiple programmers to work together and allows individuals to keep track of their work. You are going to use it in just a moment to get all of the code your need for the bootcamp on your machine organized exactly as I have it organized on my machine.</p>
+<p>In my work, I like to have a directory in my home directory called <code class="docutils literal notranslate"><span class="pre">git</span></code> that has all of the code from <code class="docutils literal notranslate"><span class="pre">git</span></code> repositories that I work on. We’ll have you do the same, though you are welcome to change how you organize things after the bootcamp. In <a class="reference external" href="l00_configuring_your_machine.ipynb">Lesson 0</a>, you made a <code class="docutils literal notranslate"><span class="pre">git</span></code> directory to house all of your repositories.</p>
+<p>Let’s venture into that directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/git/bootcamp
+</pre></div>
+</div>
+<p>I may have updated some things in that repository between the time where you cloned the repository and now. You can update the directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git pull upstream main
+</pre></div>
+</div>
+<p>This pulls in all of the changes from the upstream repository (which is mine, the one you forked from).</p>
+</div>
+<div class="section" id="Word-to-the-wise:-NO-SPACES">
+<h3>Word to the wise: <strong>NO SPACES</strong><a class="headerlink" href="#Word-to-the-wise:-NO-SPACES" title="Permalink to this headline">¶</a></h3>
+<p>Look at what is in the directory using <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>You will notice a few files and some directories. The directory <code class="docutils literal notranslate"><span class="pre">command_line_tutorial/</span></code> has some files that will help us through this lesson. Note that there are no spaces in the directory name. <strong>In general, you avoid spaces in directory and file names</strong>, even though your operating system often has them in there. Trust me on this, they can make things a total mess, especially on the command line, since a space also separates commands. Really. <strong>NO SPACES.</strong></p>
+</div>
+<div class="section" id="mv:-renaming-files">
+<h3>mv: renaming files<a class="headerlink" href="#mv:-renaming-files" title="Permalink to this headline">¶</a></h3>
+<p>Since we’re currently doing a command line tutorial, let’s go into that directory and see what is there.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd command_line_tutorial
+ls
+</pre></div>
+</div>
+<p>We see that we have a directory called <code class="docutils literal notranslate"><span class="pre">sequences</span></code>, as well as a FASTA file named <code class="docutils literal notranslate"><span class="pre">some</span> <span class="pre">sequence.fasta</span></code>. This file name has the annoying space in it. We would like to rename it something without a space, say <code class="docutils literal notranslate"><span class="pre">some_sequence.fasta</span></code>. To do this, we us the <strong>``mv``</strong> command, short for “move.” We enter <code class="docutils literal notranslate"><span class="pre">mv</span></code>, followed by the name of the file we want to rename, and then its new name.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mv some sequence.fasta some_sequence.fasta
+</pre></div>
+</div>
+<p>Uh-oh! That gave us some strange output, talking about the usage of <code class="docutils literal notranslate"><span class="pre">mv</span></code>. This is because the space in the file <code class="docutils literal notranslate"><span class="pre">some</span> <span class="pre">sequence.fasta</span></code> was interpreted as a gap between arguments of the <code class="docutils literal notranslate"><span class="pre">mv</span></code> command. To specify that the space is part of the file name, we need to use an <strong>escape character</strong>. The escape character for macOS or Linux is <code class="docutils literal notranslate"><span class="pre">\</span></code>. With Windows, you can use a caret <code class="docutils literal notranslate"><span class="pre">^</span></code> as an escape character or you can enclose the file name with a space in single quotes. The space following the
+escape character is not considered as an argument separator. This works (but don’t do it just yet):</p>
+<ul class="simple">
+<li><p>macOS or Linux: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">some\</span> <span class="pre">sequence.fasta</span> <span class="pre">some_sequence.fasta</span>&#160;&#160; <span class="pre">#</span> <span class="pre">Don't</span> <span class="pre">do</span> <span class="pre">this</span></code></p></li>
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">'some</span> <span class="pre">sequence.fasta'</span> <span class="pre">some_sequence.fasta</span>&#160;&#160; <span class="pre">#</span> <span class="pre">Don't</span> <span class="pre">do</span> <span class="pre">this</span></code></p></li>
+</ul>
+<p>Because these files are under version control, you should precede the <code class="docutils literal notranslate"><span class="pre">mv</span></code> command with <code class="docutils literal notranslate"><span class="pre">git</span></code>. That way, Git will keep track of the naming changes you made. So, do this:</p>
+<ul class="simple">
+<li><p>macOS or Linux: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span> <span class="pre">some\</span> <span class="pre">sequence.fasta</span> <span class="pre">some_sequence.fasta</span></code></p></li>
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span> <span class="pre">'some</span> <span class="pre">sequence.fasta'</span> <span class="pre">some_sequence.fasta</span></code></p></li>
+</ul>
+<p>Now, we probably want this file in the <code class="docutils literal notranslate"><span class="pre">sequences</span></code> directory. We can also move files into directories (without changing their file names) using the <code class="docutils literal notranslate"><span class="pre">mv</span></code> command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git mv some_sequence.fasta sequences/
+</pre></div>
+</div>
+<p>The trailing slash is not necessary, but I always include it out of habit to remind myself that I am moving a file to a directory.</p>
+<p>Now let’s go into the <code class="docutils literal notranslate"><span class="pre">sequences</span></code> directory and see what we have.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd sequences
+ls
+</pre></div>
+</div>
+<p>We see that <code class="docutils literal notranslate"><span class="pre">some_sequence.fasta</span></code> is there, along with other FASTA files.</p>
+</div>
+<div class="section" id="Exploring-file-content">
+<h3>Exploring file content<a class="headerlink" href="#Exploring-file-content" title="Permalink to this headline">¶</a></h3>
+<p>We would like to see what is in the sequence files. Bash offers various ways to display the content of files. We’ll look at the genome of the dengue virus in the file <code class="docutils literal notranslate"><span class="pre">dengue.fasta</span></code>. There are lots of ways to do it. We’ll start with <code class="docutils literal notranslate"><span class="pre">less</span></code>. It got its name because it is more feature-rich than <code class="docutils literal notranslate"><span class="pre">more</span></code>, which was used to look at files before <code class="docutils literal notranslate"><span class="pre">less</span></code> came to be. (“<code class="docutils literal notranslate"><span class="pre">less</span></code> is <code class="docutils literal notranslate"><span class="pre">more</span></code>,” get it?) It allows using the arrow up and arrow down keys traverse up or down by line. It also allows
+scrolling by touchpad or mouse. Since it doesn’t require the whole file to be read before displaying the top content, it’s ideal for larger files. It also supports searching initiated by “/” followed by the query; <code class="docutils literal notranslate"><span class="pre">shift+g</span></code> will go to the end of the file; <code class="docutils literal notranslate"><span class="pre">gg</span></code> to the beginning; and you can specify a line number by “<code class="docutils literal notranslate"><span class="pre">:</span></code>” followed by the line number.</p>
+<ul class="simple">
+<li><p>macOS or Linux: <code class="docutils literal notranslate"><span class="pre">less</span> <span class="pre">dengue.fasta</span></code></p></li>
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">more</span> <span class="pre">dengue.fasta</span></code></p></li>
+</ul>
+<p>To exit <code class="docutils literal notranslate"><span class="pre">less</span></code> or <code class="docutils literal notranslate"><span class="pre">more</span></code>, hit <code class="docutils literal notranslate"><span class="pre">Q</span></code>.</p>
+<p>We’ll now look at several other ways to look at files. Just substitute them for <code class="docutils literal notranslate"><span class="pre">less</span></code> in the above command.</p>
+<div class="section" id="cat">
+<h4>cat<a class="headerlink" href="#cat" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span></code> prints the entire file to the standard output (terminal). This is especially useful if the files are very small. Windows users, use <code class="docutils literal notranslate"><span class="pre">!type</span></code> instead of <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p>
+</div>
+<div class="section" id="head">
+<h4>head<a class="headerlink" href="#head" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">head</span></code> just prints the top lines of the file to the standard output. The default can be changed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>head -5
+</pre></div>
+</div>
+<p>This will print the first 5 lines to the standard output. Windows users, <a class="reference external" href="#Windows-vs.-macOS%2FLinux">note alternative command</a>.</p>
+</div>
+<div class="section" id="tail">
+<h4>tail<a class="headerlink" href="#tail" title="Permalink to this headline">¶</a></h4>
+<p>Like <code class="docutils literal notranslate"><span class="pre">head</span></code>, but for the last lines of the file. Windows users, <a class="reference external" href="#Windows-vs.-macOS%2FLinux">note alternative command</a>.</p>
+</div>
+</div>
+<div class="section" id="Copying-files-and-directories:-cp">
+<h3>Copying files and directories: cp<a class="headerlink" href="#Copying-files-and-directories:-cp" title="Permalink to this headline">¶</a></h3>
+<p>If you want to retain a copy of the folder/file in the original folder you can use the copy command <code class="docutils literal notranslate"><span class="pre">cp</span></code>. It works straightforwardly with files. Applied to directories it requires a <strong>flag</strong>: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>, meaning “recursive.” A <strong>flag</strong> typically begins with a hyphen (<code class="docutils literal notranslate"><span class="pre">-</span></code>) and gives the command some extra directions on how you want to do things. In this case, we are telling <code class="docutils literal notranslate"><span class="pre">cp</span></code> to work recursively.</p>
+<p>Let’s have a look at the <code class="docutils literal notranslate"><span class="pre">cp</span></code> command in action.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp dengue.fasta copy_of_dengue.fasta
+</pre></div>
+</div>
+<p>Maybe we want a copy of the entire <code class="docutils literal notranslate"><span class="pre">sequences</span></code> directory. To do that, we will <code class="docutils literal notranslate"><span class="pre">cd</span></code> one directory up to the <code class="docutils literal notranslate"><span class="pre">command_line_tutorial</span></code> directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ../
+</pre></div>
+</div>
+<p>We went up one directory using <code class="docutils literal notranslate"><span class="pre">../</span></code>. This is an example of a <strong>relative path</strong>. The current directory is “<code class="docutils literal notranslate"><span class="pre">./</span></code>”, “<code class="docutils literal notranslate"><span class="pre">../../</span></code>” is two directories up, “<code class="docutils literal notranslate"><span class="pre">../../../</span></code>” is three directories up, and so on. This is very very useful when navigating directory structures. Now let’s try copying an entire directory with the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp -r sequences copy_of_sequences
+</pre></div>
+</div>
+<p>We can also rename directories with the <code class="docutils literal notranslate"><span class="pre">mv</span></code> command. Let’s rename <code class="docutils literal notranslate"><span class="pre">copy_of_sequences</span></code> to <code class="docutils literal notranslate"><span class="pre">sequences_copy</span></code>. This is silly, but illustrates how things work.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mv copy_of_sequences sequences_copy
+</pre></div>
+</div>
+</div>
+<div class="section" id="Removing-files-and-directories-with-rm">
+<h3>Removing files and directories with rm<a class="headerlink" href="#Removing-files-and-directories-with-rm" title="Permalink to this headline">¶</a></h3>
+<p>Yes, some of the things we just did are silly. We have no need for having a copy of a given sequence or a copy of the whole sequences directory. We can clean things up by deleting them. First, let’s get rid of our copy of the dengue sequence. Let’s <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the sequences directory and make sure it’s there.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd sequences
+ls
+</pre></div>
+</div>
+<p>Now let’s remove the file and verify it is gone.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm copy_of_dengue.fasta
+ls
+</pre></div>
+</div>
+<p>And poof!, its gone! And I mean gone. It is pretty much irrecoverable. <strong>Warning</strong>: <code class="docutils literal notranslate"><span class="pre">rm</span></code> is a wrecking ball. It will destroy any files you have that do not have restrictive permissions. This is so important, I will say it again.</p>
+<div style="color: tomato; text-align: center; font-weight: bold;"><p>rm is unforgiving.</p>
+</div><p>Therefore, I always like to use the <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag, which means that <code class="docutils literal notranslate"><span class="pre">rm</span></code> will ask me if I’m sure before deletion.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -i some_sequence.fasta
+</pre></div>
+</div>
+<p>You will get a prompt. Answer <code class="docutils literal notranslate"><span class="pre">n</span></code> if you do not want to delete it.</p>
+<p>Now, let’s use <code class="docutils literal notranslate"><span class="pre">rm</span></code> to remove an entire directory. To do this, we need to use the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -r sequences_copy
+</pre></div>
+</div>
+</div>
+<div class="section" id="Aliases-(PowerShell-users,-skip-this-section)">
+<h3>Aliases (PowerShell users, skip this section)<a class="headerlink" href="#Aliases-(PowerShell-users,-skip-this-section)" title="Permalink to this headline">¶</a></h3>
+<p>Yes, <code class="docutils literal notranslate"><span class="pre">rm</span></code> is a wrecking ball, but we can temper it using the <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag. For safety, we would like <code class="docutils literal notranslate"><span class="pre">rm</span></code> to always ask us about deletion. We can instruct <code class="docutils literal notranslate"><span class="pre">bash</span></code> to do this for us by creating an <strong>alias</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alias rm=&quot;rm -i&quot;
+</pre></div>
+</div>
+<p>After executing this, any time we use <code class="docutils literal notranslate"><span class="pre">rm</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> will instead execute <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-i</span></code>, thereby keeping us out of trouble.</p>
+<p>One of my favorite aliases is to make <code class="docutils literal notranslate"><span class="pre">ls</span></code> list things more prettily.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alias ls=&quot;ls -FG&quot;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-F</span></code> flag makes <code class="docutils literal notranslate"><span class="pre">ls</span></code> put a slash at the end of directories. This helps us tell the difference between files and directories. The <code class="docutils literal notranslate"><span class="pre">-G</span></code> flag enables coloring of the output, also useful for differentiating file types.</p>
+</div>
+<div class="section" id="Updating-your-bootcamp-directory">
+<h3>Updating your bootcamp directory<a class="headerlink" href="#Updating-your-bootcamp-directory" title="Permalink to this headline">¶</a></h3>
+<p>You have now updated the name of the file <code class="docutils literal notranslate"><span class="pre">some_sequence.fasta</span></code>. Git kept track of that, so you should <strong>commit</strong> and push your change. We will talk more about Git later in the bootcamp. For now, do the following commands to commit your change and then <strong>push</strong> the change to your <strong>main branch</strong>, which is your fork.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit -m &quot;Changed file name of some_sequence.fasta.&quot;
+git push origin main
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="You-are-now-empowered">
+<h2>You are now empowered<a class="headerlink" href="#You-are-now-empowered" title="Permalink to this headline">¶</a></h2>
+<p>You are now already to manage files and navigate your way around the command line! My computer runs macOS. I very rarely use Finder to copy, move, or even read files. I do it all on the command line. Once you get the hang of it, you will find the command line very efficient.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l03_variables_operators_types.html" class="btn btn-neutral float-right" title="Lesson 3: Variables, operators, and types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l01_welcome.html" class="btn btn-neutral float-left" title="Lesson 1: Welcome and Introduction to JupyterLab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

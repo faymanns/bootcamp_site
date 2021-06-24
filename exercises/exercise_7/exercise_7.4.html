@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 7.4: Data collapse &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 7.5: Monte Carlo simulation of transcriptional pausing" href="exercise_7.5.html" />
+    <link rel="prev" title="Exercise 7.3: Understanding and building ECDFs" href="exercise_7.3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 7</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.1.html">Exercise 7.1: Computing things!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.2.html">Exercise 7.2: Working with two-dimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.3.html">Exercise 7.3: Understanding and building ECDFs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 7.4: Data collapse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.5.html">Exercise 7.5: Monte Carlo simulation of transcriptional pausing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 7</a> &raquo;</li>
+        
+      <li>Exercise 7.4: Data collapse</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercises/exercise_7/exercise_7.4.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-7.4:-Data-collapse">
+<h1>Exercise 7.4: Data collapse<a class="headerlink" href="#Exercise-7.4:-Data-collapse" title="Permalink to this headline">¶</a></h1>
+<hr><p>Rob Phillips wrote a review paper that I enjoyed entitled <a class="reference external" href="https://dx.doi.org/10.1146%2Fannurev-conmatphys-031214-014558">“Napoleon is in Equilibrium.”</a>. In the paper, he demonstrated that when you plot data in a certain way, they demonstrate <strong>data collapse</strong>. The idea here is that if you choose the right thing to plot on the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes, data from a variety of sources collapse onto a single universal curve. In this exercise, you will hone your Pandas, NumPy, and Bokeh
+skills in making plots exhibiting data collapse.</p>
+<p>This analysis comes from Rob’s paper, and the data come from <a class="reference external" href="https://doi.org/10.1016/j.jmb.2011.03.057">Daber, Sochor, and Lewis, J. Mol. Biol., 409, 76–87, 2011</a>. The authors were studying how different mutants of the lac repressor affect gene expression. They hooked the lac promoter up to a fluorescent protein reporter. They made a mutant with no lac repressor to get a measurement of the gene expression level (quantified by the fluorescent signal) in the absence of repressor. Then then
+looked at how the presence of a repressor served to decrease the expression level of the lac gene. The ratio of the repressed fluorescence to the totally unrepressed fluorescence is the <strong>fold change</strong> in repression. They can block repression by adding IPTG, which binds the lac repressor, rendering it ineffective at repressing gene expression (so IPTG is called an “inducer,” since it turns on gene expression). So, for a given experiment, the authors measured fold change as a function of IPTG
+concentration. They measured the fold change for wild type, plus two mutants, Q18M and Q18A.</p>
+<p>We will not derive it here (it comes from a generalization of the <a class="reference external" href="https://en.wikipedia.org/wiki/Monod-Wyman-Changeux_model">Monod-Wyman-Changeux model</a>), but the theoretical expression for the fold change as a function of IPTG concentration, <span class="math notranslate nohighlight">\(c\)</span>, is</p>
+<p><span class="math">\begin{align}
+\text{fold change} = \left[1 + \frac{\frac{R}{K}\left(1 + c/K_\mathrm{d}^\mathrm{A}\right)^2}{\left(1 + c/K_\mathrm{d}^\mathrm{A}\right)^2 + K_\mathrm{switch}\left(1 + c/K_\mathrm{d}^\mathrm{I}\right)^2}\right]^{-1}.
+\end{align}</span></p>
+<p>The parameters are:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(K_\mathrm{d}^\mathrm{A}\)</span></p></td>
+<td><p>dissoc. const. for active repressor binding IPTG</p></td>
+<td><p>0.017</p></td>
+<td><p>mM<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(K_\mathrm{d}^\mathrm{I}\)</span></p></td>
+<td><p>dissoc. const. for inactive repressor binding IPTG</p></td>
+<td><p>0.002</p></td>
+<td><p>mM<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(K_\mathrm{switch}\)</span></p></td>
+<td><p>equil. const. for switching active/inactive</p></td>
+<td><p>5.8</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(K\)</span></p></td>
+<td><p>dissoc. const. for active repressor binding operator</p></td>
+<td><p>?</p></td>
+<td><p>per cell</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(R\)</span></p></td>
+<td><p>number of repressors in cell</p></td>
+<td><p>?</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+<p>The values of <span class="math notranslate nohighlight">\(K_\mathrm{d}^\mathrm{A}\)</span>, <span class="math notranslate nohighlight">\(K_\mathrm{d}^\mathrm{I}\)</span>, and <span class="math notranslate nohighlight">\(K_\mathrm{switch}\)</span> were measured in the Daber, Sochor, and Lewis paper, and, as I mentioned before, are the same for all mutants. You can see in the expression for the fold change that <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(K\)</span> always appear as a ratio, <span class="math notranslate nohighlight">\(R/K\)</span>, so we can only determine this <em>ratio</em>, <span class="math notranslate nohighlight">\(R/K\)</span>, for each mutant. They are, for the respective mutants:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mutant</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(R/K\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WT</p></td>
+<td><p>141.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q18A</p></td>
+<td><p>16.56</p></td>
+</tr>
+<tr class="row-even"><td><p>Q18M</p></td>
+<td><p>1332</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s get started with the analysis.</p>
+<p><strong>a)</strong> Load in the three data sets. They are in the files <code class="docutils literal notranslate"><span class="pre">~/git/data/wt_lac.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">~/git/data/q18m_lac.csv</span></code>, and <code class="docutils literal notranslate"><span class="pre">~/git/data/q18a_lac.csv</span></code>. You should put them in a single <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with an added column for genotype. This can be accomplished, for example, with <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code>.</p>
+<p><strong>b)</strong> Make a plot of fold change vs. IPTG concentration for each of the three mutants. Think: should any of the axes have a logarithmic scale?</p>
+<p><strong>c)</strong> Write a function with the signature <code class="docutils literal notranslate"><span class="pre">fold_change(c,</span> <span class="pre">RK,</span> <span class="pre">KdA=0.017,</span> <span class="pre">KdI=0.002,</span> <span class="pre">Kswitch=5.8)</span></code> to compute the theoretical fold change. It should allow <code class="docutils literal notranslate"><span class="pre">c</span></code>, the concentration of IPTG, to be passed in as a NumPy array or scalar, and <code class="docutils literal notranslate"><span class="pre">RK</span></code>, the <span class="math notranslate nohighlight">\(R/K\)</span> ratio, must be a scalar. Remember, with NumPy arrays, you don’t have to write <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to do operations to each element of the array.</p>
+<p><strong>d)</strong> You will now plot a smooth curve showing the theoretical fold change for each mutant. &gt;1. Make an array of closely spaced points for the IPTG concentration. <em>Hint</em>: The function <code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code> will be useful. 2. Compute the theoretical fold change based on the given parameters using the function you wrote in part (c). 3. Plot the smooth curves on the same plot with the data.</p>
+<p><strong>e)</strong> If we look at the functional form of the fold change and at the parameters we are given, we see that only <span class="math notranslate nohighlight">\(R/K\)</span> varies from mutant to mutant. I told you this <em>a priori</em>, but we didn’t really know it. Daber, Sochol, and Lewis assumed that the binding to IPTG would be unaltered and the binding to DNA would be altered based on the position of the mutation in the lac repressor protein. Now, <em>if</em> this is true, then <span class="math notranslate nohighlight">\(R/K\)</span> should be the only thing that varies. We can check this by
+seeing if the data collapse onto a single curve. To see how this works, we define the <strong>Bohr parameter</strong>, <span class="math notranslate nohighlight">\(F(c)\)</span>, as</p>
+<p><span class="math">\begin{align}
+F(c) = -\ln\left(R/K\right) - \ln\left(\frac{\left(1 + c/K_\mathrm{d}^\mathrm{A}\right)^2}{\left(1 + c/K_\mathrm{d}^\mathrm{A}\right)^2 + K_\mathrm{switch}\left(1 + c/K_\mathrm{d}^\mathrm{I}\right)^2}\right).
+\end{align}</span></p>
+<p>The second term in the Bohr parameter is independent of the identity of the mutant, and the first term depends entirely upon it. Then, the fold change can be written as</p>
+<p><span class="math">\begin{align}
+\text{fold change} = \frac{1}{1 + \mathrm{e}^{-F(c)}}.
+\end{align}</span></p>
+<p>So, if we make our <span class="math notranslate nohighlight">\(x\)</span>-axis be the Bohr parameter, all data should fall on the <em>same</em> curve. Hence the term, data collapse. (The Bohr parameter gets its name (as given by Rob Phillips) because it is inspired by the work of Christian Bohr (Niels’s father), who discovered similar families of curves describing binding of oxygen to hemoglobin.)</p>
+<p>Now, we will plot the theoretical curve of fold change versus Bohr parameter.</p>
+<ol class="arabic simple">
+<li><p>Write a function with call signature <code class="docutils literal notranslate"><span class="pre">bohr_parameter(c,</span> <span class="pre">RK,</span> <span class="pre">KdA=0.017,</span> <span class="pre">KdI=0.002,</span> <span class="pre">Kswitch=5.8)</span></code> that computes the Bohr parameter.</p></li>
+<li><p>Write a function with call signature <code class="docutils literal notranslate"><span class="pre">fold_change_bohr(bohr_parameter)</span></code> that gives the fold change as a function of the Bohr parameter.</p></li>
+<li><p>Generate values of the Bohr parameter ranging from <span class="math notranslate nohighlight">\(-6\)</span> to <span class="math notranslate nohighlight">\(6\)</span> in order to make a smooth plot.</p></li>
+<li><p>Compute the theoretical fold change as a function of the Bohr parameter and plot it as a gray line.</p></li>
+</ol>
+<p><strong>f)</strong> Now, for each experimental curve:</p>
+<ol class="arabic simple">
+<li><p>Convert the IPTG concentration to a Bohr parameter using the given parameters.</p></li>
+<li><p>Plot the experimental fold change versus the Bohr parameter you just calculated. Plot the data as dots on the same plot that you made the universal gray curve, making sure to appropriately annotate your plot.</p></li>
+</ol>
+<p>Do you see data collapse? Does it make sense that only operator binding is changing from mutant to mutant? And importantly, the collapse demonstrates that all of the mutants are behaving according to the Monod-Wyman-Changeux model, and the mutations affect quantitative, not qualitative, changes in the behavior of the repressor.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="exercise_7.5.html" class="btn btn-neutral float-right" title="Exercise 7.5: Monte Carlo simulation of transcriptional pausing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="exercise_7.3.html" class="btn btn-neutral float-left" title="Exercise 7.3: Understanding and building ECDFs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

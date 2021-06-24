@@ -1,0 +1,1210 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 6: Iteration &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 7: Introduction to functions" href="l07_intro_to_functions.html" />
+    <link rel="prev" title="Lesson 5: Lists and tuples" href="l05_lists_and_tuples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 6: Iteration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Introducing-the-for-loop">Introducing the for loop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Aside:-the-len()-function">Aside: the len() function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Example-and-watchout:-modifying-a-list">Example and watchout: modifying a list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Iterators">Iterators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#The-range()-function">The range() function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-enumerate()-function">The enumerate() function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-zip()-function">The zip() function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-reversed()-function">The reversed() function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#The-while-loop">The while loop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-vs-while"><strong>for</strong> vs <strong>while</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#The-break-and-else-keywords">The <strong>break</strong> and <strong>else</strong> keywords</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#A-note-about-use-of-the-word-“codon”">A note about use of the word “codon”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 6: Iteration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l06_iteration.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-6:-Iteration">
+<h1>Lesson 6: Iteration<a class="headerlink" href="#Lesson-6:-Iteration" title="Permalink to this headline">¶</a></h1>
+<hr><p>We often want a computer program to do a similar operation many times. For example, we may want to analyze many codons, one after another, and find the start and stop codons in order to determine the length of the open reading frame. Or, as a simpler example, we may wish to find the GC content of a specific sequence. We check each base to see if it is <code class="docutils literal notranslate"><span class="pre">G</span></code> or <code class="docutils literal notranslate"><span class="pre">C</span></code> and keep a count. Doing these repeated operations in a program is called <strong>iteration</strong>.</p>
+<div class="section" id="Introducing-the-for-loop">
+<h2>Introducing the for loop<a class="headerlink" href="#Introducing-the-for-loop" title="Permalink to this headline">¶</a></h2>
+<p>The first method of iteration we will discuss is the <strong>for loop</strong>. As an example of its use, we compute the GC content of an RNA sequence.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># The sequence we want to analyze</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="s1">&#39;GACAGACUCCAUGCACGUGGGUAUCUGUC&#39;</span>
+
+<span class="c1"># Initialize GC counter</span>
+<span class="n">n_gc</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Initialize sequence length</span>
+<span class="n">len_seq</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Loop through sequence and count G&#39;s and C&#39;s</span>
+<span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+    <span class="n">len_seq</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="ow">in</span> <span class="s1">&#39;GCgc&#39;</span><span class="p">:</span>
+        <span class="n">n_gc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Divide to get GC content</span>
+<span class="n">n_gc</span> <span class="o">/</span> <span class="n">len_seq</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.5517241379310345
+</pre></div></div>
+</div>
+<p>Let’s look carefully at what we did here. We took a string containing a sequence of nucleotides and then we did something for each character (base) in that string (nucleic acid sequence). A string is a <strong>sequence</strong> in the sense of the programming language as well; just like a list or tuple, the string is an ordered collection of characters. (So as not to confuse between biological sequences and <em>sequences</em> as a part of the Python language, we will always write the latter in italics.)</p>
+<p>Now, let’s translate the new syntax in the above code to English.</p>
+<p><strong>Python</strong>: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">base</span> <span class="pre">in</span> <span class="pre">seq</span></code>:</p>
+<p><strong>English</strong>: for each character in the string whose variable name is <code class="docutils literal notranslate"><span class="pre">seq</span></code>, do the following, with that character taking the name <code class="docutils literal notranslate"><span class="pre">base</span></code></p>
+<p>This exposes a general way of doing things repeatedly in Python. For every item in a <em>sequence</em>, we do something. That something follows the <code class="docutils literal notranslate"><span class="pre">for</span></code> clause and is contained in an indentation block. When we do this, we say are “looping over a <em>sequence</em>.” In the context of a <code class="docutils literal notranslate"><span class="pre">for</span></code> clause, the membership operator, <code class="docutils literal notranslate"><span class="pre">in</span></code>, means that we consider in order each item in the <em>sequence</em> or iterator (we’ll talk about iterators in a moment).</p>
+<p>Now, looking within the loop, the first thing we do is increment the length of the sequence. For each base we encounter in the loop, we add one to the sequence length. Makes sense!</p>
+<p>Next, we have an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. We use the membership operator again. We ask if the current base is a <code class="docutils literal notranslate"><span class="pre">G</span></code> or a <code class="docutils literal notranslate"><span class="pre">C</span></code>. To be safe, we also included lower case characters in case the sequence was entered that way. If the base is a <code class="docutils literal notranslate"><span class="pre">G</span></code> or a <code class="docutils literal notranslate"><span class="pre">C</span></code>, we increment the counter of GC bases by one.</p>
+<p>Finally, we get the fractional GC content by dividing the number of GC’s by the total length of the sequence.</p>
+<div class="section" id="Aside:-the-len()-function">
+<h3>Aside: the len() function<a class="headerlink" href="#Aside:-the-len()-function" title="Permalink to this headline">¶</a></h3>
+<p>Note in the last example that we determined the length of the RNA sequence by iterating the <code class="docutils literal notranslate"><span class="pre">len_seq</span></code> counter within the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. This works, but Python has a built-in function (like <code class="docutils literal notranslate"><span class="pre">print()</span></code> is a built-in function) to compute the length of a string (or list, tuple, or other <em>sequence</em>). To find out the length of a <em>sequence</em>, simply use it as an argument to the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+29
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Example-and-watchout:-modifying-a-list">
+<h3>Example and watchout: modifying a list<a class="headerlink" href="#Example-and-watchout:-modifying-a-list" title="Permalink to this headline">¶</a></h3>
+<p>Let’s look at another example of iterating through a list. Say we have a list of integers, and we want to change it by doubling each one. Let’s just do it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># We&#39;ll do one through 5</span>
+<span class="n">my_integers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Double each one</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">my_integers</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="c1"># Check out the result</span>
+<span class="n">my_integers</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, 4, 5]
+</pre></div></div>
+</div>
+<p>Whoa! It didn’t seem to double any of the integers! This is because <code class="docutils literal notranslate"><span class="pre">my_integers</span></code> was converted to an <strong>iterator</strong> in the <code class="docutils literal notranslate"><span class="pre">for</span></code> clause, and the iterator returns a <em>copy</em> of the item in a list, not a reference to it. Therefore, the <code class="docutils literal notranslate"><span class="pre">n</span></code> inside the <code class="docutils literal notranslate"><span class="pre">for</span></code> block is not a view into the original list, and doubling it does nothing meaningful.</p>
+<p>We’ve seen how to change individual list elements with indexing:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Don&#39;t do things this way</span>
+<span class="n">my_integers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">my_integers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">my_integers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">my_integers</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">my_integers</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="n">my_integers</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2, 4, 6, 8, 10]
+</pre></div></div>
+</div>
+<p>But we’d obviously like a better way to do this, with less typing and without knowing ahead of time the length of the list. Let’s look at a new concept that will help with this example.</p>
+</div>
+</div>
+<div class="section" id="Iterators">
+<h2>Iterators<a class="headerlink" href="#Iterators" title="Permalink to this headline">¶</a></h2>
+<p>In the previous example, we iterated over a <em>sequence</em>. A sequence is one of many iterable objects, called <strong>iterables</strong>. Under the hood, the Python interpreter actually converts an iterable to an <strong>iterator</strong>. An iterator is a special object that gives values in succession. A major difference between a <em>sequence</em> and an iterator is that you cannot index an iterator. This seems like a trivial difference, but iterators make for more efficient computing than directly using a <em>sequence</em> with
+indexing.</p>
+<p>We can explicitly convert a <em>sequence</em> to an iterator using the built-in function <code class="docutils literal notranslate"><span class="pre">iter()</span></code>, but we will not bother with that here because the Python interpreter automatically does this for you when you use a <em>sequence</em> in a loop. (This is incidentally why the previous example didn’t work; when the list is converted to an iterator, a copy is made of each element so the original list is unchanged.)</p>
+<p>Instead, we will now explore how we can create useful iterators using the <code class="docutils literal notranslate"><span class="pre">range()</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code>, and <code class="docutils literal notranslate"><span class="pre">zip()</span></code> functions. I know we have not yet covered functions, but the syntax should not be so complicated that you cannot understand what these functions are doing, just like with the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">len()</span></code> functions.</p>
+<div class="section" id="The-range()-function">
+<h3>The range() function<a class="headerlink" href="#The-range()-function" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function gives an iterable that enables counting. Let’s look at an example.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;  &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0  1  2  3  4  5  6  7  8  9
+</pre></div></div>
+</div>
+<p>We see that <code class="docutils literal notranslate"><span class="pre">range(10)</span></code> gives us ten numbers, from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">9</span></code>. As with indexing, <code class="docutils literal notranslate"><span class="pre">range()</span></code> inclusively starts at zero by default, and the ending is exclusive.</p>
+<p>It turns out that the arguments of the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function work much like indexing. If you have a single argument, you get that many integers, starting at 0 and incrementing by one. If you give two arguments, you start inclusively at the first and increment by one ending exclusively at the second argument. Finally, you can specify a stride with the third argument.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Print numbers 2 through 9</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;  &#39;</span><span class="p">)</span>
+
+<span class="c1"># Print a newline</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Print even numbers, 2 through 9</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;     &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2  3  4  5  6  7  8  9
+2     4     6     8
+</pre></div></div>
+</div>
+<p>It is often useful to make a list or tuple that has the same entries that a corresponding <code class="docutils literal notranslate"><span class="pre">range</span></code> object would have. We can do this with type conversion.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div></div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function along with the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function on lists to double the elements of our list from a bit ago:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_integers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Since len(my_integers) = 5, this takes i from 0 to 4,</span>
+<span class="c1"># exactly the indices of my_integers</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_integers</span><span class="p">)):</span>
+    <span class="n">my_integers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="n">my_integers</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2, 4, 6, 8, 10]
+</pre></div></div>
+</div>
+<p>This works, but there is an even better way to do this, with the next function.</p>
+</div>
+<div class="section" id="The-enumerate()-function">
+<h3>The enumerate() function<a class="headerlink" href="#The-enumerate()-function" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say we want to print the indices of all <code class="docutils literal notranslate"><span class="pre">G</span></code> bases in a DNA sequence. We could do this by modifying our previous program.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Initialize GC counter</span>
+<span class="n">n_gc</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Initialized sequence length</span>
+<span class="n">len_seq</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Loop through sequence and print index of G&#39;s</span>
+<span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="ow">in</span> <span class="s1">&#39;Gg&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">len_seq</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;  &#39;</span><span class="p">)</span>
+    <span class="n">len_seq</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0  4  12  16  18  19  20  26
+</pre></div></div>
+</div>
+<p>This is not so bad, but there is an easier way to do this. The <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function gives an iterator that provides <em>both</em> the index and the item of a <em>sequence</em>. Again, this is best demonstrated in practice.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Loop through sequence and print index of G&#39;s</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="ow">in</span> <span class="s1">&#39;Gg&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;  &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0  4  12  16  18  19  20  26
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function allowed us to use an index and a base at the same time. To make it more clear, we can print the index and base type for each base in the sequence.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Print index and identity of bases</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0 G
+1 A
+2 C
+3 A
+4 G
+5 A
+6 C
+7 U
+8 C
+9 C
+10 A
+11 U
+12 G
+13 C
+14 A
+15 C
+16 G
+17 U
+18 G
+19 G
+20 G
+21 U
+22 A
+23 U
+24 C
+25 U
+26 G
+27 U
+28 C
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function is really useful and should be used in favor of just doing indexing. For example, many programmers, especially those first trained in lower-level languages, would write the above code similar to how we did the list doubling, with the <code class="docutils literal notranslate"><span class="pre">range()</span></code> and <code class="docutils literal notranslate"><span class="pre">len()</span></code> functions, but this is not good practice in Python.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code>, the list doubling code looks like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_integers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Double each one</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_integers</span><span class="p">):</span>
+    <span class="n">my_integers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="c1"># Check out the result</span>
+<span class="n">my_integers</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2, 4, 6, 8, 10]
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> is more generic and the overhead for returning a reference to an object isn’t an issue. The <code class="docutils literal notranslate"><span class="pre">range(len())</span></code> construct will break on an object without support for <code class="docutils literal notranslate"><span class="pre">len()</span></code>. In addition, you are more likely to introduce bugs by imposing indexing on objects that are iterable but not unambiguously indexable. It is better to use the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function.</p>
+<p>Note that we used the underscore, <code class="docutils literal notranslate"><span class="pre">_</span></code>, as a throwaway variable that we do not use. There is no rule for this, but this is generally accepted Python syntax and helps signal that you are not going to use the variable.</p>
+<p>One last gotcha: if we tried to do a similar technique with a string, we get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because a string is immutable. We’ll revisit examples like this in <a class="reference internal" href="l08_string_methods.html"><span class="doc">lesson 8</span></a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Try to convert capital G to lower g</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span>
+        <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-13-caac05059a6e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">for</span> i<span class="ansi-blue-fg">,</span> base <span class="ansi-green-fg">in</span> enumerate<span class="ansi-blue-fg">(</span>seq<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-green-fg">if</span> base <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;G&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg">         </span>seq<span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;g&#39;</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;str&#39; object does not support item assignment
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="The-zip()-function">
+<h3>The zip() function<a class="headerlink" href="#The-zip()-function" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function enables us to iterate over several iterables at once. In the example below we iterate over the jersey numbers, names, and positions of the players on the US women’s national soccer team who were named to the best eleven of the 2019 World Cup in France.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Dunn&#39;</span><span class="p">,</span> <span class="s1">&#39;Ertz&#39;</span><span class="p">,</span> <span class="s1">&#39;Lavelle&#39;</span><span class="p">,</span> <span class="s1">&#39;Rapinoe&#39;</span><span class="p">)</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+19 Dunn D
+8 Ertz MF
+16 Lavelle MF
+15 Rapinoe F
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="The-reversed()-function">
+<h3>The reversed() function<a class="headerlink" href="#The-reversed()-function" title="Permalink to this headline">¶</a></h3>
+<p>This function is useful for giving an iterator that goes in the reverse direction. We’ll see that this can be convenient in the next lesson. For now, let’s pretend we’re NASA and need to count down.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">count_up</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ignition&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span> <span class="p">,</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">count_up</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+ignition
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="The-while-loop">
+<h2>The while loop<a class="headerlink" href="#The-while-loop" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is very powerful and allows us to construct iterative calculations. When we use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we need to set up an iterator. A <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, on the other hand, allows iteration until a conditional expression evaluates <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>As an example of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, we will calculate the length of a sequence before hitting a start codon.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define start codon</span>
+<span class="n">start_codon</span> <span class="o">=</span> <span class="s1">&#39;AUG&#39;</span>
+
+<span class="c1"># Initialize sequence index</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Scan sequence until we hit the start codon</span>
+<span class="k">while</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="n">start_codon</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Show the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The start codon starts at index&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The start codon starts at index 10
+</pre></div></div>
+</div>
+<p>Let’s walk through the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. The value of <code class="docutils literal notranslate"><span class="pre">i</span></code> is changing with each iteration, being incremented by one. Each time we consider doing another iteration, the conditional is checked: do the next three bases match the start codon? We set up the conditional to evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> when the bases are <em>not</em> the start codon, so the iteration continues. In other words, iteration continues in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop until the conditional returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Notice that we sliced the string the same way we sliced lists and tuples. In the case of strings, a slice gives another string, i.e., a sequential collection of characters.</p>
+<p>Let’s try looking for another codon…. But, let’s actually not do that. If you run the code below, it will run forever and nothing will get printed to the screen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define codon of interest</span>
+<span class="n">codon</span> <span class="o">=</span> <span class="s1">&#39;GCC&#39;</span>
+
+<span class="c1"># Initialize sequence index</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Scan sequence until we hit the start codon, but DON&#39;T DO THIS!!!!!</span>
+<span class="k">while</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="n">codon</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Show the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The codon starts at index&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The reason this runs forever is that the conditional expression in the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement never returns <code class="docutils literal notranslate"><span class="pre">False</span></code>. If we slice a string beyond the length of the string we get an empty string result.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">seq</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">103</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#39;
+</pre></div></div>
+</div>
+<p>This does not equal the codon we’re interested in, so the <strong>``while``</strong> loop keeps going. Forever. This is called an <strong>infinite loop</strong>, and you definitely to not want these in your code! We can fix it by making a conditional that will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code> if we reach the end of the string.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define codon of interest</span>
+<span class="n">codon</span> <span class="o">=</span> <span class="s1">&#39;GCC&#39;</span>
+
+<span class="c1"># Initialize sequence index</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Scan sequence until we hit the start codon or the end of the sequence</span>
+<span class="k">while</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="n">codon</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Show the result</span>
+<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Codon not found in sequence.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The codon starts at index&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Codon not found in sequence.
+</pre></div></div>
+</div>
+<div class="section" id="for-vs-while">
+<h3><strong>for</strong> vs <strong>while</strong><a class="headerlink" href="#for-vs-while" title="Permalink to this headline">¶</a></h3>
+<p>Most anything that requires a loop can be done with either a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop or a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but there’s a general rule of thumb for which type of loop to use. If you know how many times you have to do something (or if your program knows), use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. If you don’t know how many times the loop needs to run until you run it, use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. For example, when we want to do something with each character in a string or each entry in a list, the program knows how long the sequence is
+and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is more appropriate. In the previous examples, we don’t know how long it will be before we hit the start codon; it depends on the sequence you put into the program. That makes it more suited to a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+</div>
+</div>
+<div class="section" id="The-break-and-else-keywords">
+<h2>The <strong>break</strong> and <strong>else</strong> keywords<a class="headerlink" href="#The-break-and-else-keywords" title="Permalink to this headline">¶</a></h2>
+<p>Iteration stops in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop when the iterator is exhausted. It stops in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop when the conditional evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code>. These is another way to stop iteration: the <code class="docutils literal notranslate"><span class="pre">break</span></code> keyword. Whenever <code class="docutils literal notranslate"><span class="pre">break</span></code> is encountered in a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, the iteration halts and execution continues outside the loop. As an example, we’ll do the calculation above with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with a <code class="docutils literal notranslate"><span class="pre">break</span></code> instead of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define start codon</span>
+<span class="n">start_codon</span> <span class="o">=</span> <span class="s1">&#39;AUG&#39;</span>
+
+<span class="c1"># Scan sequence until we hit the start codon</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="n">start_codon</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The start codon starts at index&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Codon not found in sequence.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The start codon starts at index 10
+</pre></div></div>
+</div>
+<p>Notice that we have an <code class="docutils literal notranslate"><span class="pre">else</span></code> block after the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In Python, <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops can have an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement after the code block to be evaluated in the loop. The contents of the <code class="docutils literal notranslate"><span class="pre">else</span></code> block are evaluated if the loop completes <em>without</em> encountering a <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
+<div class="section" id="A-note-about-use-of-the-word-“codon”">
+<h3>A note about use of the word “codon”<a class="headerlink" href="#A-note-about-use-of-the-word-“codon”" title="Permalink to this headline">¶</a></h3>
+<p>The astute biologists among you will note that we have not really been using the word “codon” properly here. We are taking it to mean any three consecutive bases, but the more precise definition of a codon means that it is three consecutive bases that code for an amino acid. That means that for a three-base sequence to be a codon, it must be in-register with the start codon. We will see how this distinction could lead to problems when we discuss <strong>test-driven development</strong>.</p>
+</div>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l07_intro_to_functions.html" class="btn btn-neutral float-right" title="Lesson 7: Introduction to functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l05_lists_and_tuples.html" class="btn btn-neutral float-left" title="Lesson 5: Lists and tuples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

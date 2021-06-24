@@ -1,0 +1,884 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 1: Welcome and Introduction to JupyterLab &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 2: Basic command line skills" href="l02_basic_command_line_skills.html" />
+    <link rel="prev" title="Lesson 0: Configuring your computer" href="l00_configuring_your_computer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 1: Welcome and Introduction to JupyterLab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Greetings!">Greetings!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-Python-interpreter">The Python interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Hello,-world.-and-the-print()-function">Hello, world. and the print() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#.py-files">.py files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Jupyter">Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#What-is-Jupyter?">What is Jupyter?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Why-Jupyter-notebooks?">Why Jupyter notebooks?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Launching-a-Jupyter-notebook">Launching a Jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Cells">Cells</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Code-cells">Code cells</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Display-of-graphics">Display of graphics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Quick-keys">Quick keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Onwards!">Onwards!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 1: Welcome and Introduction to JupyterLab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l01_welcome.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-1:-Welcome-and-Introduction-to-JupyterLab">
+<h1>Lesson 1: Welcome and Introduction to JupyterLab<a class="headerlink" href="#Lesson-1:-Welcome-and-Introduction-to-JupyterLab" title="Permalink to this headline">¶</a></h1>
+<hr/><div class="section" id="Greetings!">
+<h2>Greetings!<a class="headerlink" href="#Greetings!" title="Permalink to this headline">¶</a></h2>
+<p>Welcome to the Introduction to Programming for the Biological Sciences Bootcamp! We will be using Python as the programming language, and we will use this first lesson to make sure your Python distribution is working properly. We will also make sure you have a way to use the command line on your machine.</p>
+<p>Prior to starting the bootcamp, you should have completed <a class="reference internal" href="l00_configuring_your_computer.html"><span class="doc">Lesson 0: Configuring your computer</span></a>.</p>
+</div>
+<div class="section" id="The-Python-interpreter">
+<h2>The Python interpreter<a class="headerlink" href="#The-Python-interpreter" title="Permalink to this headline">¶</a></h2>
+<p>Before diving into the Python interpreter, I pause here to remind you that this programming bootcamp is not meant to teach Python syntax (though you will learn that). The things you learn here are meant to help you understand, and ultimately do, computer programming more generally. Think of it this way: this bootcamp is meant to help you unleash the power of your computer on your biological problems. Python is just the language of instruction. That said, let’s start talking about how Python
+works.</p>
+<p>Python is an <strong>interpreted language</strong>, which means that each line of code you write is translated, or <em>interpreted</em>, into a set of instructions that your machine can understand by the <strong>Python interpreter</strong>. This stands in contrast to <strong>compiled languages</strong>. For these languages (the dominant ones being Fortran, C, and C++), your entire code is translated into machine language before you ever run it. When you execute your program, it is already in machine language.</p>
+<p>So, whenever you want your Python code to run, you give it to the Python interpreter.</p>
+<p>There are many ways to launch the Python interpreter. One way is to type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python
+</pre></div>
+</div>
+<p>on the command line of a terminal. This launches the vanilla Python interpreter. We will never really use this in the bootcamp. Rather, we will have a <em>greatly</em> enhanced Python experience, either using <strong>IPython</strong>, a feature-rich, enhanced interactive Python available through JupyterLab’s console, or using a <strong>notebook</strong>, also launchable in JupyterLab.</p>
+</div>
+<div class="section" id="Hello,-world.-and-the-print()-function">
+<h2>Hello, world. and the print() function<a class="headerlink" href="#Hello,-world.-and-the-print()-function" title="Permalink to this headline">¶</a></h2>
+<p>Traditionally, the first program anyone writes when learning a new language is called “<code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world.</span></code>” In this program, the words “<code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world.</span></code>” are printed on the screen. The original <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world.</span></code> was likely written by Brian Kernighan, one of the inventors of Unix, and the author of the classic and authoritative <a class="reference external" href="http://www.amazon.com/The-Programming-Language-Brian-Kernighan/dp/0131103628">book</a> on the C programming language. In his original, the printed text was
+“<code class="docutils literal notranslate"><span class="pre">hello,</span> <span class="pre">world</span></code>” (no period or capital <code class="docutils literal notranslate"><span class="pre">H</span></code>), but people use lots of variants.</p>
+<p>We will first write and run this little program using a JupyterLab console. After launching JupyterLab, you probably already have the Launcher in your JupyterLab window. If you do not, you can expand the <code class="docutils literal notranslate"><span class="pre">Files</span></code> tab at the left of your JupyterLab window (if it is not already expanded) by clicking on that tab, or alternatively hit <code class="docutils literal notranslate"><span class="pre">ctrl+b</span></code> (or <code class="docutils literal notranslate"><span class="pre">cmd+b</span></code> on macOS). At the top of the <code class="docutils literal notranslate"><span class="pre">Files</span></code> tab is a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign, which gives you a Jupyter Launcher.</p>
+<p>In the Jupyter Launcher, click the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> icon under <code class="docutils literal notranslate"><span class="pre">Console</span></code>. This will launch a console, which has a large white space above a prompt that says <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[]:</span></code>. You can enter Python code in this prompt, and it will be executed.</p>
+<p>To print <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world.</span></code>, enter the code below. To execute the code, hit <code class="docutils literal notranslate"><span class="pre">shift+enter</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello, world.
+</pre></div></div>
+</div>
+<p>Hooray! We just printed <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world.</span></code> to the screen. To do this, we used Python’s built-in <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function takes as an <strong>argument</strong> a <strong>string</strong>. It then prints that string to the screen. We will learn more about function syntax later, but we can already see the rough syntax with the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
+</div>
+<div class="section" id=".py-files">
+<h2>.py files<a class="headerlink" href="#.py-files" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s use our new knowledge of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to have our computer say a bit more than just <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world.</span></code> Type these lines in at the prompt, hitting <code class="docutils literal notranslate"><span class="pre">enter</span></code> each time you need a new line. After you’ve typed them all in, hit <code class="docutils literal notranslate"><span class="pre">shift+enter</span></code> to run them.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># The first few lines from The Zen of Python by Tim Peters</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Beautiful is better than ugly.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Explicit is better than implicit.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Simple is better than complex.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Complex is better than complicated.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+</pre></div></div>
+</div>
+<p>Note that the first line is preceded with a <code class="docutils literal notranslate"><span class="pre">#</span></code> sign, and the Python interpreter ignored it. The <code class="docutils literal notranslate"><span class="pre">#</span></code> sign denotes a <strong>comment</strong>, which is ignored by the interpreter, <em>but very very important for the human!</em></p>
+<p>While the console prompt was nice for entering all of this, a better option is to store them in a file, and then have the Python interpreter run the lines in the file. This is how you typically store Python code, and the suffix of such files is <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</p>
+<p>So, let’s create a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. To do this, use the JupyterLab Launcher to launch a text editor. Once it is launched, you can right click on the tab of the text editor window to change the name. We will call this file <code class="docutils literal notranslate"><span class="pre">zen.py</span></code>. Within this file, enter the four lines of code you previously entered in the console prompt. Be sure to save it.</p>
+<p>To run the code in this file, you can invoke the Python interpreter at the command line, followed by the file name. I.e., enter</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python zen.py
+</pre></div>
+</div>
+<p>at the command line. Note that when you run code this way, the interpreter exits after completion of running the code, and you do not get a prompt.</p>
+<p>To run the code in this file using the Jupyter console, you can use the <code class="docutils literal notranslate"><span class="pre">%run</span></code> <strong>magic function</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">run</span> zen.py
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+</pre></div></div>
+</div>
+<p>To shut down the console, you can click on the <code class="docutils literal notranslate"><span class="pre">Running</span></code> tab at the left of the JupyterLab window and click on <code class="docutils literal notranslate"><span class="pre">SHUTDOWN</span></code> next to the console.</p>
+</div>
+<div class="section" id="Jupyter">
+<h2>Jupyter<a class="headerlink" href="#Jupyter" title="Permalink to this headline">¶</a></h2>
+<p>At this point, we have introduced JupyterLab, its text editor, and the console, as well as the Python interpreter itself. You might be asking….</p>
+<div class="section" id="What-is-Jupyter?">
+<h3>What is Jupyter?<a class="headerlink" href="#What-is-Jupyter?" title="Permalink to this headline">¶</a></h3>
+<p>From the <a class="reference external" href="http://jupyter.org">Project Jupyter website</a>: &gt;Project Jupyter is an open source project was born out of the IPython Project in 2014 as it evolved to support interactive data science and scientific computing across all programming languages.</p>
+<p>So, Jupyter is an extension of IPython the pushes interactive computing further. It is language agnostic as its name suggests. The name “Jupyter” is a combination of <a class="reference external" href="http://julialang.org/">Julia</a> (a new language for scientific computing), <a class="reference external" href="http://python.org/">Python</a> (which you know and love), and <a class="reference external" href="https://www.r-project.org">R</a> (the dominant tool for statistical computation). However, you can run over 40 different languages in a JupyterLab, not just Julia, Python, and R.</p>
+<p>Central to Jupyter/JupyterLab are <strong>Jupyter notebooks</strong>. In fact, the document you are reading right now was generated from a Jupyter notebook. We will use Jupyter notebooks extensively in the bootcamp, along with <code class="docutils literal notranslate"><span class="pre">.py</span></code> files and the console.</p>
+</div>
+</div>
+<div class="section" id="Why-Jupyter-notebooks?">
+<h2>Why Jupyter notebooks?<a class="headerlink" href="#Why-Jupyter-notebooks?" title="Permalink to this headline">¶</a></h2>
+<p>When writing code you will reuse, you should develop fully tested modules using <code class="docutils literal notranslate"><span class="pre">.py</span></code> files. You can always import those modules when you are using a Jupyter notebook (more on modules and importing them later in the bootcamp). So, a Jupyter notebook is not good for an application where you are building reusable code or scripts. However, Jupyter notebooks are <strong>very</strong> useful in the following applications.</p>
+<ol class="arabic simple">
+<li><p><em>Exploring data/analysis.</em> Jupyter notebooks are great for trying things out with code, or exploring a data set. This is an important part of the research process. The layout of Jupyter notebooks is great for organizing thoughts as you synthesize them.</p></li>
+<li><p><em>Developing image processing pipelines.</em> This is really just a special case of (1), but it worth mentioning separately because Jupyter notebooks are especially useful when figuring out what steps are best for extracting useful data from images, which happens all-too-often in biology. Using the Jupyter notebook, you can write down what you hope to accomplish in each step of processing and then graphically show the results as images as you go through the analysis. We will do this later in the
+bootcamp.</p></li>
+<li><p><em>Sharing your thinking in your analysis.</em> Because you can combine nicely formatted text and executable code, Jupyter notebooks are great for sharing how you go about doing your calculations with collaborators and with readers of your publications. Famously, LIGO used <a class="reference external" href="https://losc.ligo.org/s/events/GW150914/GW150914_tutorial.html">a Jupyter notebook</a> to explain the signal processing involved in their first discovery of a gravitational wave.</p></li>
+<li><p><em>Pedagogy.</em> All of the content in this class, including this lesson, was developed using Jupyter notebooks!</p></li>
+</ol>
+<p>Now that we know what Jupyter notebooks are and what the motivation is for using them, let’s start!</p>
+<div class="section" id="Launching-a-Jupyter-notebook">
+<h3>Launching a Jupyter notebook<a class="headerlink" href="#Launching-a-Jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<p>To launch a Jupyter notebook, click on the <code class="docutils literal notranslate"><span class="pre">Notebook</span></code> icon of the JupyterLab launcher. If you want to open an existing notebook, right click on it in the <code class="docutils literal notranslate"><span class="pre">Files</span></code> tab of the JupyterLab window and open it.</p>
+</div>
+<div class="section" id="Cells">
+<h3>Cells<a class="headerlink" href="#Cells" title="Permalink to this headline">¶</a></h3>
+<p>A Jupyter notebook consists of <strong>cells</strong>. The two main types of cells you will use are <strong>code cells</strong> and <strong>markdown cells</strong>, and we will go into their properties in depth momentarily. First, an overview.</p>
+<p>A code cell contains actual code that you want to run. You can specify a cell as a code cell using the pulldown menu in the toolbar of your Jupyter notebook. Otherwise, you can can hit <code class="docutils literal notranslate"><span class="pre">Esc</span></code> and then <code class="docutils literal notranslate"><span class="pre">y</span></code> (denoted <code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">y</span></code>”) while a cell is selected to specify that it is a code cell. Note that you will have to hit enter after doing this to start editing it.</p>
+<p>If you want to execute the code in a code cell, hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> while holding down the <code class="docutils literal notranslate"><span class="pre">Shift</span></code> key (denoted <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>). Note that code cells are executed in the order you shift-enter them. That is to say, the ordering of the cells for which you hit <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> is the order in which the code is executed. If you did not explicitly execute a cell early in the document, its results are not known to the Python interpreter. <strong>This is a very important point and is often a source of
+confusion and frustration for students.</strong></p>
+<p>Markdown cells contain text. The text is written in <strong>markdown</strong>, a lightweight markup language. You can read about its syntax <a class="reference external" href="http://daringfireball.net/projects/markdown/syntax">here</a>. Note that you can also insert HTML into markdown cells, and this will be rendered properly. As you are typing the contents of these cells, the results appear as text. Hitting <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> renders the text in the formatting you specify.</p>
+<p>You can specify a cell as being a markdown cell in the Jupyter toolbar, or by hitting <code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">m</span></code> in the cell. Again, you have to hit enter after using the quick keys to bring the cell into edit mode.</p>
+<p>In general, when you want to add a new cell, you can click the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon on the notebook toolbar. The shortcut to insert a cell below is <code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">b</span></code> and to insert a cell above is <code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">a</span></code>. Alternatively, you can execute a cell and automatically add a new one below it by hitting <code class="docutils literal notranslate"><span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">Enter</span></code>.</p>
+</div>
+</div>
+<div class="section" id="Code-cells">
+<h2>Code cells<a class="headerlink" href="#Code-cells" title="Permalink to this headline">¶</a></h2>
+<p>Below is an example of a code cell printing <code class="docutils literal notranslate"><span class="pre">hello,</span> <span class="pre">world.</span></code> Notice that the output of the print statement appears in the same cell, though separate from the code block.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Say hello to the world.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello, world.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+hello, world.
+</pre></div></div>
+</div>
+<p>If you evaluate a Python expression that returns a value, that value is displayed as output of the code cell. This only happens for the last line of the code cell.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Would show 9 if this were the last line, but it is not, so shows nothing</span>
+<span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="c1"># I hope we see 11.</span>
+<span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11
+</pre></div></div>
+</div>
+<p>Note, however, if the last line does not return a value, such as if we assigned value to a variable, there is no visible output from the code cell.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Variable assignment, so no visible output.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># However, now if we ask for a, its value will be displayed</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11
+</pre></div></div>
+</div>
+<div class="section" id="Display-of-graphics">
+<h3>Display of graphics<a class="headerlink" href="#Display-of-graphics" title="Permalink to this headline">¶</a></h3>
+<p>When we learn about plotting with <a class="reference external" href="https://bokeh.pydata.org/">Bokeh</a> and <a class="reference external" href="https://holoviews.org/">HoloViews</a> later in the bootcamp, you will learn about displaying graphics in Jupyter notebooks.</p>
+</div>
+<div class="section" id="Quick-keys">
+<h3>Quick keys<a class="headerlink" href="#Quick-keys" title="Permalink to this headline">¶</a></h3>
+<p>There are some keyboard shortcuts that are convenient to use in JupyterLab. We already encountered many of them. Importantly, pressing <code class="docutils literal notranslate"><span class="pre">Esc</span></code> brings you into command mode in which you are not editing the contents of a single cell, but are doing things like adding cells. Below are some useful quick keys. If two keys are separated by a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign, they are pressed simultaneously, and if they are separated by a <code class="docutils literal notranslate"><span class="pre">-</span></code> sign, they are pressed in succession.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 12%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Quick keys</p></th>
+<th class="head"><p>mode</p></th>
+<th class="head"><p>action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">m</span></code></p></td>
+<td><p>command</p></td>
+<td><p>switch cell to Markdown cell</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td><p>command</p></td>
+<td><p>switch cell to code cell</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">a</span></code></p></td>
+<td><p>command</p></td>
+<td><p>insert cell above</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">b</span></code></p></td>
+<td><p>command</p></td>
+<td><p>insert cell below</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Esc</span> <span class="pre">-</span> <span class="pre">d</span> <span class="pre">-</span> <span class="pre">d</span></code></p></td>
+<td><p>command</p></td>
+<td><p>delete cell</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></td>
+<td><p>edit</p></td>
+<td><p>execute cell and insert a cell below</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are many others (and they are shown in the pulldown menus within JupyterLab), but these are the ones I seem to encounter most often.</p>
+</div>
+</div>
+<div class="section" id="Onwards!">
+<h2>Onwards!<a class="headerlink" href="#Onwards!" title="Permalink to this headline">¶</a></h2>
+<p>You now have been introduced to our main tools for the bootcamp. Next up, we will learn about how to navigate the command line of your computer.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<p>At the end of every lesson, and indeed at the end (or beginning) of any notebook you make, we should include information about the computing environment including the version numbers of all packages we use. The <a class="reference external" href="https://github.com/rasbt/watermark">watermark package</a> is quite useful for this. The watermark package is an <strong>IPython magic extension</strong>. These extensions allow convenient functionality within IPython or Jupyter notebooks. In general, to use magic functions, you precede them with a
+<code class="docutils literal notranslate"><span class="pre">%</span></code> sign or a <code class="docutils literal notranslate"><span class="pre">%%</span></code> in a cell. We use the built-in <code class="docutils literal notranslate"><span class="pre">%load_ext</span></code> magic function to load watermark, and then we use <code class="docutils literal notranslate"><span class="pre">%watermark</span></code> to invoke it.</p>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag to ask watermark to give us the Python and IPython verison numbers and the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag to give us version numbers on specified packages we’ve used. We can also use a <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag to give information about the machine running the notebook, and you should do that, but I will not do that for the bootcamp to avoid clutter.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l02_basic_command_line_skills.html" class="btn btn-neutral float-right" title="Lesson 2: Basic command line skills" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l00_configuring_your_computer.html" class="btn btn-neutral float-left" title="Lesson 0: Configuring your computer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 7.5: Monte Carlo simulation of transcriptional pausing &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 8" href="../exercise_8/index.html" />
+    <link rel="prev" title="Exercise 7.4: Data collapse" href="exercise_7.4.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 7</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.1.html">Exercise 7.1: Computing things!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.2.html">Exercise 7.2: Working with two-dimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.3.html">Exercise 7.3: Understanding and building ECDFs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_7.4.html">Exercise 7.4: Data collapse</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 7.5: Monte Carlo simulation of transcriptional pausing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 7</a> &raquo;</li>
+        
+      <li>Exercise 7.5: Monte Carlo simulation of transcriptional pausing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercises/exercise_7/exercise_7.5.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-7.5:-Monte-Carlo-simulation-of-transcriptional-pausing">
+<h1>Exercise 7.5: Monte Carlo simulation of transcriptional pausing<a class="headerlink" href="#Exercise-7.5:-Monte-Carlo-simulation-of-transcriptional-pausing" title="Permalink to this headline">¶</a></h1>
+<hr><p>In this exercise, we will put random number generation to use and do a <strong>Monte Carlo simulation</strong>. The term Monte Carlo simulation is a broad term describing techniques in which a large number of random numbers are generated to (approximately) calculate properties of probability distributions. In many cases the analytical form of these distributions is not known, so Monte Carlo methods are a great way to learn about them.</p>
+<p>Transcription, the process by which DNA is transcribed into RNA, is key process in the central dogma of molecular biology. RNA polymerase (RNAP) is at the heart of this process. This amazing machine glides along the DNA template, unzipping it internally, incorporating ribonucleotides at the front, and spitting RNA out the back. Sometimes, though, the polymerase pauses and then backtracks, pushing the RNA transcript back out the front, as shown in the figure below, taken from <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.bpj.2008.12.3918">Depken, et al.,
+Biophys. J., 96, 2189-2193, 2009</a>.</p>
+<div style="margin: auto; width: 400px;"><img alt="RNAP pause" src="../../_images/rnap_pause.png" />
+</div><p>To escape these backtracks, a cleavage enzyme called TFIIS cleaves the bit on RNA hanging out of the front, and the RNAP can then go about its merry way.</p>
+<p>Researchers have long debated how these backtracks are governed. Single molecule experiments can provide some much needed insight. The groups of <a class="reference external" href="http://bustamante.berkeley.edu">Carlos Bustamante</a>, <a class="reference external" href="https://blocklab.stanford.edu">Steve Block</a>, and <a class="reference external" href="https://www.mpi-cbg.de/research-groups/current-groups/stephan-grill/group-leader/">Stephan Grill</a>, among others, have investigated the dynamics of RNAP in the absence of TFIIS. They can measure many individual backtracks and get statistics
+about how long the backtracks last.</p>
+<p>One hypothesis is that the backtracks simply consist of diffusive-like motion along the DNA stand. That is to say, the polymerase can move forward or backward along the strand with equal probability once it is paused. This is a one-dimensional <strong>random walk</strong>. So, if we want to test this hypothesis, we would want to know how much time we should expect the RNAP to be in a backtrack so that we could compare to experiment.</p>
+<p>So, we seek the probability distribution of backtrack times, <span class="math notranslate nohighlight">\(P(t_{bt})\)</span>, where <span class="math notranslate nohighlight">\(t_{bt}\)</span> is the time spent in the backtrack. We could solve this analytically, which requires some sophisticated mathematics. But, because we know how to draw random numbers, we can just compute this distribution directly using Monte Carlo simulation!</p>
+<p>We start at <span class="math notranslate nohighlight">\(x = 0\)</span> at time <span class="math notranslate nohighlight">\(t = 0\)</span>. We “flip a coin,” or choose a random number to decide whether we step left or right. We do this again and again, keeping track of how many steps we take and what the <span class="math notranslate nohighlight">\(x\)</span> position is. As soon as <span class="math notranslate nohighlight">\(x\)</span> becomes positive, we have existed the backtrack. The total time for a backtrack is then <span class="math notranslate nohighlight">\(\tau n_\mathrm{steps}\)</span>, where <span class="math notranslate nohighlight">\(\tau\)</span> is the time it takes to make a step. Depken, et al., report that <span class="math notranslate nohighlight">\(\tau \approx 0.5\)</span> seconds.</p>
+<p><strong>a)</strong> Write a function, <code class="docutils literal notranslate"><span class="pre">backtrack_steps()</span></code>, that computes the number of steps it takes for a random walker (i.e., polymerase) starting at position <span class="math notranslate nohighlight">\(x = 0\)</span> to get to position <span class="math notranslate nohighlight">\(x = +1\)</span>. It should return the number of steps to take the walk.</p>
+<p><strong>b)</strong> Generate 10,000 of these backtracks in order to get enough samples out of <span class="math notranslate nohighlight">\(P(t_\mathrm{bt})\)</span>. Some of these samples may take a very long time to acquire. (If you are interested in a way to really speed up this calculation, ask me about <a class="reference external" href="http://numba.pydata.org">Numba</a>. If you do use Numba, note that you must use the standard Mersenne Twister RNG for Numba; that is using <code class="docutils literal notranslate"><span class="pre">np.random....</span></code>.)</p>
+<p><strong>c)</strong> Generate an ECDF of your samples and plot the ECDF with the <span class="math notranslate nohighlight">\(x\)</span> axis on a logarithmic scale.</p>
+<p><strong>d)</strong> A probability distribution function that obeys a power law has the property</p>
+<p><span class="math">\begin{align}
+P(t_\mathrm{bt}) \propto t_\mathrm{bt}^{-a}
+\end{align}</span></p>
+<p>in some part of the distribution, usually for large <span class="math notranslate nohighlight">\(t_\mathrm{bt}\)</span>. If this is the case, the cumulative distribution function is then</p>
+<p><span class="math">\begin{align}
+\mathrm{CDF}(t_\mathrm{bt}) \equiv F(t_\mathrm{bt})= \int_{-\infty}^{t_\mathrm{bt}} \mathrm{d}t_\mathrm{bt}'\,P(t_\mathrm{bt}') = 1 - \frac{c}{t_\mathrm{bt}^{a+1}},
+\end{align}</span></p>
+<p>where <span class="math notranslate nohighlight">\(c\)</span> is some constant defined by the functional form of <span class="math notranslate nohighlight">\(P(t_\mathrm{bt})\)</span> for small <span class="math notranslate nohighlight">\(t_\mathrm{bt}\)</span> and the normalization condition. If <span class="math notranslate nohighlight">\(F\)</span> is our cumulative histogram, we can check for power law behavior by plotting the complementary cumulative distribution (CCDF), <span class="math notranslate nohighlight">\(1 - F\)</span>, versus <span class="math notranslate nohighlight">\(t_\mathrm{bt}\)</span>. If a power law is in play, the plot will be linear on a log-log scale with a slope of <span class="math notranslate nohighlight">\(-a+1\)</span>.</p>
+<p>Plot the complementary cumulative distribution function from your samples on a log-log plot. If it is linear, then the time to exit a backtrack is a power law.</p>
+<p><strong>e)</strong> By doing some mathematical heavy lifting, we know that, in the limit of large <span class="math notranslate nohighlight">\(t_{bt}\)</span>,</p>
+<p><span class="math">\begin{align}
+P(t_{bt}) \propto t_{bt}^{-3/2},
+\end{align}</span></p>
+<p>so the plot you did in part (e) should have a slope of <span class="math notranslate nohighlight">\(-1/2\)</span> on a log-log plot. Is this what you see?</p>
+<p><strong>Notes:</strong> The theory to derive the probability distribution is involved. See, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/First-hitting-time_model">this</a>. However, we were able to predict that we would see a great many short backtracks, and then see some very very long backtracks because of the power law distribution of backtrack times. We were able to do that just by doing a simple Monte Carlo simulation with “coin flips”. There are many problems where the theory is <em>really</em> hard, and deriving the
+distribution is currently impossible, or the probability distribution has such an ugly expression that we can’t really work with it. So, Monte Carlo methods are a powerful tool for generating predictions from simply-stated, but mathematically challenging, hypotheses.</p>
+<p>Interestingly, many researchers thought (and maybe still do) there were two classes of backtracks: long and short. There may be, but the hypothesis that the backtrack is a random walk process is commensurate with seeing both very long and very short backtracks.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../exercise_8/index.html" class="btn btn-neutral float-right" title="Exercise 8" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="exercise_7.4.html" class="btn btn-neutral float-left" title="Exercise 7.4: Data collapse" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

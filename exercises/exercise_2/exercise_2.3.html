@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 2.3: RNA secondary structure validator &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 3" href="../exercise_3/index.html" />
+    <link rel="prev" title="Exercise 2.2: Longest common substring" href="exercise_2.2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="exercise_2.1.html">Exercise 2.1: Using string methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_2.2.html">Exercise 2.2: Longest common substring</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 2.3: RNA secondary structure validator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#RNA-secondary-structure-validator">RNA secondary structure validator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 2</a> &raquo;</li>
+        
+      <li>Exercise 2.3: RNA secondary structure validator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercises/exercise_2/exercise_2.3.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-2.3:-RNA-secondary-structure-validator">
+<h1>Exercise 2.3: RNA secondary structure validator<a class="headerlink" href="#Exercise-2.3:-RNA-secondary-structure-validator" title="Permalink to this headline">¶</a></h1>
+<hr><div class="section" id="RNA-secondary-structure-validator">
+<h2>RNA secondary structure validator<a class="headerlink" href="#RNA-secondary-structure-validator" title="Permalink to this headline">¶</a></h2>
+<p>In this problem, we will write a function that takes an RNA sequence and an RNA secondary structure and decides if the secondary structure is possible given the sequence. Remember, single stranded RNA can fold back on itself and form base pairs. An RNA secondary structure is simply the list of base pairs that are present. We will represent the base pairs in dot-parentheses notation. For example, a sequence/secondary structure pair would be</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0123456789
+GCAUCUAUGC
+(((....)))
+</pre></div>
+</div>
+<p>For convenience of discussion, I have labeled the indices of the bases on the top row. In this case, base <code class="docutils literal notranslate"><span class="pre">0</span></code>, a <code class="docutils literal notranslate"><span class="pre">G</span></code>, pairs with base <code class="docutils literal notranslate"><span class="pre">9</span></code>, a <code class="docutils literal notranslate"><span class="pre">C</span></code>. Base <code class="docutils literal notranslate"><span class="pre">1</span></code> pairs with base <code class="docutils literal notranslate"><span class="pre">8</span></code>, and base <code class="docutils literal notranslate"><span class="pre">2</span></code> pairs with base <code class="docutils literal notranslate"><span class="pre">7</span></code>. Bases <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span></code>, and <code class="docutils literal notranslate"><span class="pre">6</span></code> are unpaired. (This structure is aptly called a “hairpin.”)</p>
+<p>I hope the dot-parentheses notation is clear. An open parenthesis is paired with the parenthesis that closes it. Dots are unpaired.</p>
+<p>So, the goal of our function is to check all base pairs present in a secondary structure and see if they are with <code class="docutils literal notranslate"><span class="pre">G-C</span></code>, <code class="docutils literal notranslate"><span class="pre">A-U</span></code>, or (optionally) <code class="docutils literal notranslate"><span class="pre">G-U</span></code>.</p>
+<p><strong>a)</strong> Write a function to make sure that the number of closed parentheses is equal to the number of open parentheses, a requirement for a valid secondary structure. It should return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the parentheses are valid and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<p><strong>b)</strong> Write a function that converts the dot-parens notation to a tuple of 2-tuples representing the base pairs. We’ll call this function <code class="docutils literal notranslate"><span class="pre">dotparen_to_bp()</span></code>. An example input/output of this function would be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dotparen_to_bp(&#39;(((....)))&#39;)
+
+((0, 9), (1, 8), (2, 7))
+</pre></div>
+</div>
+<p><em>Hint</em>: You should look at <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">methods that are available for lists</a>. You might find the <code class="docutils literal notranslate"><span class="pre">append()</span></code> and <code class="docutils literal notranslate"><span class="pre">pop()</span></code> methods useful.</p>
+<p><strong>c)</strong> Because of sterics, the minimal length of a hairpin loop is three bases. A hairpin loop is a series of unpaired bases that are closed by a base pair. For example, the secondary structure <code class="docutils literal notranslate"><span class="pre">(.(....).)</span></code> has a single hairpin loop of length 4. So, the structure <code class="docutils literal notranslate"><span class="pre">((((..))))</span></code> is not valid because it has a hairpin loop of only two bases.</p>
+<p>Write a function that verifies that a list of base pairs (as outputted by <code class="docutils literal notranslate"><span class="pre">dotparen_to_bp()</span></code>) satisfies the minimal hairpin length requirement.</p>
+<p><strong>d)</strong> Now write your validator function. The function definition should look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def rna_ss_validator(seq, sec_struc, wobble=True):
+</pre></div>
+</div>
+<p>It should return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the sequence is commensurate with a valid secondary structure and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. The <code class="docutils literal notranslate"><span class="pre">wobble</span></code> keyword argument is <code class="docutils literal notranslate"><span class="pre">True</span></code> if we allow wobble pairs (<code class="docutils literal notranslate"><span class="pre">G</span></code> paired with <code class="docutils literal notranslate"><span class="pre">U</span></code>). Here are some expected results:</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rna_ss_validator(&#39;GCAUCUAUGC&#39;, &#39;(((....)))&#39;)
+rna_ss_validator(&#39;GCAUCUAUGU&#39;, &#39;(((....)))&#39;)
+rna_ss_validator(&#39;GCAUCUAUGU&#39;, &#39;(.(....).)&#39;)
+</pre></div>
+</div>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rna_ss_validator(&#39;GCAUCUACGC&#39;, &#39;(((....)))&#39;)
+rna_ss_validator(&#39;GCAUCUAUGU&#39;, &#39;(((....)))&#39;, wobble=False)
+rna_ss_validator(&#39;GCAUCUAUGU&#39;, &#39;(.(....)).&#39;)
+rna_ss_validator(&#39;GCCCUUGGCA&#39;, &#39;(.((..))).&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../exercise_3/index.html" class="btn btn-neutral float-right" title="Exercise 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="exercise_2.2.html" class="btn btn-neutral float-left" title="Exercise 2.2: Longest common substring" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

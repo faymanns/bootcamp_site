@@ -1,0 +1,1167 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 32: Introduction to scripting &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 33: More about the command line" href="l33_more_command_line.html" />
+    <link rel="prev" title="Lesson 31: JavaScript for stand-alone Bokeh apps" href="l31_javascript_for_bokeh.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 32: Introduction to scripting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Our-example-scripting-problem">Our example scripting problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Renaming-the-files">Renaming the files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-a-list-of-the-directory-contents:-the-os-and-glob-modules">Getting a list of the directory contents: the os and glob modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Renaming-files-using-the-shutil-module">Renaming files using the shutil module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#The-subprocess-module">The subprocess module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Parsing-the-metadata">Parsing the metadata</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Extracting-interpixel-distances">Extracting interpixel distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Extracting-the-time-points">Extracting the time points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Conclusions">Conclusions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 32: Introduction to scripting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l32_intro_to_scripting.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-32:-Introduction-to-scripting">
+<h1>Lesson 32: Introduction to scripting<a class="headerlink" href="#Lesson-32:-Introduction-to-scripting" title="Permalink to this headline">¶</a></h1>
+<hr><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+</pre></div>
+</div>
+</div>
+<hr><p><strong>Scripting</strong> is a way to automate your tasks. =For example, let’s say you are a lawyer and you need to redact a bunch of text documents. =Two possible ways to do this are:</p>
+<ol class="arabic simple">
+<li><p>Open each document on your computer. Search for the text “Jeffrey Lebowski.” Wherever you find it, change it to “xxxxxxx.” Save the document.</p></li>
+<li><p>Tell your assistant to open each document on your computer. Search for the text “Jeffrey Lebowski.” Wherever he finds it, change it to “xxxxxxx.” Save the document.</p></li>
+</ol>
+<p>I suspect that most of you would choose option 2. Scripting is basically doing option 2, except your assistant is your computer.</p>
+<p>Because of its simple syntax and modules to parse text and communicate with the operating system in its standard library, Python is a good scripting language. In this tutorial, we will write some Python scripts to do tasks we might encounter in biology. (We already saw some examples of some of the text processing in previous lessons.)</p>
+<div class="section" id="Our-example-scripting-problem">
+<h2>Our example scripting problem<a class="headerlink" href="#Our-example-scripting-problem" title="Permalink to this headline">¶</a></h2>
+<p>As tends to be our philosophy, we will learn some scripting procedures by example. In the example we consider, we will parse a directory of images coming from a Leica SP2 confocal microscope. These microscopes came out about twenty years ago, and the software is also a bit old. It is very common to use older instruments, especially high end ones like this one, which can cost hundreds of thousands of dollars, in research.</p>
+<p>One problem with the old software used for image acquisition on this microscope is that the file names are stored in the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prefix_IMAGENAME_ch00.tif
+prefix_SERIESNAME_t00_z000_ch00.tif
+</pre></div>
+</div>
+<p>Here, prefix is chosen by the user. If we are taking a single image (not a time series or <span class="math notranslate nohighlight">\(z\)</span>-stack), then <code class="docutils literal notranslate"><span class="pre">IMAGENAME</span></code> is assigned by the software, since you may have multiple images (or series of images) with the same prefix. After <code class="docutils literal notranslate"><span class="pre">ch</span></code> are two digits indicating which channel is being used (which absorbance/emissions wavelengths are being used).</p>
+<p>For series of images, the two digits after the <code class="docutils literal notranslate"><span class="pre">t</span></code> character indicate the frame number (i.e., time point). The digits after <code class="docutils literal notranslate"><span class="pre">z</span></code> indicate the <code class="docutils literal notranslate"><span class="pre">z</span></code> position, and the digits after <code class="docutils literal notranslate"><span class="pre">ch</span></code> are as in the single image example.</p>
+<p>An inherent problem with this naming convention becomes clear when we have more than 100 images in a time series. For example, the 99th, 100th, and 101st images would be</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prefix_SERIESNAME_t98_z000_ch00.tif
+prefix_SERIESNAME_t99_z000_ch00.tif
+prefix_SERIESNAME_t100_z000_ch00.tif
+</pre></div>
+</div>
+<p>So, if we were to put all of our images in alphabetical order, which is how many image processing software packages read in images, the order would be</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prefix_SERIESNAME_t00_z000_ch00.tif
+prefix_SERIESNAME_t01_z000_ch00.tif
+                 ⋮
+prefix_SERIESNAME_t09_z000_ch00.tif
+prefix_SERIESNAME_t100_z000_ch00.tif
+prefix_SERIESNAME_t101_z000_ch00.tif
+                 ⋮
+</pre></div>
+</div>
+<p>The frames are now out of order! We should pad the frame number in the file name with more zeros.</p>
+<p>You can access a sample data set in the <code class="docutils literal notranslate"><span class="pre">~git/bootcamp/data/leica_tiffs/</span></code> folder. This data set contains an actual set of images I obtained from a Leica SP2. For this data set, <code class="docutils literal notranslate"><span class="pre">prefix</span> <span class="pre">=</span> <span class="pre">stage9</span></code>, referring to the stage of development of the cells in the images. Our goals in this lesson are to:</p>
+<ol class="arabic simple">
+<li><p>Rename the files so that they can be read cleanly in alphabetical order.</p></li>
+<li><p>Parse the metadata (found in the file <code class="docutils literal notranslate"><span class="pre">stage9.txt</span></code>) to find the interpixel distance for these images.</p></li>
+<li><p>Parse the metadata to find the time points for each image.</p></li>
+</ol>
+<p>We’ll start with task 1.</p>
+</div>
+<div class="section" id="Renaming-the-files">
+<h2>Renaming the files<a class="headerlink" href="#Renaming-the-files" title="Permalink to this headline">¶</a></h2>
+<p>You may remember from our lesson on string formatting that if we want leading zeros, we use the <code class="docutils literal notranslate"><span class="pre">%04d</span></code> format string for, e.g., an integer for a total of four digits.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This digit has </span><span class="si">{0:04d}</span><span class="s1"> digits.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+This digit has 0025 digits.
+</pre></div></div>
+</div>
+<p>To make sure we don’t run into any problems, we’ll rename the time points to have eight total digits. Our strategy is to get a list of all files in the directory. We’ll then generate a list of names that the files <em>should</em> have. We’ll then instruct the operating system, via the <code class="docutils literal notranslate"><span class="pre">mv</span></code> command, to rename the files.</p>
+<p>When we rename them, we will have a separate directory to contain the renamed files. Why? Because of this wisdom:</p>
+<div style="color: tomato; text-align: center; font-weight: bold;"><p>Never delete or modify original data.</p>
+</div><p>Data that comes off of an instrument should never be modified. Rather, you should make copies of it and proceed through an analysis pipeline.</p>
+<p>To make a new directory from the command line, we could use <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">data/leica_tiffs_renamed</span></code> (the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag means that it will not throw an error if the directory already exists). We can do this in Python using <code class="docutils literal notranslate"><span class="pre">os.makedirs</span></code> as follows.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">new_path</span> <span class="o">=</span> <span class="s1">&#39;data/leica_tiffs_renamed&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">new_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Getting-a-list-of-the-directory-contents:-the-os-and-glob-modules">
+<h3>Getting a list of the directory contents: the os and glob modules<a class="headerlink" href="#Getting-a-list-of-the-directory-contents:-the-os-and-glob-modules" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">os</span></code> module from the standard library has lots of great tools for working with files and talking to the OS. We’ll generate a list of files in our Leica directory, demonstrating some of the useful features of the <code class="docutils literal notranslate"><span class="pre">os</span></code> module.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Specify Leica directory</span>
+<span class="n">leica_dir</span> <span class="o">=</span> <span class="s1">&#39;data/leica_tiffs&#39;</span>
+
+<span class="c1"># Get a list of all files in the directory</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">leica_dir</span><span class="p">)</span>
+
+<span class="c1"># Look at the list (just first few entries)</span>
+<span class="n">file_list</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;stage9_Series006_t121_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t52_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t118_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t45_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t78_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t41_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t56_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t88_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t35_z000_ch00.tif&#39;,
+ &#39;stage9_Series006_t22_z000_ch00.tif&#39;]
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">os.listdir()</span></code> function lists all of the files in a directory (like the <code class="docutils literal notranslate"><span class="pre">ls</span></code> function) and stores them as a list. We see we have our metadata files, <code class="docutils literal notranslate"><span class="pre">stage9.txt</span></code>, a single image, <code class="docutils literal notranslate"><span class="pre">stage9_Image003_ch00.tif</span></code>, and then a lot of files in a time series (called <code class="docutils literal notranslate"><span class="pre">Series006</span></code>) that appears to go from frame <code class="docutils literal notranslate"><span class="pre">00</span></code> to frame <code class="docutils literal notranslate"><span class="pre">124</span></code>. It is these times series files that we want to remame.</p>
+<p>While we have a list of the files, we would like a list of the full path of the files. We can use the <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> method to conveniently do that. It joins the strings of the paths, putting <code class="docutils literal notranslate"><span class="pre">/</span></code>’s where appropriate.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get list of all files (full path) we want to rename</span>
+<span class="n">rename_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;_t&#39;</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">:</span>
+        <span class="n">rename_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">leica_dir</span><span class="p">,</span> <span class="n">fname</span><span class="p">))</span>
+
+<span class="c1"># Let&#39;s look at the list</span>
+<span class="n">rename_list</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;data/leica_tiffs/stage9_Series006_t121_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t52_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t118_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t45_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t78_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t41_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t56_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t88_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t35_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t22_z000_ch00.tif&#39;]
+</pre></div></div>
+</div>
+<p>Now, we have a list of only the files we want to rename. We could have done this more concisely using the <code class="docutils literal notranslate"><span class="pre">glob</span></code> module, which allows generating lists of files with wild card characters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># String to look for</span>
+<span class="n">search_str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">leica_dir</span><span class="p">,</span> <span class="s1">&#39;*_t*.tif&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get all files that match search_str</span>
+<span class="n">rename_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">search_str</span><span class="p">)</span>
+
+<span class="n">rename_list</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;data/leica_tiffs/stage9_Series006_t121_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t52_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t118_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t45_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t78_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t41_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t56_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t88_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t35_z000_ch00.tif&#39;,
+ &#39;data/leica_tiffs/stage9_Series006_t22_z000_ch00.tif&#39;]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Renaming-files-using-the-shutil-module">
+<h3>Renaming files using the shutil module<a class="headerlink" href="#Renaming-files-using-the-shutil-module" title="Permalink to this headline">¶</a></h3>
+<p>We will now rename the files. There are several ways to do this using modules that are part of the standard library. Here, we’ll show how to do it using the <a class="reference external" href="https://docs.python.org/3/library/shutil.html">shutil module</a>. This module contains several functions for file management.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># String to search for (the time stamp)</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;_t\d+_&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rename the files to have 8 total digits in the time field</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">rename_list</span><span class="p">:</span>
+    <span class="c1"># Pull out _t00_ string</span>
+    <span class="n">time_str</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+
+    <span class="c1"># Make a new, 8-digit string</span>
+    <span class="n">new_time_str</span> <span class="o">=</span> <span class="s2">&quot;_t</span><span class="si">{0:08d}</span><span class="s2">_&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time_str</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Make a new file name; could do: new_fname = regex.sub(new_time_str, fname)</span>
+    <span class="n">new_fname</span> <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">time_str</span><span class="p">,</span> <span class="n">new_time_str</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="s2">&quot;leica_tiffs&quot;</span><span class="p">,</span> <span class="s2">&quot;leica_tiffs_renamed&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Make a call to shutil.move to rename files</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">new_fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>You can look in your directory now to see all of your beautifully renamed files!</p>
+<p>We should also copy the metadata over for convenience. It is generally a good idea to keep the metadata together with the data sets, images or otherwise, that you will be analyzing.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span>
+    <span class="s1">&#39;data/leica_tiffs/stage9.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;data/leica_tiffs_renamed/stage9.txt&#39;</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="The-subprocess-module">
+<h2>The subprocess module<a class="headerlink" href="#The-subprocess-module" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/subprocess.html">subprocess module</a> of the standard library is useful for running commands on the command line. This is often used in bioinformatics pipelines, for example, when you need to run various programs from the command line to process data sets. We don’t really need it for the bootcamp, but I bring it up here because it may come in handy for you down the road. If we wanted to do the same operations as above, except with the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code>
+module, we would replace the <code class="docutils literal notranslate"><span class="pre">shutil.move(fname,</span> <span class="pre">new_fname)</span></code> with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>subprocess.call([&#39;cp&#39;, fname, new_fname])
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">subprocess.call()</span></code> function allows you to execute command line commands as subprocesses, also allowing parallel processing. The first argument is a comma separated list of the strings you would enter in the command line to do your operation. For example, if <code class="docutils literal notranslate"><span class="pre">fname</span> <span class="pre">=</span> <span class="pre">'file1'</span></code> and <code class="docutils literal notranslate"><span class="pre">new_fname</span> <span class="pre">=</span> <span class="pre">'file2'</span></code>, the above is the same as entering</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp file1 file2
+</pre></div>
+</div>
+<p>on the command line.</p>
+<p>As an example of how the <code class="docutils literal notranslate"><span class="pre">subprocess.call()</span></code> function works, we’ll list the contents of the Leica directory and redirect the output to a file <code class="docutils literal notranslate"><span class="pre">lieca_dir_contents.txt</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;leica_dir_contents.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="n">leica_dir</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Looking at <code class="docutils literal notranslate"><span class="pre">leica_dir_contents.txt</span></code>, we see that it did what we expected.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>head leica_dir_contents.txt
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+total 29640
+-rw-r--r--@ 1 bois  staff    13457 Jun  6 15:26 stage9.txt
+-rw-r--r--@ 1 bois  staff  1051510 Jun  6 15:26 stage9_Image003_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t00_z000_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t01_z000_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t02_z000_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t03_z000_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t04_z000_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t05_z000_ch00.tif
+-rw-r--r--@ 1 bois  staff   113062 Jun 15 21:58 stage9_Series006_t06_z000_ch00.tif
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Parsing-the-metadata">
+<h2>Parsing the metadata<a class="headerlink" href="#Parsing-the-metadata" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at the metadata file that came with our image series.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>head data/leica_tiffs/stage9.txt
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Leica Microsystems Heidelberg GmbHThis file is intended for read-only purposes changes here will not affect the images.Date:    Thursday, May 30, 2013Time:    17:38File Version:    26000000EXPERIMENT INFORMATIONNumber of Images: 2Type:           Series with &#39;tif&#39;-files </pre></div></div>
+</div>
+<p>You should look at this with whatever text editor your like so you can see all of the contents. It is a text file with lots of information about the images that were acquired. Specifically, we want the information about <code class="docutils literal notranslate"><span class="pre">Scan006</span></code>. So, we want to scan the file until we get to the line that says</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Series Name:    Series006
+</pre></div>
+</div>
+<p>The entries immediately after that will give the information about this series. First, let’s just read in all of the lines of the file.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">leica_dir</span><span class="p">,</span> <span class="s1">&#39;stage9.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-12-d3612969a3c9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>leica_dir<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;stage9.txt&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>lines <span class="ansi-blue-fg">=</span> f<span class="ansi-blue-fg">.</span>readlines<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/opt/anaconda3/lib/python3.8/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
+<span class="ansi-green-intense-fg ansi-bold">    320</span>         <span class="ansi-red-fg"># decode input (taking the buffer into account)</span>
+<span class="ansi-green-intense-fg ansi-bold">    321</span>         data <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">+</span> input
+<span class="ansi-green-fg">--&gt; 322</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> consumed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_buffer_decode<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>errors<span class="ansi-blue-fg">,</span> final<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    323</span>         <span class="ansi-red-fg"># keep undecoded input until the next call</span>
+<span class="ansi-green-intense-fg ansi-bold">    324</span>         self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">=</span> data<span class="ansi-blue-fg">[</span>consumed<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0xb5 in position 3378: invalid start byte
+</pre></div></div>
+</div>
+<p>Yikes! What is going on here? It turns out that these Leica files are not UTF-8 encoded, which means there are strange characters in there that we cannot recognize. The encoding is <a class="reference external" href="https://en.wikipedia.org/wiki/ISO/IEC_8859-15">ISO-8859-15</a>, a pre UTF-8 encoding. Very annoying, but something we commonly encounter with various instruments. We just have to specify the encoding when we open the file to be able to read it.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">leica_dir</span><span class="p">,</span> <span class="s2">&quot;stage9.txt&quot;</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-15&quot;</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Ok, that worked. Let’s take a look at the file lines we pulled out (just the first few so as not to pollute the screen).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">lines</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Leica Microsystems Heidelberg GmbH\x00\n&#39;,
+ &#39;This file is intended for read-only purposes changes here will not affect the images.\x00\n&#39;,
+ &#39;Date:\t Thursday, May 30, 2013\x00\n&#39;,
+ &#39;Time:\t 17:38\x00\n&#39;,
+ &#39;\x00\n&#39;,
+ &#39;File Version:\t 26000000\x00\n&#39;,
+ &#39;\x00\n&#39;,
+ &#39;EXPERIMENT INFORMATION\x00\n&#39;,
+ &#39;Number of Images: 2\x00\n&#39;,
+ &#34;Type:          \tSeries with &#39;tif&#39;-files \x00\n&#34;]
+</pre></div></div>
+</div>
+<p>You’ll notice the strange <code class="docutils literal notranslate"><span class="pre">\x00\n</span></code> at the end of each line. This, again, is an old encoding for carriage returns. It it not at all uncommon that you will have to deal with such annoyances when parsing files. They are of no concern to us, since we will just strip them off. While we’re at it, we’ll also split the line up at white spaces using the <code class="docutils literal notranslate"><span class="pre">split()</span></code> method of strings.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\x00\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Now, we’ll search through the list of strings until we find the</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Series Name:    Series006
+</pre></div>
+</div>
+<p>line. This just means that we want to find the index that has entry</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Series&#39;, &#39;Name:&#39;, &#39;Series006&#39;]
+</pre></div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">index()</span></code> method of lists to do this.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Find index where Series is identified</span>
+<span class="n">i_start</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="p">([</span><span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="s1">&#39;Name:&#39;</span><span class="p">,</span> <span class="s1">&#39;Series006&#39;</span><span class="p">])</span>
+
+<span class="c1"># Show us!</span>
+<span class="n">i_start</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+198
+</pre></div></div>
+</div>
+<div class="section" id="Extracting-interpixel-distances">
+<h3>Extracting interpixel distances<a class="headerlink" href="#Extracting-interpixel-distances" title="Permalink to this headline">¶</a></h3>
+<p>Now, we can scan starting that this starting index and extract the voxel sizes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i_start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Voxel-Width&#39;</span><span class="p">:</span>
+            <span class="n">physical_size_x</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Voxel-Height&#39;</span><span class="p">:</span>
+            <span class="n">physical_size_y</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Pixel sizes!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Interpixel spacing in x (µm):&#39;</span><span class="p">,</span> <span class="n">physical_size_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Interpixel spacing in y (µm):&#39;</span><span class="p">,</span> <span class="n">physical_size_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Interpixel spacing in x (µm): 0.310171
+Interpixel spacing in y (µm): 0.310171
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Extracting-the-time-points">
+<h3>Extracting the time points<a class="headerlink" href="#Extracting-the-time-points" title="Permalink to this headline">¶</a></h3>
+<p>Now, we want to get the time points for our images. The time stamp records look line this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Stamp_0:        2013:05:30,16:48:30:515
+</pre></div>
+</div>
+<p>So, we want to find the stamps, set the time for frame 0 to be zero seconds, and then compute the time difference for all of the other frames. We can so this using the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module.</p>
+<p>Our strategy is to convert the time stamp string into a <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object and the subtract the first time from the others. First, we’ll write a function to convert time strings to a list of numbers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">time_str_to_datetime</span><span class="p">(</span><span class="n">time_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert date/time string in Leica file to</span>
+<span class="sd">    datetime.datetime object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Split at colons and comma</span>
+    <span class="n">splitter</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[,|:]&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Split the time_str</span>
+    <span class="n">str_list</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">time_str</span><span class="p">)</span>
+
+    <span class="c1"># Convert to integers</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">str_list</span><span class="p">):</span>
+        <span class="n">str_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="c1"># Return datetime.datetime object</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">str_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Now that we have this function, we can scan through and find the time stamps.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Scan until we get to the first time stamp</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">i_start</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Stamp_0:&#39;</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Extract the time string</span>
+<span class="n">t_0</span> <span class="o">=</span> <span class="n">time_str_to_datetime</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Loop through successive frames and get the time points</span>
+<span class="n">time_points</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Stamp&#39;</span><span class="p">:</span>
+    <span class="n">delta_t</span> <span class="o">=</span> <span class="n">time_str_to_datetime</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">t_0</span>
+    <span class="n">time_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">delta_t</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s look at our list and see how we did.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">time_points</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0,
+ 0.000406,
+ 0.999797,
+ 1.000203,
+ 1.999594,
+ 2.0,
+ 2.000406,
+ 2.999797,
+ 3.000203,
+ 3.99961]
+</pre></div></div>
+</div>
+<p>Great! We managed to extract the important metadata we could then use in our image analysis. We also now have nicely organized files that appear in alphabetical order.</p>
+</div>
+</div>
+<div class="section" id="Conclusions">
+<h2>Conclusions<a class="headerlink" href="#Conclusions" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we showed how you can use Python to clean up data sets that come off of instrument, as well as extract useful information out of the resulting files. If we have many sets of images like this, we should develop these parsing procedures into a function that will automatically parse any directory of data you present. This can help get you ready for further analysis, with everything in a pre-defined format.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l33_more_command_line.html" class="btn btn-neutral float-right" title="Lesson 33: More about the command line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l31_javascript_for_bokeh.html" class="btn btn-neutral float-left" title="Lesson 31: JavaScript for stand-alone Bokeh apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

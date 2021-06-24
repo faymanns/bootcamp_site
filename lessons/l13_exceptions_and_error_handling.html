@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 13: Errors and Exception handling &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 14: Style" href="l14_style.html" />
+    <link rel="prev" title="Lesson 12: Version control with Git" href="l12_version_control_with_git.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 13: Errors and Exception handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Kinds-of-errors">Kinds of errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Syntax-errors">Syntax errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Runtime-errors">Runtime errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Semantic-errors">Semantic errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Handling-errors-in-your-code">Handling errors in your code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Issuing-warnings">Issuing warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Checking-input">Checking input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l14_style.html">Lesson 14: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_intro_to_pandas.html">Lesson 15: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_split_apply_combine.html">Lesson 16: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_plotting.html">Lesson 17: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_high_level_plotting.html">Lesson 18: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_intro_to_numpy_and_scipy.html">Lesson 19: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_plotting_time_series_generated_data.html">Lesson 20: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_random_number_generation.html">Lesson 21: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_comprehensions.html">Lesson 22: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_hackerstats_1.html">Lesson 23: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_hackerstats_2.html">Lesson 24: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_holoviews.html">Lesson 25: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_overplotting.html">Lesson 26: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_intro_to_image_processing.html">Lesson 27: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_segmentation.html">Lesson 28: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_other_packages_and_languages.html">Lesson 29: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l30_bootcamp_recap.html">Lesson 30: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l31_javascript_for_bokeh.html">Lesson 31: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_intro_to_scripting.html">Lesson 32: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_more_command_line.html">Lesson 33: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_regular_expressions.html">Lesson 34: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_intro_to_oop.html">Lesson 35: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_algorithmic_complexity.html">Lesson 36: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_serial.html">Lesson 37: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_serial_apps.html">Lesson 38. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_control_panels.html">Lesson 39: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_testing_and_tdd.html">Lesson 40: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_examples_of_tdd.html">Lesson 41: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_dashboards.html">Lesson 42: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 13: Errors and Exception handling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l13_exceptions_and_error_handling.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-13:-Errors-and-Exception-handling">
+<h1>Lesson 13: Errors and Exception handling<a class="headerlink" href="#Lesson-13:-Errors-and-Exception-handling" title="Permalink to this headline">¶</a></h1>
+<hr><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">bootcamp_utils</span>
+</pre></div>
+</div>
+</div>
+<hr><p>And now we’ll proceed to discussing errors and exception handling.</p>
+<p>So far, we have encountered errors when we did something wrong. For example, when we tried to change a character in a string, we got a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_str</span> <span class="o">=</span> <span class="s1">&#39;AGCTATC&#39;</span>
+<span class="n">my_str</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;G&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-d08010a7add0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> my_str <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;AGCTATC&#39;</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>my_str<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;G&#39;</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;str&#39; object does not support item assignment
+</pre></div></div>
+</div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> indicates that we tried to do something that is legal in Python for some types, but we tried to do it to a type for which it is illegal (strings are immutable). In Python, an error detected during execution is called an <strong>exception</strong>. We say that the interpreter “<strong>raised an exception</strong>.” There are many kinds of built-in exceptions, and you can find a list of them, with descriptions <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">here</a>. You
+can write your own kinds of exceptions, but we will not cover that in bootcamp.</p>
+<p>In this lesson, we will investigate how to handle errors in your code. Importantly, we will also touch on the different kinds of errors and how to avoid them. Or, more specifically, you will learn how to use exceptions to help you write better, more bug-free code.</p>
+<div class="section" id="Kinds-of-errors">
+<h2>Kinds of errors<a class="headerlink" href="#Kinds-of-errors" title="Permalink to this headline">¶</a></h2>
+<p>In computer programs, we can break down errors into three types.</p>
+<div class="section" id="Syntax-errors">
+<h3>Syntax errors<a class="headerlink" href="#Syntax-errors" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>syntax error</strong> means you wrote something nonsensical, something the Python interpreter cannot understand. An example of a syntax error in English would be the following.</p>
+<blockquote>
+<div><p>Sir Tristram, violer d’amores, fr’over the short sea, had passen-core rearrived from North Armorica on this side the scraggy isthmus of Europe Minor to wielderfight his penisolate war: nor had topsawyer’s rocks by the stream Oconee exaggerated themselse to Laurens County’s gorgios while they went doublin their mumper all the time: nor avoice from afire bellowsed mishe mishe to tauftauf thuartpeatrick: not yet, though venissoon after, had a kidscad buttended a bland old isaac: not yet, though
+all’s fair in vanessy, were sosie sesthers wroth with twone nathandjoe.</p>
+</div></blockquote>
+<p>This is recognizable as English. In fact, it is the second sentence of a very famous novel (<a class="reference external" href="https://en.wikipedia.org/wiki/Finnegans_Wake">Finnegans Wake by James Joyce</a>). Clearly, many spelling and punctuation rules of English are violated here. To many of us, it is nonsensical, but I do know of some people who have read the book and understand it. So, English is fairly tolerant of syntax errors. A simpler example would be</p>
+<blockquote>
+<div><p>Boootcamp is fun!</p>
+</div></blockquote>
+<p>This has a syntax error (“Boootcamp” is not in the English language), but we understand what it means. A syntax error in Python would be this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_list = [1, 2, 3
+</pre></div>
+</div>
+<p>We know what this means. We are trying to create a list with three items, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, and <code class="docutils literal notranslate"><span class="pre">3</span></code>. However, we forgot the closing bracket. Unlike users of the English language, the Python interpreter is not forgiving; it will raise a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> exception.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-3-34ae6d6cd500&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    my_list = [1, 2, 3</span>
+                      ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unexpected EOF while parsing
+
+</pre></div></div>
+</div>
+<p>Syntax errors are often the easiest to deal with, since the program will not run at all if any are present.</p>
+</div>
+<div class="section" id="Runtime-errors">
+<h3>Runtime errors<a class="headerlink" href="#Runtime-errors" title="Permalink to this headline">¶</a></h3>
+<p><strong>Runtime errors</strong> occur when a program is syntactically correct, so it can run, but the interpreter encountered something wrong. The example at the start of the tutorial, trying to change a character in a string, is an example of a runtime error. This particular one was a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, which is a more specific type of runtime error. Python does have a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code>, which just indicates a generic runtime (non-syntax) error.</p>
+<p>Runtime errors are more difficult to spot than syntax errors because it is possible that a program could run all the way through without encountering the error for some inputs, but for other inputs, you get an error. Let’s consider the example of a simple function meant to add two numbers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">add_two_things</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<p>Syntactically, this function is just fine. We can use it and it works.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">add_two_things</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+13
+</pre></div></div>
+</div>
+<p>We can even add strings, even though it was meant to add two numbers.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">add_two_things</span><span class="p">(</span><span class="s1">&#39;Hello, &#39;</span><span class="p">,</span> <span class="s1">&#39;world.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello, world.&#39;
+</pre></div></div>
+</div>
+<p>However, when we try to add a string and a number, we get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, the kind of runtime error we saw before.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">add_two_things</span><span class="p">(</span><span class="s1">&#39;a string&#39;</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-7-26b1fde01f0b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>add_two_things<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;a string&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">5.7</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-4-833715e51f11&gt;</span> in <span class="ansi-cyan-fg">add_two_things</span><span class="ansi-blue-fg">(a, b)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> add_two_things<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Add two numbers.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> a <span class="ansi-blue-fg">+</span> b
+
+<span class="ansi-red-fg">TypeError</span>: can only concatenate str (not &#34;float&#34;) to str
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Semantic-errors">
+<h3>Semantic errors<a class="headerlink" href="#Semantic-errors" title="Permalink to this headline">¶</a></h3>
+<p>Semantic errors are perhaps the most nefarious. They occur when your program is syntactically correct, executes without runtime errors, and then produces the wrong result. These errors are the hardest to find and can do the most damage. After all, when your program does not do what you designed it to do, you want it to scream out with an exception!</p>
+<p>Following is a common example of a semantic error in which we change a mutable object within a function and then try to reuse it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># A function to append a list onto itself, with the intention of</span>
+<span class="c1"># returning a new list, but leaving the input unaltered</span>
+<span class="k">def</span> <span class="nf">double_list</span><span class="p">(</span><span class="n">in_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Append a list to itself.&quot;&quot;&quot;</span>
+    <span class="n">in_list</span> <span class="o">+=</span> <span class="n">in_list</span>
+    <span class="k">return</span> <span class="n">in_list</span>
+
+<span class="c1"># Make a list</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Double it</span>
+<span class="n">my_list_double</span> <span class="o">=</span> <span class="n">double_list</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+
+<span class="c1"># Later on in our program, we want a sorted my_list</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="c1"># Let&#39;s look at my_list:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We expect [1, 2, 3]&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We get   &#39;</span><span class="p">,</span> <span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+We expect [1, 2, 3]
+We get    [1, 1, 2, 2, 3, 3]
+</pre></div></div>
+</div>
+<p>Yikes! We changed <code class="docutils literal notranslate"><span class="pre">my_list</span></code> within the function unintentionally. <em>Question: How would you re-rewrite ``double_list()`` to avoid this issue?</em></p>
+</div>
+</div>
+<div class="section" id="Handling-errors-in-your-code">
+<h2>Handling errors in your code<a class="headerlink" href="#Handling-errors-in-your-code" title="Permalink to this headline">¶</a></h2>
+<p>If you have a syntax error, your code will not even run. So, we will assume we are without syntax errors in this discussion on how to handle errors. So, how can we handle runtime errors? In most use cases, we just write our code and let the Python interpreter tell us about these exceptions. However, sometimes we want to use the fact that we <em>know</em> we might encounter a runtime error within our code. A common example of this is when importing modules that are convenient, but not essential, for
+your code to run. Errors are handled in your code using a <strong>try statement</strong>.</p>
+<p>Let’s try importing a module that computes GC content. This doesn’t exist, so we will get an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">gc_content</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-b2d775210337&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> gc_content
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;gc_content&#39;
+</pre></div></div>
+</div>
+<p>Now, if we had the <code class="docutils literal notranslate"><span class="pre">gc_content</span></code> module, we would like to use it. But if not, we will just hand-code a calculation of the GC content of a sequence. We use a <code class="docutils literal notranslate"><span class="pre">try</span></code> statement.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Try to get the gc_content module</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">gc_content</span>
+    <span class="n">have_gc</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">have_gc</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Do whatever is necessary here, like close files</span>
+    <span class="k">pass</span>
+
+<span class="n">seq</span> <span class="o">=</span> <span class="s1">&#39;ACGATCTACGATCAGCTGCGCGCATCG&#39;</span>
+
+<span class="k">if</span> <span class="n">have_gc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+16
+</pre></div></div>
+</div>
+<p>The program now runs just fine! The <code class="docutils literal notranslate"><span class="pre">try</span></code> statement consists of an initial <code class="docutils literal notranslate"><span class="pre">try</span></code> clause. Everything under the <code class="docutils literal notranslate"><span class="pre">try</span></code> clause is attempted to be executed. If it succeeds, the rest of the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement is skipped, and the interpreter goes to the <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">=</span> <span class="pre">...</span></code> line.</p>
+<p>If, however, there is an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>, the code within the <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ImportError</span> <span class="pre">as</span> <span class="pre">e</span></code> clause is executed. The exception does not halt the program. If there is some other kind of error other than an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>, the interpreter will raise an exception after it does whatever code is in the <code class="docutils literal notranslate"><span class="pre">finally</span></code> clause. The <code class="docutils literal notranslate"><span class="pre">finally</span></code> clause is useful to tidy things up, like closing open file handles. While it is possible for a <code class="docutils literal notranslate"><span class="pre">try</span></code> statement to handle any generic exception by not specifying
+<code class="docutils literal notranslate"><span class="pre">ImportError</span> <span class="pre">as</span> <span class="pre">e</span></code>, it is good practice to explicitly specify the exception(s) that you anticipate in <code class="docutils literal notranslate"><span class="pre">try</span></code> statements as shown here. In this case, we only want to have control over <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>s. We want the interpreter to scream at us for any other, unanticipated errors.</p>
+</div>
+<div class="section" id="Issuing-warnings">
+<h2>Issuing warnings<a class="headerlink" href="#Issuing-warnings" title="Permalink to this headline">¶</a></h2>
+<p>We may want to issue a warning instead of silently continuing. For this, the <code class="docutils literal notranslate"><span class="pre">warnings</span></code> module from the standard library is useful. We use the <code class="docutils literal notranslate"><span class="pre">warnings.warn()</span></code> method to issue the warning.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Try to get the gc_content module</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">gc_content</span>
+
+    <span class="n">have_gc</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">have_gc</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;Failed to load gc_content. Using custom function.&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span>
+    <span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;ACGATCTACGATCAGCTGCGCGCATCG&quot;</span>
+
+<span class="k">if</span> <span class="n">have_gc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+16
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-11-df044d5015b4&gt;:8: UserWarning: Failed to load gc_content. Using custom function.
+  warnings.warn(
+</pre></div></div>
+</div>
+<p>Normally, we would use an <code class="docutils literal notranslate"><span class="pre">ImportWarning</span></code>, but those are ignored by default, so we have used a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code>.</p>
+</div>
+<div class="section" id="Checking-input">
+<h2>Checking input<a class="headerlink" href="#Checking-input" title="Permalink to this headline">¶</a></h2>
+<p>It is often the case that you want to check the input of a function to ensure that it works properly. In other words, you want to anticipate errors that the user (or you) might make in running your function, and you want to give descriptive error messages. For example, let’s say you are writing a code that processes protein sequences that contain only the 20 naturally occurring amino acids represented by their one-letter abbreviation. You may wish to check that the amino acid sequence is
+legitimate. In particular, the letters <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">J</span></code>, <code class="docutils literal notranslate"><span class="pre">O</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code>, and <code class="docutils literal notranslate"><span class="pre">Z</span></code>, are not valid abbreviations for standard amino acids. (We will not use the <a class="reference external" href="https://en.wikipedia.org/wiki/Amino_acid#Table_of_standard_amino_acid_abbreviations_and_properties">ambiguity code</a>, <em>e.g.</em> <code class="docutils literal notranslate"><span class="pre">B</span></code> for aspartic acid or asparagine, <code class="docutils literal notranslate"><span class="pre">Z</span></code> for glutamine or glutamic acid, or <code class="docutils literal notranslate"><span class="pre">X</span></code> for any amino acid.)</p>
+<p>To illustrate the point, we will write a simple function that converts the sequence of one-letter amino acids to the three-letter abbreviation. We’ll use the dictionary that converts single-letter amino acid codes to triple letter that we encountered in the <a class="reference internal" href="l09_dictionaries.html"><span class="doc">lesson on dictionaries</span></a> that is now included in the <code class="docutils literal notranslate"><span class="pre">bootcamp_utils</span></code> package.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">one_to_three</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a protein sequence using one-letter abbreviations</span>
+<span class="sd">    to one using three-letter abbreviations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Convert seq to upper case</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="n">aa_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">amino_acid</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="c1"># Check if the `amino_acid` is in our dictionary `bootcamp_utils.aa`</span>
+        <span class="k">if</span> <span class="n">amino_acid</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bootcamp_utils</span><span class="o">.</span><span class="n">aa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amino_acid</span><span class="si">}</span><span class="s2"> is not a valid amino acid&quot;</span><span class="p">)</span>
+        <span class="c1"># Add the `amino_acid` to our aa_list</span>
+        <span class="n">aa_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bootcamp_utils</span><span class="o">.</span><span class="n">aa</span><span class="p">[</span><span class="n">amino_acid</span><span class="p">])</span>
+
+    <span class="c1"># Return the amino acids, joined together, with a dash as a separator.</span>
+    <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aa_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>So, if we put in a legitimate amino acid sequence, the function works as expected.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">one_to_three</span><span class="p">(</span><span class="s1">&#39;waeifnsdfklnsae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Trp-Ala-Glu-Ile-Phe-Asn-Ser-Asp-Phe-Lys-Leu-Asn-Ser-Ala-Glu&#39;
+</pre></div></div>
+</div>
+<p>But, it we put in an improper amino acid, we will get a descriptive error.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">one_to_three</span><span class="p">(</span><span class="s1">&#39;waeifnsdfzklnsae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-14-96dc1e0f73c2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>one_to_three<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;waeifnsdfzklnsae&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-12-54dde5c1e463&gt;</span> in <span class="ansi-cyan-fg">one_to_three</span><span class="ansi-blue-fg">(seq)</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span>         <span class="ansi-red-fg"># Check if the `amino_acid` is in our dictionary `bootcamp_utils.aa`</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span>         <span class="ansi-green-fg">if</span> amino_acid <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> bootcamp_utils<span class="ansi-blue-fg">.</span>aa<span class="ansi-blue-fg">.</span>keys<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> RuntimeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;{amino_acid} is not a valid amino acid&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span>         <span class="ansi-red-fg"># Add the `amino_acid` to our aa_list</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>         aa_list<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>bootcamp_utils<span class="ansi-blue-fg">.</span>aa<span class="ansi-blue-fg">[</span>amino_acid<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">RuntimeError</span>: Z is not a valid amino acid
+</pre></div></div>
+</div>
+<p>Good code checks for errors and gives useful error messages. We will use exception handling extensively when we go over test driven development in future lessons.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p bootcamp_utils,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+bootcamp_utils: 0.0.6
+jupyterlab    : 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l14_style.html" class="btn btn-neutral float-right" title="Lesson 14: Style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l12_version_control_with_git.html" class="btn btn-neutral float-left" title="Lesson 12: Version control with Git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 24, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
