@@ -1,0 +1,1640 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 40: Control of external devices &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 41. Apps for controlling external devices" href="l41_serial_apps.html" />
+    <link rel="prev" title="Lesson 37: Algorithmic complexity" href="l37_algorithmic_complexity.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_style.html">Lesson 16: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_intro_to_pandas.html">Lesson 17: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_split_apply_combine.html">Lesson 18: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_plotting.html">Lesson 19: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_high_level_plotting.html">Lesson 20: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_intro_to_numpy_and_scipy.html">Lesson 21: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_plotting_time_series_generated_data.html">Lesson 22: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_random_number_generation.html">Lesson 23: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_comprehensions.html">Lesson 24: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_hackerstats_1.html">Lesson 25: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_hackerstats_2.html">Lesson 26: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_holoviews.html">Lesson 27: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_overplotting.html">Lesson 28: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_intro_to_image_processing.html">Lesson 38: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_segmentation.html">Lesson 39: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_other_packages_and_languages.html">Lesson 32: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_bootcamp_recap.html">Lesson 33: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l30_javascript_for_bokeh.html">Lesson 30: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l31_intro_to_scripting.html">Lesson 31: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_more_command_line.html">Lesson 34: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_regular_expressions.html">Lesson 35: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_intro_to_oop.html">Lesson 36: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_algorithmic_complexity.html">Lesson 37: Algorithmic complexity</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 40: Control of external devices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Arduino">Arduino</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Finding-the-port">Finding the port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Opening-a-connection">Opening a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#“Hello,-world,”-a.k.a.-turning-on-an-LED">“Hello, world,” a.k.a. turning on an LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Controlling-Arduino-with-widgets">Controlling Arduino with widgets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Widgets-and-callbacks">Widgets and callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Retrieving-data-from-Arduino">Retrieving data from Arduino</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l41_serial_apps.html">Lesson 41. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_control_panels.html">Lesson 42: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_testing_and_tdd.html">Lesson 14: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_examples_of_tdd.html">Lesson 15: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_dashboards.html">Lesson 29: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 40: Control of external devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l40_serial.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-40:-Control-of-external-devices">
+<h1>Lesson 40: Control of external devices<a class="headerlink" href="#Lesson-40:-Control-of-external-devices" title="Permalink to this headline">¶</a></h1>
+<hr><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.layouts</span>
+<span class="kn">import</span> <span class="nn">bokeh.models</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+
+<span class="n">notebook_url</span> <span class="o">=</span> <span class="s2">&quot;localhost:8888&quot;</span>
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1001">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1001");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js": "XypntL49z55iwGVUW4qsEu83zKL3XEcz0MjuGOQ9SlaaQ68X/g+k1FcioZi7oQAc", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.2.min.js": "bEsM86IHGDTLCS0Zod8a8WM6Y4+lafAL/eSiyQcuPzinmWNgNO2/olUF0Z2Dkn5i", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.2.min.js": "TX0gSQTdXTTeScqxj6PVQxTiRW8DOoGVwinyi1D3kxv7wuxQ02XkOxv0xwiypcAH"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.2.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1001")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<hr><p>In this lesson, we introduce control of external devices using a serial connection. The important package for this purpose is <a class="reference external" href="https://pythonhosted.org/pyserial/">PySerial</a>, which you can install if you haven’t already using</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install pyserial
+</pre></div>
+</div>
+<p>It enables communication with devices over a serial port, often a USB port. When you import it, you import it by the name <code class="docutils literal notranslate"><span class="pre">serial</span></code>.</p>
+<p><em>Because this lesson connects to a physical device, it really must be run in a live Jupyter notebook with a device connected.</em></p>
+<div class="section" id="Arduino">
+<h2>Arduino<a class="headerlink" href="#Arduino" title="Permalink to this headline">¶</a></h2>
+<p>Of course to do this tutorial, we should have an actual device with which to communicate. Therefore, I encourage you to actually build the device below and connect it to your computer and work through this lesson running a live Jupyter notebook.</p>
+<p>For our device in this example, we will use an <a class="reference external" href="https://store.arduino.cc/usa/arduino-uno-rev3">Arduino Uno board</a>. These ≈$20 boards offer great functionality and are fun to just play with. Beyond, that, they are actually quite useful in research applications and have widespread use in research labs across disciplines, including in the biological sciences.</p>
+<p>We will use our board with a simple circuit, shown below.</p>
+<div style="margin: auto; width: 400px;"><img alt="Arduino" src="../_images/arduino_setup.svg" /></div><p>At the left of the Arduino Uno board in the drawing is a USB-A port, which you should connect to your computer. The breadboard features a potentiometer, whose output is connected to analog input pin A0, and two LEDs that are controlled by digital pins 2 and 6. The LEDs are connected to ground via 220 Ω resistors. We will demonstrate how to communicate with Arduino via Python by reading voltages from pin A0 and by turning the LEDs on and off.</p>
+<p>The Arduino board is loaded with compiled code written in a flavor of C++. The code for this circuit is shown below. The code basically tells Arduino which pins do what, and then listens for signals coming from its serial connection. Based on what signal it gets, it will either send the measurement of voltage out the serial connection or turn the LEDs on or off. (We will not go over how to code Arduino in this bootcamp, but rather focus on how to interface with an external device using Python.)</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">voltagePin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">redLEDPin</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">greenLEDPin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">VOLTAGE_REQUEST</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">RED_LED_ON</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">RED_LED_OFF</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">GREEN_LED_ON</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">GREEN_LED_OFF</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">ON_REQUEST</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">STREAM</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">READ_DAQ_DELAY</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+<span class="n">String</span> <span class="n">daqDelayStr</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">inByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">daqMode</span> <span class="o">=</span> <span class="n">ON_REQUEST</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">daqDelay</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>   <span class="c1">// delay between acquisitions in milliseconds</span>
+
+<span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">time_ms</span><span class="p">;</span>
+
+
+<span class="kt">void</span> <span class="nf">printVoltage</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// read value from analog pin</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">voltagePin</span><span class="p">);</span>
+  <span class="n">time_ms</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+
+  <span class="c1">// Write the result</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">outstr</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">time_ms</span><span class="p">,</span> <span class="n">DEC</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">DEC</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">outstr</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Set LEDs to off</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">redLEDPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">greenLEDPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">redLEDPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">greenLEDPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
+  <span class="c1">// initialize serial communication</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// If we&#39;re auto-transferring data (streaming mode)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">daqMode</span> <span class="o">==</span> <span class="n">STREAM</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printVoltage</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">daqDelay</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Read in request</span>
+    <span class="n">inByte</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+
+    <span class="c1">// Handshake</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">HANDSHAKE</span><span class="p">){</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
+          <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Handshake message received.&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If data is requested, fetch it and write it</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">VOLTAGE_REQUEST</span><span class="p">)</span> <span class="n">printVoltage</span><span class="p">();</span>
+
+    <span class="c1">// Switch daqMode</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">ON_REQUEST</span><span class="p">)</span> <span class="n">daqMode</span> <span class="o">=</span> <span class="n">ON_REQUEST</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">STREAM</span><span class="p">)</span> <span class="n">daqMode</span> <span class="o">=</span> <span class="n">STREAM</span><span class="p">;</span>
+
+    <span class="c1">// Read in DAQ delay</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">READ_DAQ_DELAY</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
+      <span class="n">daqDelayStr</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">);</span>
+      <span class="n">daqDelay</span> <span class="o">=</span> <span class="n">daqDelayStr</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// else, turn LEDs on or off</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">RED_LED_ON</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">redLEDPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">RED_LED_OFF</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">redLEDPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">GREEN_LED_ON</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">greenLEDPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">GREEN_LED_OFF</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">greenLEDPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>According to this code, if we send integers over the serial connection to Arduino, it will behave according to the table below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>signal to Arduino</p></th>
+<th class="head"><p>action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Handshake (establish and check connection with Arduino)</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Send voltage from port A0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Turn red LED on</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Turn red LED off</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Turn green LED on</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Turn green LED off</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Toggle data acquisition mode to on request</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Toggle data acquisition mode to stream</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Alert Arduino that the next input is streaming delay</p></td>
+</tr>
+</tbody>
+</table>
+<p>For the rest of this lesson, we will assume you have an Arduino connected to your machine configured as in the photo above, with the above Arduino code loaded in.</p>
+<p>For convenience, we can declare variables matching these integer codes for this notebook.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">VOLTAGE_REQUEST</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">RED_LED_ON</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">RED_LED_OFF</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">GREEN_LED_ON</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">GREEN_LED_OFF</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">ON_REQUEST</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">STREAM</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">READ_DAQ_DELAY</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<p>Arduino will send data back to us in one of two modes, either on demand or as a stream. For on-demand data, it waits until it gets a signal from Python asking for data and then sends the time stamp and the voltage measured at analog input A0. For streaming data, it automatically sends data with a specified delay between data points.</p>
+</div>
+<div class="section" id="Finding-the-port">
+<h2>Finding the port<a class="headerlink" href="#Finding-the-port" title="Permalink to this headline">¶</a></h2>
+<p>With your Arduino plugged into your computer via a USB connection, you first need to find out which port it is. The names of the ports will differ based on your operating system and when you plugged it in (your OS may assign the ports different names). You can get a list of ports using the <code class="docutils literal notranslate"><span class="pre">serial.tools.list_ports.comports()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">ports</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7f8b4538ddf0&gt;,
+ &lt;serial.tools.list_ports_common.ListPortInfo at 0x7f8b4538d220&gt;]
+</pre></div></div>
+</div>
+<p>On my machine, there are two ports open. We can look at the manufacturer of the devices attached to the ports to find Arduino.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">port</span><span class="o">.</span><span class="n">manufacturer</span> <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[None, &#39;Arduino (www.arduino.cc)&#39;]
+</pre></div></div>
+</div>
+<p>Clearly, the second port is Arduino. We can get then get a string for the port associated with the device.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">device</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/dev/cu.usbmodem141101&#39;
+</pre></div></div>
+</div>
+<p>On Windows, the manufacturer might not appear as Arduino. In this case, you should take a look at the devices for each port.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">port</span><span class="o">.</span><span class="n">device</span> <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;/dev/cu.Bluetooth-Incoming-Port&#39;, &#39;/dev/cu.usbmodem141101&#39;]
+</pre></div></div>
+</div>
+<p>The appropriate port for Windows will be something like <code class="docutils literal notranslate"><span class="pre">'COM3'</span></code>.</p>
+<p>For convenience, we can write a function to find Arduino. Called without arguments, it will give the port for Arduino if the manufacturer comes up as Arduino in the query. Otherwise, you can provide a string (like <code class="docutils literal notranslate"><span class="pre">'COM7'</span></code>) for the port, and it will connect to that port.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">&quot;Arduino&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span><span class="p">:</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">device</span>
+    <span class="k">return</span> <span class="n">port</span>
+</pre></div>
+</div>
+</div>
+<p>We’ll use it to get the port for Arduino. (Note that you may need to explicitly give the port, especially if you are using Windows.)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">port</span> <span class="o">=</span> <span class="n">find_arduino</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Opening-a-connection">
+<h2>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Permalink to this headline">¶</a></h2>
+<p>When opening a connection with Python, you cannot have the Serial Monitor nor Serial Plotter of the Arduino IDE open, since they will keep the port busy and Python cannot communicate with Arduino.</p>
+<p>To open a connection to the device, we instantiate a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and
+receive a handshake message again to make sure everything is working properly.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Open port</span>
+<span class="n">arduino</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
+<span class="sd">    and receiving bytes.&quot;&quot;&quot;</span>
+    <span class="c1"># Close and reopen</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+    <span class="c1"># Chill out while everything gets set</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="p">)</span>
+
+    <span class="c1"># Set a long timeout to complete handshake</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Read and discard everything that may be in the input buffer</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
+
+    <span class="c1"># Send request to Arduino</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+
+    <span class="c1"># Read in what Arduino sent</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Send and receive request again</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Print the handshake message, if desired</span>
+    <span class="k">if</span> <span class="n">print_handshake_message</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Handshake message: &quot;</span> <span class="o">+</span> <span class="n">handshake_message</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="c1"># Reset the timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+
+
+<span class="c1"># Call the handshake function</span>
+<span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="n">HANDSHAKE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Handshake message: Handshake message received.
+
+</pre></div></div>
+</div>
+<p>A few comments about the above code, bearing in mind that the Python variable <code class="docutils literal notranslate"><span class="pre">arduino</span></code> is a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">arduino.timeout</span></code> attribute sets the maximum time in seconds to wait for serial communication.</p></li>
+<li><p>To handshake, we need to send code <code class="docutils literal notranslate"><span class="pre">0</span></code> to the Arduino. It must be sent as bytes, machine numbers Arduino can understand. To convert an integer to bytes in Python, we use the built-in <code class="docutils literal notranslate"><span class="pre">bytes()</span></code> function. It accepts an iterable (like a list of tuple) of <code class="docutils literal notranslate"><span class="pre">int</span></code>s and converts them to bytes. So, the signal we would send for code <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">bytes([0])</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">arduino.read_all()</span></code> function reads all bytes that are in the input buffer on the Python side.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">arduino.read_until()</span></code> function reads from the input buffer on the Python side until a newline character is encountered. This is convenient because the Python interpreter moves along way faster than Arduino can perform calculations and write data over USB. By asking Python to read until it hits a newline character, it has to wait until the complete message is sent by Arduino.</p></li>
+<li><p>The message sent from Arduino is a <code class="docutils literal notranslate"><span class="pre">bytesarray</span></code>. To convert it to a string, use the <code class="docutils literal notranslate"><span class="pre">decode()</span></code> method, as we did with <code class="docutils literal notranslate"><span class="pre">handshake_message.decode()</span></code> in the above function.</p></li>
+</ul>
+<p>The port is currently open, and I’m not going to anything with it now, so I am going to close it. This is very important: <em>Make sure you close your serial connection when you are done with it.</em></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>When possible, it is good practice to instead use context management when opening a serial connection. That way, it is always guaranteed to close, even when things may go awry.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">arduino</span><span class="p">:</span>
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># And the rest of what you want to do follows....</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="“Hello,-world,”-a.k.a.-turning-on-an-LED">
+<h2>“Hello, world,” a.k.a. turning on an LED<a class="headerlink" href="#“Hello,-world,”-a.k.a.-turning-on-an-LED" title="Permalink to this headline">¶</a></h2>
+<p>The “Hello, world” of electronic circuits is turning on an LED. To turn on the red LED, we need to send code <code class="docutils literal notranslate"><span class="pre">2</span></code> to the Arduino. It must be sent as bytes, machine numbers Arduino can understand. So, the signal we would send for code <code class="docutils literal notranslate"><span class="pre">2</span></code> is:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">bytes</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+b&#39;\x02&#39;
+</pre></div></div>
+</div>
+<p>Let’s open up a port to Arduino and send a signal to turn on the red LED.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">arduino</span><span class="p">:</span>
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># Turn on the red LED</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">RED_LED_ON</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<p>Now that we know how to turn an LED on (and off), we can make a little disco party!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">arduino</span><span class="p">:</span>
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># Flash the LEDs</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">RED_LED_ON</span><span class="p">]))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">GREEN_LED_ON</span><span class="p">]))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">RED_LED_OFF</span><span class="p">]))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">GREEN_LED_OFF</span><span class="p">]))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Controlling-Arduino-with-widgets">
+<h2>Controlling Arduino with widgets<a class="headerlink" href="#Controlling-Arduino-with-widgets" title="Permalink to this headline">¶</a></h2>
+<p>While calling a function to send and retrieve data from an external device (in this case our Arduino board) is useful, it is more convenient to enable control of the device using widgets.</p>
+<p>To do so, we need to open the connection to the Arduino and leave it open (outside of context management). Since we will want to open and close these ports manually, including having all of the (un)pleasantries of connecting and sending and receiving the first few test packets of data, we will write a function to give us an open serial connection to the Arduino (knowing of course that we will need to close it).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">open_arduino</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Open a connection with an Arduino device and</span>
+<span class="sd">    handshake to get ready for use.&quot;&quot;&quot;</span>
+    <span class="c1"># Open port</span>
+    <span class="n">arduino</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="n">baudrate</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+    <span class="c1"># Close and reopen</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">arduino</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s go ahead and open the connection.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arduino</span> <span class="o">=</span> <span class="n">open_arduino</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Widgets-and-callbacks">
+<h3>Widgets and callbacks<a class="headerlink" href="#Widgets-and-callbacks" title="Permalink to this headline">¶</a></h3>
+<p>As a first step in setting up control of the device, we will make toggle buttons to turn the red and green LEDs on and off. We can make the buttons using <code class="docutils literal notranslate"><span class="pre">pn.widgets.Toggle()</span></code>, but instead we will directly use Bokeh widgets. We do this because connecting to streaming data, which we will do in the next lesson, is a bit easier using base Bokeh. Bokeh apps are also more configurable and can have better performance because of less overhead.</p>
+<p>To build a Bokeh app to use in a Jupyter notebook, we need to write a function of with call signature <code class="docutils literal notranslate"><span class="pre">app(doc)</span></code>. Within that function, we build the elements we want in the app, in this case just the toggle and its callback. Once those elements are defined, they need to be added to the doc using <code class="docutils literal notranslate"><span class="pre">doc.add_root()</span></code>. The code below accomplishes this.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">LED_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a toggle for turning LEDs on and off&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">red_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">new</span><span class="p">:</span>
+            <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">RED_LED_ON</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">RED_LED_OFF</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">green_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">new</span><span class="p">:</span>
+            <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">GREEN_LED_ON</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">GREEN_LED_OFF</span><span class="p">]))</span>
+
+    <span class="c1"># Set up toggles</span>
+    <span class="n">red_LED_toggle</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Toggle</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Red LED&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;danger&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">green_LED_toggle</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Toggle</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Green LED&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Link callbacks</span>
+    <span class="n">red_LED_toggle</span><span class="o">.</span><span class="n">on_change</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">red_callback</span><span class="p">)</span>
+    <span class="n">green_LED_toggle</span><span class="o">.</span><span class="n">on_change</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">green_callback</span><span class="p">)</span>
+
+    <span class="c1"># Lay out the toggles</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">row</span><span class="p">(</span>
+        <span class="n">red_LED_toggle</span><span class="p">,</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span> <span class="n">green_LED_toggle</span>
+    <span class="p">)</span>
+
+    <span class="n">doc</span><span class="o">.</span><span class="n">add_root</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Some comments:</p>
+<ul class="simple">
+<li><p>We use the <code class="docutils literal notranslate"><span class="pre">on_change()</span></code> method of a toggle widget. The callback function for on-change behavior must have call signature <code class="docutils literal notranslate"><span class="pre">callback(attr,</span> <span class="pre">old,</span> <span class="pre">new)</span></code>, where <code class="docutils literal notranslate"><span class="pre">attr</span></code> is an attribute of the widget, <code class="docutils literal notranslate"><span class="pre">old</span></code> is the pre-change value of that attribute, and <code class="docutils literal notranslate"><span class="pre">new</span></code> is the post-change value of the attribute.</p></li>
+<li><p>We instantiate a toggle with <code class="docutils literal notranslate"><span class="pre">bokeh.models.Toggle</span></code>. Instead of <code class="docutils literal notranslate"><span class="pre">name</span></code> like we would use with Panel, we use the kwarg <code class="docutils literal notranslate"><span class="pre">label</span></code>.</p></li>
+<li><p>A toggle has an <code class="docutils literal notranslate"><span class="pre">active</span></code> attribute, which is <code class="docutils literal notranslate"><span class="pre">True</span></code> when the toggle is on and <code class="docutils literal notranslate"><span class="pre">False</span></code> when off. Whenever that value changes, the callback is triggered.</p></li>
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">button_type=&quot;danger&quot;</span></code> to give us a red button and <code class="docutils literal notranslate"><span class="pre">button_type=&quot;success&quot;</span></code> to give us a green button.</p></li>
+</ul>
+<p>To view the widget in the notebook, use <code class="docutils literal notranslate"><span class="pre">bokeh.io.show()</span></code>. Note that we called <code class="docutils literal notranslate"><span class="pre">bokeh.io.output_notebook()</span></code> earlier in this notebook, which means that the app will display in the notebook. We also defined the <code class="docutils literal notranslate"><span class="pre">notebook_url</span></code>, which can be found by looking in your browser’s address bar. In my case, the <code class="docutils literal notranslate"><span class="pre">notebook_url</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;localhost:8888&quot;</span></code>. Note also that Bokeh apps will not be displayed in the static HTML rendering of this notebook, so if you are reading this from the course website, you
+will see no output from the cell below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">LED_app</span><span class="p">,</span> <span class="n">notebook_url</span><span class="o">=</span><span class="n">notebook_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<script id="1002">
+  var xhr = new XMLHttpRequest()
+  xhr.responseType = 'blob';
+  xhr.open('GET', "http://localhost:64090/autoload.js?bokeh-autoload-element=1002&bokeh-absolute-url=http://localhost:64090&resources=none", true);
+
+  xhr.onload = function (event) {
+    var script = document.createElement('script'),
+    src = URL.createObjectURL(event.target.response);
+    script.src = src;
+    document.body.appendChild(script);
+  };
+xhr.send();
+</script></div>
+</div>
+<p>The LEDs on the Arduino can then be toggled using those two buttons.</p>
+<p>As we shift gears to retrieving data from Arduino, we will keep the port open.</p>
+</div>
+</div>
+<div class="section" id="Retrieving-data-from-Arduino">
+<h2>Retrieving data from Arduino<a class="headerlink" href="#Retrieving-data-from-Arduino" title="Permalink to this headline">¶</a></h2>
+<p>So far, we have used our serial connection to toggle LEDs on and off, but ultimately, we would like to receive data from the device. To do this, we can send data requests and then read what comes back.</p>
+<p>Based on the above Arduino code, when we are in ON_REQUEST mode, Ardunio waits for a request for data to come through its serial connection to the computer. Upon receipt of a request, it sends data back. The time and voltage data come in as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes">byte string</a> (Python data type <code class="docutils literal notranslate"><span class="pre">bytes</span></code>) containing the time and voltage separated by a comma. The byte string ends with both a carriage return (<code class="docutils literal notranslate"><span class="pre">\r</span></code>) and a newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>). To convert the byte
+string to numbers, we need to strip the carriage return and newline and decode the byte string into the Python strings we are used to using the <code class="docutils literal notranslate"><span class="pre">decode()</span></code> method. Finally, we can split the resulting string at the comma to get the voltage and time point for each.</p>
+<p>Arduino values from analog inputs are 10 bit unsigned integers, with values ranging from 0 to 1023. So, when the voltage is written out, it will be an integer, which we need to convert to a voltage, knowing that the voltage on the Arduino Uno goes from zero to five volts. The time stamps are in milliseconds, transmitted as 32-bit unsigned integers. So, we should convert the voltage number we receive to Volts. The function below parses a byte string sent from Arduino.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Input must end with newline, otherwise message is incomplete.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span>
+</pre></div>
+</div>
+</div>
+<p>We can make a button that requests data from Arduino when pressed. We will link it to a function that sends a request and gets data, appending the results to lists. First, we’ll set up the data acquisition function. It must take a single argument (which we will ignore) to have the correct call signature to be used when linked to a Panel button.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
+    <span class="c1"># Ask Arduino for data</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
+
+    <span class="c1"># Read in the data</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Parse and return</span>
+    <span class="k">return</span> <span class="n">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can call the function to get single time, voltage pairs.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(9570, 1.9012707722385143)
+</pre></div></div>
+</div>
+<p>If we like, we can connect this function to a button and grab voltages and time points to store in a list. To do so, we set up the lists and then append to them in a callback.</p>
+<p>Note that a button is different from a toggle button. A toggle button stay pressed when pushed, and then stays unpressed when pushed again. This is like a power button. A button, on the other hand, just registers a click, like a mouse button. Therefore,for a button, we use an <code class="docutils literal notranslate"><span class="pre">on_click()</span></code> method instead of <code class="docutils literal notranslate"><span class="pre">on_change()</span></code> to link to the callback.</p>
+<p>Again, Bokeh apps will only appear in a running notebook, so the button below will not appear in the static rendering of this notebook.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">daq_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Button for acquiring time stamp and voltage and store in lists.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">daq_callback</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+        <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+    <span class="c1"># Set up the button</span>
+    <span class="n">daq_button</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Acquire&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">)</span>
+    <span class="n">daq_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">daq_callback</span><span class="p">)</span>
+
+    <span class="n">doc</span><span class="o">.</span><span class="n">add_root</span><span class="p">(</span><span class="n">daq_button</span><span class="p">)</span>
+
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">daq_app</span><span class="p">,</span> <span class="n">notebook_url</span><span class="o">=</span><span class="n">notebook_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<script id="1014">
+  var xhr = new XMLHttpRequest()
+  xhr.responseType = 'blob';
+  xhr.open('GET', "http://localhost:64094/autoload.js?bokeh-autoload-element=1014&bokeh-absolute-url=http://localhost:64094&resources=none", true);
+
+  xhr.onload = function (event) {
+    var script = document.createElement('script'),
+    src = URL.createObjectURL(event.target.response);
+    script.src = src;
+    document.body.appendChild(script);
+  };
+xhr.send();
+</script></div>
+</div>
+<p>After hitting the button a few times (while turning the knob on the potentiometer), I got updated lists.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time (ms)    voltage (V)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;      &#39;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+time (ms)    voltage (V)
+15876        1.9012707722385143
+16411        2.0234604105571847
+16954        2.5757575757575757
+17379        1.8132942326490713
+17931        1.3343108504398826
+18499        2.482893450635386
+19093        3.6070381231671553
+19643        3.5826001955034212
+20179        2.8299120234604107
+20700        2.1896383186705766
+</pre></div></div>
+</div>
+<p>Great! We have demonstrated that we can control an external device by sending signals and can retrieve data from the device as well.</p>
+<p>In the next lesson, we will use the same setup to build apps to continuously retrieve data from Arduino while still controlling it. This requires <strong>asynchronous computing</strong>, and therefore a bit more sophistication.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p serial,bokeh,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+serial    : 3.5
+bokeh     : 2.3.2
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l41_serial_apps.html" class="btn btn-neutral float-right" title="Lesson 41. Apps for controlling external devices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l37_algorithmic_complexity.html" class="btn btn-neutral float-left" title="Lesson 37: Algorithmic complexity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 25, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

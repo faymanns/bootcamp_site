@@ -1,0 +1,1243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 15: Examples of TDD &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 29: Dashboards" href="l29_dashboards.html" />
+    <link rel="prev" title="Lesson 14: Testing and test-driven development" href="l14_testing_and_tdd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_style.html">Lesson 16: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_intro_to_pandas.html">Lesson 17: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_split_apply_combine.html">Lesson 18: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_plotting.html">Lesson 19: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_high_level_plotting.html">Lesson 20: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_intro_to_numpy_and_scipy.html">Lesson 21: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_plotting_time_series_generated_data.html">Lesson 22: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_random_number_generation.html">Lesson 23: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_comprehensions.html">Lesson 24: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_hackerstats_1.html">Lesson 25: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_hackerstats_2.html">Lesson 26: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_holoviews.html">Lesson 27: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_overplotting.html">Lesson 28: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_intro_to_image_processing.html">Lesson 38: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_segmentation.html">Lesson 39: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_other_packages_and_languages.html">Lesson 32: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_bootcamp_recap.html">Lesson 33: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l30_javascript_for_bokeh.html">Lesson 30: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l31_intro_to_scripting.html">Lesson 31: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l34_more_command_line.html">Lesson 34: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l35_regular_expressions.html">Lesson 35: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_intro_to_oop.html">Lesson 36: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_algorithmic_complexity.html">Lesson 37: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_serial.html">Lesson 40: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_serial_apps.html">Lesson 41. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_control_panels.html">Lesson 42: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_testing_and_tdd.html">Lesson 14: Testing and test-driven development</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 15: Examples of TDD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Handling-odd-behaviors">Handling odd behaviors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#A-note-on-assertions-vs-raising-exceptions">A note on assertions vs raising exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Summary-of-TDD">Summary of TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Improving-the-seq_features-module-using-TDD:-Practice">Improving the seq_features module using TDD: Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Code-refactoring-and-TDD">Code refactoring and TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Where-do-we-go-from-here?">Where do we go from here?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l29_dashboards.html">Lesson 29: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 15: Examples of TDD</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l15_examples_of_tdd.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-15:-Examples-of-TDD">
+<h1>Lesson 15: Examples of TDD<a class="headerlink" href="#Lesson-15:-Examples-of-TDD" title="Permalink to this headline">¶</a></h1>
+<p>This lesson was prepared in collaboration with <a class="reference external" href="https://daviortega.com">Davi Ortega</a> and was initially heavily based on <a class="reference external" href="http://katyhuff.github.io">Katy Huff</a>’s Software Carpentry Tutorial.</p>
+<hr><div class="section" id="Handling-odd-behaviors">
+<h2>Handling odd behaviors<a class="headerlink" href="#Handling-odd-behaviors" title="Permalink to this headline">¶</a></h2>
+<p>To explore another feature of <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, we’ll consider another aspect of our <code class="docutils literal notranslate"><span class="pre">number_negatives()</span></code> function. Specifically, what should we do if an invalid sequence is entered? A sensible thing to do in this case is to make our software throw a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code>.</p>
+<p>Again, in designing our test, we need to think about what constitutes an invalid sequence. We’ll only allow the 20 standard symbols for the residues that are present in the <code class="docutils literal notranslate"><span class="pre">bootcamp_utils.aa</span></code> dictionary. So, we adjust our test function accordingly. We cannot use the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement to check for proper error handling, so we use the <code class="docutils literal notranslate"><span class="pre">pytest.raises()</span></code> function. This function takes as its first argument the type of exception expected, and a string containing the code to be run to give the
+exception.</p>
+<div class="section" id="A-note-on-assertions-vs-raising-exceptions">
+<h3>A note on assertions vs raising exceptions<a class="headerlink" href="#A-note-on-assertions-vs-raising-exceptions" title="Permalink to this headline">¶</a></h3>
+<p>It is important to draw the distinction between assertions and raising exceptions in our code.</p>
+<ul class="simple">
+<li><p>We should raise <strong>exceptions</strong> when we are checking inputs to our function. I.e., we are checking to make sure the user is using the function properly.</p></li>
+<li><p>We should use <strong>assertions</strong> to make sure the function operates as expected for given input. This is almost always in a testing context.</p></li>
+</ul>
+<p>We should then add the following code to the <code class="docutils literal notranslate"><span class="pre">test_seq_features.py</span></code> file to include our expectation that the program should throw a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> if an invalid sequence is entered:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_number_negatives_for_invalid_amino_acid</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">number_negatives</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also have to include <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pytest</span></code> at the beginning of the test file because we are using the <code class="docutils literal notranslate"><span class="pre">pytest.raises()</span></code> function. It is clear that if <code class="docutils literal notranslate"><span class="pre">Z</span></code> is passed as the input sequence, the program should throw a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> saying: <em>“Z is an invalid sequence”</em>. Let’s test.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 5 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 20%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 40%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 60%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 80%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-red-fg">FAILED</span><span class="ansi-red-fg"> [100%]</span>
+
+=================================== FAILURES ===================================
+<span class="ansi-red-intense-fg ansi-bold">_________________ test_number_negatives_for_invalid_amino_acid _________________</span>
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_number_negatives_for_invalid_amino_acid</span>():
+        <span class="ansi-blue-intense-fg">with</span> pytest.raises(<span class="ansi-cyan-intense-fg">RuntimeError</span>) <span class="ansi-blue-intense-fg">as</span> excinfo:
+&gt;           seq_features.number_negatives(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">Z</span><span class="ansi-yellow-fg">&#39;</span>)
+<span class="ansi-red-intense-fg ansi-bold">E           Failed: DID NOT RAISE &lt;class &#39;RuntimeError&#39;&gt;</span>
+
+<span class="ansi-red-intense-fg ansi-bold">test_seq_features.py</span>:27: Failed
+=========================== short test summary info ============================
+FAILED test_seq_features.py::test_number_negatives_for_invalid_amino_acid - F...
+<span class="ansi-red-fg">========================= </span><span class="ansi-red-intense-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">4 passed</span><span class="ansi-red-fg"> in 0.26s</span><span class="ansi-red-fg"> ==========================</span>
+</pre></div></div>
+</div>
+<p>Although all other four tests still pass, the last one fails because our program does not know yet to throw a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> when it receives an invalid sequence as input. Let’s fix that. Adjust the function in the <code class="docutils literal notranslate"><span class="pre">seq_features.py</span></code> file to be as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_negatives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of negative residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="c1"># Convert sequence to upper case</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">seq</span> <span class="o">==</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Z is not a valid amino acid.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Count E&#39;s and D&#39;s, since these are the negative residues</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, re-running the test…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 5 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 20%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 40%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 60%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 80%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">5 passed</span><span class="ansi-green-fg"> in 0.16s</span><span class="ansi-green-fg"> ===============================</span>
+</pre></div></div>
+</div>
+<p>Obviously, this is not a very robust fix; it only works if the invalid amino acid is <code class="docutils literal notranslate"><span class="pre">Z</span></code>. We need a smarter way to fix this. What about using the <code class="docutils literal notranslate"><span class="pre">bootcamp_utils.aa</span></code> dictionary from before? Adjust the contents of your <code class="docutils literal notranslate"><span class="pre">seq_features.py</span></code> file as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bootcamp_utils</span>
+
+<span class="k">def</span> <span class="nf">number_negatives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of negative residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="c1"># Convert sequence to upper case</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Check for a valid sequence</span>
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">aa</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bootcamp_utils</span><span class="o">.</span><span class="n">aa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">aa</span> <span class="o">+</span> <span class="s1">&#39; is not a valid amino acid.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Count E&#39;s and D&#39;s, since these are the negative residues</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now let’s run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> one more time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 5 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 20%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 40%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 60%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 80%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">5 passed</span><span class="ansi-green-fg"> in 0.16s</span><span class="ansi-green-fg"> ===============================</span>
+</pre></div></div>
+</div>
+<p>All of our tests passed!</p>
+</div>
+</div>
+<div class="section" id="Summary-of-TDD">
+<h2>Summary of TDD<a class="headerlink" href="#Summary-of-TDD" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have some experience with TDD and have an idea about what it is and how it works, let’s formalize things by writing out the basic principles of test-driven development.</p>
+<ol class="arabic simple">
+<li><p>Build your software out of <strong>small functions</strong> that do <strong>one specific thing</strong>.</p></li>
+<li><p>Build unit tests for all of your functions.</p></li>
+<li><p>Whenever you want to make any enhancements of adjustments to your code, write tests for it <strong>first</strong>.</p></li>
+<li><p>Whenever you encounter a bug, write tests for it that reproduce the behavior and then fix the code to make the entire test suite to pass.</p></li>
+</ol>
+</div>
+<div class="section" id="Improving-the-seq_features-module-using-TDD:-Practice">
+<h2>Improving the seq_features module using TDD: Practice<a class="headerlink" href="#Improving-the-seq_features-module-using-TDD:-Practice" title="Permalink to this headline">¶</a></h2>
+<p>Let’s write now a function that will calculate the total number of positively charged residues in a protein. In other words, let’s count the number of Lysine (K), Arginine (R) and Histidine (H) residues in the sequence.</p>
+<p>To do that, let’s make the prototype function and add to <code class="docutils literal notranslate"><span class="pre">seq_features.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_positives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of positive residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>and now, let’s build a simple test and add it to <code class="docutils literal notranslate"><span class="pre">test_seq_features.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_number_positives_single_R_K_or_H</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Perform unit tests on number_positives for single AA&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>and let’s test.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 6 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 16%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 33%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 50%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 66%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 83%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-red-fg">FAILED</span><span class="ansi-red-fg">       [100%]</span>
+
+=================================== FAILURES ===================================
+<span class="ansi-red-intense-fg ansi-bold">____________________ test_number_positives_single_R_K_or_H _____________________</span>
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_number_positives_single_R_K_or_H</span>():
+        <span class="ansi-yellow-fg">&#34;&#34;&#34;Perform unit tests on number_positives for single AA&#34;&#34;&#34;</span>
+&gt;       <span class="ansi-blue-intense-fg">assert</span> seq_features.number_positives(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">R</span><span class="ansi-yellow-fg">&#39;</span>) == <span class="ansi-blue-intense-fg">1</span>
+<span class="ansi-red-intense-fg ansi-bold">E       assert None == 1</span>
+<span class="ansi-red-intense-fg ansi-bold">E         +None</span>
+<span class="ansi-red-intense-fg ansi-bold">E         -1</span>
+
+<span class="ansi-red-intense-fg ansi-bold">test_seq_features.py</span>:34: AssertionError
+=========================== short test summary info ============================
+FAILED test_seq_features.py::test_number_positives_single_R_K_or_H - assert N...
+<span class="ansi-red-fg">========================= </span><span class="ansi-red-intense-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">5 passed</span><span class="ansi-red-fg"> in 0.33s</span><span class="ansi-red-fg"> ==========================</span>
+</pre></div></div>
+</div>
+<p>Let’s fix our function, which failed by design.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_positives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of positive residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="c1"># Count R&#39;s, K&#39;s and H&#39;s, since these are the positive residues</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And test again…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 6 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 16%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 33%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 50%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 66%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 83%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">       [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">6 passed</span><span class="ansi-green-fg"> in 0.16s</span><span class="ansi-green-fg"> ===============================</span>
+</pre></div></div>
+</div>
+<p>Now, obviously we want the <code class="docutils literal notranslate"><span class="pre">number_positives()</span></code> function to behave like the <code class="docutils literal notranslate"><span class="pre">number_negatives()</span></code> with <em>weird</em> cases, let’s add the tests below to <code class="docutils literal notranslate"><span class="pre">test_seq_features.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_number_positives_for_empty</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Perform unit tests on number_positives for empty entry&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">test_number_positives_for_short_sequences</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Perform unit tests on number_positives for short sequence&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;RCKLWTTRE&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;DDDDEEEE&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">test_number_positives_for_lowercase</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Perform unit tests on number_positives for lowercase&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;rcklwttre&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+
+
+<span class="k">def</span> <span class="nf">test_number_positives_for_invalid_amino_acid</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s test it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 10 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 10%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 20%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 30%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 40%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 50%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">       [ 60%]</span>
+test_seq_features.py::test_number_positives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 70%]</span>
+test_seq_features.py::test_number_positives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 80%]</span>
+test_seq_features.py::test_number_positives_for_lowercase <span class="ansi-red-fg">FAILED</span><span class="ansi-red-fg">         [ 90%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid <span class="ansi-red-fg">FAILED</span><span class="ansi-red-fg"> [100%]</span>
+
+=================================== FAILURES ===================================
+<span class="ansi-red-intense-fg ansi-bold">_____________________ test_number_positives_for_lowercase ______________________</span>
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_number_positives_for_lowercase</span>():
+        <span class="ansi-yellow-fg">&#34;&#34;&#34;Perform unit tests on number_positives for lowercase&#34;&#34;&#34;</span>
+&gt;       <span class="ansi-blue-intense-fg">assert</span> seq_features.number_positives(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">rcklwttre</span><span class="ansi-yellow-fg">&#39;</span>) == <span class="ansi-blue-intense-fg">3</span>
+<span class="ansi-red-intense-fg ansi-bold">E       assert 0 == 3</span>
+<span class="ansi-red-intense-fg ansi-bold">E         +0</span>
+<span class="ansi-red-intense-fg ansi-bold">E         -3</span>
+
+<span class="ansi-red-intense-fg ansi-bold">test_seq_features.py</span>:52: AssertionError
+<span class="ansi-red-intense-fg ansi-bold">_________________ test_number_positives_for_invalid_amino_acid _________________</span>
+
+    <span class="ansi-blue-intense-fg">def</span> <span class="ansi-green-intense-fg">test_number_positives_for_invalid_amino_acid</span>():
+        <span class="ansi-blue-intense-fg">with</span> pytest.raises(<span class="ansi-cyan-intense-fg">RuntimeError</span>) <span class="ansi-blue-intense-fg">as</span> excinfo:
+&gt;           seq_features.number_positives(<span class="ansi-yellow-fg">&#39;</span><span class="ansi-yellow-fg">Z</span><span class="ansi-yellow-fg">&#39;</span>)
+<span class="ansi-red-intense-fg ansi-bold">E           Failed: DID NOT RAISE &lt;class &#39;RuntimeError&#39;&gt;</span>
+
+<span class="ansi-red-intense-fg ansi-bold">test_seq_features.py</span>:57: Failed
+=========================== short test summary info ============================
+FAILED test_seq_features.py::test_number_positives_for_lowercase - assert 0 == 3
+FAILED test_seq_features.py::test_number_positives_for_invalid_amino_acid - F...
+<span class="ansi-red-fg">========================= </span><span class="ansi-red-intense-fg ansi-bold">2 failed</span>, <span class="ansi-green-fg">8 passed</span><span class="ansi-red-fg"> in 0.28s</span><span class="ansi-red-fg"> ==========================</span>
+</pre></div></div>
+</div>
+<p>Although the current version of the function <code class="docutils literal notranslate"><span class="pre">number_positives()</span></code> passes most of the tests, it is not ready to handle to the edge cases (lowercases and invalid amino-acids).</p>
+<p>We can fix that easily; let’s update the <code class="docutils literal notranslate"><span class="pre">number_positives()</span></code>…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">number_positives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of positive residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="c1"># Convert sequence to upper case</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Check for a valid sequence</span>
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">aa</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bootcamp_utils</span><span class="o">.</span><span class="n">aa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">aa</span> <span class="o">+</span> <span class="s1">&#39; is not a valid amino acid.&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>…and run the test one more time:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 10 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 10%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 20%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 30%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 40%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 50%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">       [ 60%]</span>
+test_seq_features.py::test_number_positives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 70%]</span>
+test_seq_features.py::test_number_positives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 80%]</span>
+test_seq_features.py::test_number_positives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 90%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">10 passed</span><span class="ansi-green-fg"> in 0.17s</span><span class="ansi-green-fg"> ==============================</span>
+</pre></div></div>
+</div>
+<p>We now have a good set of tests and functions that work as expected as a result.</p>
+</div>
+<div class="section" id="Code-refactoring-and-TDD">
+<h2>Code refactoring and TDD<a class="headerlink" href="#Code-refactoring-and-TDD" title="Permalink to this headline">¶</a></h2>
+<p>As we are building modules and functions, though we may try, we are not able to anticipate all the functionalities they must have. And by adding new functionalities, we might need to change our code substantially and even dramatically change the initial logic that worked so well up to this point. This is so common in programming that developers have a name for it: <strong>code refactoring</strong>.</p>
+<p>For example, we did not anticipate when we start writing <code class="docutils literal notranslate"><span class="pre">seq_features</span></code> that we also wanted to calculate the positive charges as well. Beyond that, we broke one of the most important rules in programming: <strong>functions must do one thing and only one thing very well</strong>. It is clear that <code class="docutils literal notranslate"><span class="pre">number_negatives()</span></code> was doing three things:</p>
+<ol class="arabic simple">
+<li><p>Dealing with lowercases characters.</p></li>
+<li><p>Raising exceptions for invalid amino-acids in the input sequence.</p></li>
+<li><p>Calculating the negative charge of amino-acids.</p></li>
+</ol>
+<p>Turns out that <code class="docutils literal notranslate"><span class="pre">number_positives()</span></code> also needs to do items 1 and 2, and because of that we have repeated the following lines of code in two different functions, within the same module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sequence to upper case</span>
+ <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+ <span class="c1"># Check for a valid sequence</span>
+ <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+     <span class="k">if</span> <span class="n">aa</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bootcamp_utils</span><span class="o">.</span><span class="n">aa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">aa</span> <span class="o">+</span> <span class="s1">&#39; is not a valid amino acid.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and if we are trying to make this module more robust, every time we catch a bug, we will need to change identical code in <strong>two places</strong>. So let’s perform a code refactoring in order to keep the principle of <em>functions doing only one thing</em> as close to the truth as possible.</p>
+<p>The first task, changing the inputted sequence to uppercase, uses a built-in Python function, and using another function to do this is unnessary. So, we can keep the <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">=</span> <span class="pre">seq.upper()</span></code> line in the functions.</p>
+<p>Now, let’s write a functions that will check if the sequence is valid. That way we will focus all the logic related to checking for invalid sequences in one part of the code, and we can call it anywhere we need afterwards. So, your module <code class="docutils literal notranslate"><span class="pre">seq_features.py</span></code> should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bootcamp_utils</span>
+
+<span class="k">def</span> <span class="nf">is_valid_sequence</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">aa</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bootcamp_utils</span><span class="o">.</span><span class="n">aa</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">aa</span> <span class="o">+</span> <span class="s1">&#39; is not a valid amino acid.&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">number_negatives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of negative residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="c1"># Convert sequence to upper case</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Check for a valid sequence</span>
+    <span class="n">is_valid_sequence</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="c1"># Count E&#39;s and D&#39;s, since these are the negative residues</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">number_positives</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Number of positive residues a protein sequence&quot;&quot;&quot;</span>
+    <span class="c1"># Convert sequence to upper case</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Check for a valid sequence</span>
+    <span class="n">is_valid_sequence</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now let’s include two new tests to <code class="docutils literal notranslate"><span class="pre">test_seq_features.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_number_negatives_for_invalid_amino_acid_anywhere</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">number_negatives</span><span class="p">(</span><span class="s1">&#39;AZK&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_number_positives_for_invalid_amino_acid_anywhere</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">number_positives</span><span class="p">(</span><span class="s1">&#39;AZK&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 12 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [  8%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 16%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 25%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 33%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 41%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">       [ 50%]</span>
+test_seq_features.py::test_number_positives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 58%]</span>
+test_seq_features.py::test_number_positives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 66%]</span>
+test_seq_features.py::test_number_positives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 75%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 83%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 91%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">12 passed</span><span class="ansi-green-fg"> in 0.17s</span><span class="ansi-green-fg"> ==============================</span>
+</pre></div></div>
+</div>
+<p>There we have it. Passing all the tests and even though we changed our code to accommodate new demands, we can guarantee that it is still working the way it was first intended in addition to the new functionalities.</p>
+<p>As an added bonus, we don’t need to write tests related to valid sequence for <code class="docutils literal notranslate"><span class="pre">number_negatives()</span></code> and <code class="docutils literal notranslate"><span class="pre">number_positives()</span></code> because these functions are not supposed to be responsible for this task anymore.</p>
+<p>That said, <strong>refactoring tests is frowned upon</strong> and taken VERY seriously by developers; it is a very big responsibility and should be done carefully if ever. Keep on <em>adding</em> tests related to <code class="docutils literal notranslate"><span class="pre">is_valid_sequence()</span></code>, but <em>do not remove</em> the previous tests already in the suite.</p>
+<p>So, let’s add the exception tests for <code class="docutils literal notranslate"><span class="pre">is_valid_sequence()</span></code> in <code class="docutils literal notranslate"><span class="pre">test_seq_features.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_is_valid_sequence_for_invalid_amino_acid</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">is_valid_sequence</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_is_valid_sequence_for_invalid_amino_acid_anywhere</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">is_valid_sequence</span><span class="p">(</span><span class="s1">&#39;AZK&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and run the tests again.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 14 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [  7%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 14%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 21%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 28%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 35%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">       [ 42%]</span>
+test_seq_features.py::test_number_positives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 50%]</span>
+test_seq_features.py::test_number_positives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 57%]</span>
+test_seq_features.py::test_number_positives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 64%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 71%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 78%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 85%]</span>
+test_seq_features.py::test_is_valid_sequence_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 92%]</span>
+test_seq_features.py::test_is_valid_sequence_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">14 passed</span><span class="ansi-green-fg"> in 0.18s</span><span class="ansi-green-fg"> ==============================</span>
+</pre></div></div>
+</div>
+<p>We should write more careful tests for <code class="docutils literal notranslate"><span class="pre">is_valid_sequence()</span></code> to cover more possible errors than just having a <code class="docutils literal notranslate"><span class="pre">Z</span></code> in a sequence. This is nice; now we just need to code a single test function for it, in contrast to writing two of them: one for <code class="docutils literal notranslate"><span class="pre">number_negatives()</span></code> and another for <code class="docutils literal notranslate"><span class="pre">number_positives()</span></code>. We can add this test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_is_valid_sequence_for_other_invalid_amino_acid_anywhere</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">seq_features</span><span class="o">.</span><span class="n">is_valid_sequence</span><span class="p">(</span><span class="s1">&#39;ALKSAYGS&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">is_valid_sequence</span><span class="p">(</span><span class="s1">&#39;AZLL&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Z is not a valid amino acid&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">is_valid_sequence</span><span class="p">(</span><span class="s1">&#39;ALLBJ&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;B is not a valid amino acid&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+        <span class="n">seq_features</span><span class="o">.</span><span class="n">is_valid_sequence</span><span class="p">(</span><span class="s1">&#39;AL%J&#39;</span><span class="p">)</span>
+    <span class="n">excinfo</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% i</span><span class="s2">s not a valid amino acid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And let’s run the tests again.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pytest -v
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">============================= test session starts ==============================</span>
+platform darwin -- Python 3.8.10, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/bois/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+hypothesis profile &#39;default&#39; -&gt; database=DirectoryBasedExampleDatabase(&#39;/Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons/.hypothesis/examples&#39;)
+rootdir: /Users/bois/Dropbox/git/programming_bootcamp/2021/content/lessons
+plugins: hypothesis-6.13.14, anyio-2.2.0
+collected 15 items
+
+test_seq_features.py::test_number_negatives_single_E_or_D <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [  6%]</span>
+test_seq_features.py::test_number_negatives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 13%]</span>
+test_seq_features.py::test_number_negatives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 20%]</span>
+test_seq_features.py::test_number_negatives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 26%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 33%]</span>
+test_seq_features.py::test_number_positives_single_R_K_or_H <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">       [ 40%]</span>
+test_seq_features.py::test_number_positives_for_empty <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">             [ 46%]</span>
+test_seq_features.py::test_number_positives_for_short_sequences <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">   [ 53%]</span>
+test_seq_features.py::test_number_positives_for_lowercase <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg">         [ 60%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 66%]</span>
+test_seq_features.py::test_number_negatives_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 73%]</span>
+test_seq_features.py::test_number_positives_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 80%]</span>
+test_seq_features.py::test_is_valid_sequence_for_invalid_amino_acid <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 86%]</span>
+test_seq_features.py::test_is_valid_sequence_for_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [ 93%]</span>
+test_seq_features.py::test_is_valid_sequence_for_other_invalid_amino_acid_anywhere <span class="ansi-green-fg">PASSED</span><span class="ansi-green-fg"> [100%]</span>
+
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-intense-fg ansi-bold">15 passed</span><span class="ansi-green-fg"> in 0.22s</span><span class="ansi-green-fg"> ==============================</span>
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Where-do-we-go-from-here?">
+<h2>Where do we go from here?<a class="headerlink" href="#Where-do-we-go-from-here?" title="Permalink to this headline">¶</a></h2>
+<p>There are tons of details about <code class="docutils literal notranslate"><span class="pre">pytest</span></code> that will address most issues you will encounter while working on your programs. It is <a class="reference external" href="https://docs.pytest.org">very well documented</a>, so you can use that to develop tests for your code. I have found the <a class="reference external" href="https://hypothesis.readthedocs.io/">Hypothesis package</a> to be very useful in testing functions the perform numerics in scientific applications.</p>
+<p>The next real step is for you to learn <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> (CI), and how to package your program and publish it (possibly on <a class="reference external" href="pypi.python.org">the Python Package Index</a>, or just hosted on GitHub). An interesting shortcut for that is to use the <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">Cookiecutter package</a>.</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p bootcamp_utils,pytest,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+bootcamp_utils: 0.0.6
+pytest        : 6.2.3
+jupyterlab    : 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l29_dashboards.html" class="btn btn-neutral float-right" title="Lesson 29: Dashboards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l14_testing_and_tdd.html" class="btn btn-neutral float-left" title="Lesson 14: Testing and test-driven development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 25, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

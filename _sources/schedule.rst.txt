@@ -1,7 +1,7 @@
 Schedule overview
 -----------------
 
-The bootcamp runs Monday through Friday June 28-July 2, 2021 from 9:00 am - 6:00 pm CET via Zoom or in person in BC 01. Enrollees have a private Zoom link emailed to them. Each lesson is approximately 40 minutes and is followed with a break. The lessons are given live via Zoom, but are recorded for future reference. Enrollees will also have private video links emailed to them.
+The bootcamp runs Monday through Friday June 28-July 2, 2021 from 9:00 am - 6:00 pm CET via Zoom or in person in BC 01.
 
 ----
 
@@ -39,63 +39,63 @@ Daily schedule
 	+ **12:15** - :ref:`Lesson 12: Version control with Git`
         + **13:15** - BREAK
 	+ **14:15** - :ref:`Lesson 13: Errors and Exception handling`
-	+ **14:45** - :ref:`Lesson 14: Style`
+	+ **14:45** - :ref:`Lesson 16: Style`
 	+ **15:30** - :ref:`Exercise 3` & :ref:`Exercise 4`
 
 
 - **Day 3: Wednesday, June 30**
 
 	+ **9:00** - :ref:`Review of Exercise 3<Exercise 3 solutions>` & :ref:`Review of Exercise 4<Exercise 4 solutions>`
-	+ **9:45** - :ref:`Lesson 15: Introduction to Pandas`
+	+ **9:45** - :ref:`Lesson 17: Introduction to Pandas`
         + **10:45** - BREAK
-	+ **11:00** - :ref:`Lesson 16: Tidy data and split-apply-combine`
+	+ **11:00** - :ref:`Lesson 18: Tidy data and split-apply-combine`
         + **12:00** - :ref:`Exercise 5`
         + **13:15** - BREAK
-	+ **14:15** - :ref:`Lesson 17: Making plots`
-	+ **15:15** - :ref:`Lesson 18: High level plotting`
+	+ **14:15** - :ref:`Lesson 19: Making plots`
+	+ **15:15** - :ref:`Lesson 20: High level plotting`
 	+ **16:15** - :ref:`Exercise 6` (& leftovers :ref:`Exercise 5`)
 
 
 - **Day 4: Thursday, July 1**
 
 	+ **9:00** - :ref:`Review of Exercise 5<Exercise 5 solutions>` & :ref:`Review of Exercise 6<Exercise 6 solutions>`
-	+ **9:45** - :ref:`Lesson 19: Introduction to Numpy and Scipy`
+	+ **9:45** - :ref:`Lesson 21: Introduction to Numpy and Scipy`
         + **10:45** - BREAK
-	+ **11:00** - :ref:`Lesson 20: Plotting time series and generated data`
-	+ **11:30** - :ref:`Lesson 21: Random number generation`
-	+ **12:15** - :ref:`Lesson 22: Comprehensions`
+	+ **11:00** - :ref:`Lesson 22: Plotting time series and generated data`
+	+ **11:30** - :ref:`Lesson 23: Random number generation`
+	+ **12:15** - :ref:`Lesson 24: Comprehensions`
         + **13:00** - BREAK
-	+ **14:00** - :ref:`Lesson 23: Hacker stats I`
-	+ **15:00** - :ref:`Lesson 24: Hacker stats II`
+	+ **14:00** - :ref:`Lesson 25: Hacker stats I`
+	+ **15:00** - :ref:`Lesson 26: Hacker stats II`
 	+ **15:30** - :ref:`Exercise 7` & :ref:`Exercise 8`
 
 
 - **Day 5: Friday, July 2**
 
 	+ **9:00** - :ref:`Review of Exercise 7<Exercise 7 solutions>` & :ref:`Review of Exercise 8<Exercise 8 solutions>`
-	+ **9:45** - :ref:`Lesson 25: High level plotting with HoloViews`
+	+ **9:45** - :ref:`Lesson 27: High level plotting with HoloViews`
         + **10:30** - BREAK
-	+ **10:45** - :ref:`Lesson 26: Dealing with overplotting`
-	+ **11:30** - :ref:`Lesson 27: Introduction to image processing with scikit-image`
-	+ **12:15** - :ref:`Lesson 28: Basic image quantification`
+	+ **10:45** - :ref:`Lesson 28: Dealing with overplotting`
+	+ **11:30** - :ref:`Lesson 38: Introduction to image processing with scikit-image`
+	+ **12:15** - :ref:`Lesson 39: Basic image quantification`
         + **12:30** - BREAK
-	+ **13:30** - :ref:`Lesson 29: Survey of other packages and languages`
+	+ **13:30** - :ref:`Lesson 32: Survey of other packages and languages`
 	+ **14:10** - :ref:`Exercise 10`
         + **15:15** - :ref:`Review of Exercise 10<Exercise 10 solutions>`
-	+ **16:00** - :ref:`Lesson 30: Bootcamp recap` (with Justin Bois)
+	+ **16:00** - :ref:`Lesson 33: Bootcamp recap` (with Justin Bois)
 
 
 - **Auxiliary lessons**
 
-	+ :ref:`Lesson 31: JavaScript for stand-alone Bokeh apps`
-	+ :ref:`Lesson 32: Introduction to scripting`
-	+ :ref:`Lesson 33: More about the command line`
-	+ :ref:`Lesson 34: Regular expressions`
-	+ :ref:`Lesson 35: Introduction to object-oriented programming`
-	+ :ref:`Lesson 36: Algorithmic complexity`
-	+ :ref:`Lesson 37: Control of external devices`
-	+ :ref:`Lesson 38: Apps for controlling external devices`
-    + :ref:`Lesson 39: Control panels`
-    + :ref:`Lesson 40: Testing and test-driven development`
-    + :ref:`Lesson 41: Examples of TDD`
-    + :ref:`Lesson 42: Dashboards`
+	+ :ref:`Lesson 30: JavaScript for stand-alone Bokeh apps`
+	+ :ref:`Lesson 31: Introduction to scripting`
+	+ :ref:`Lesson 34: More about the command line`
+	+ :ref:`Lesson 35: Regular expressions`
+	+ :ref:`Lesson 36: Introduction to object-oriented programming`
+	+ :ref:`Lesson 37: Algorithmic complexity`
+	+ :ref:`Lesson 40: Control of external devices`
+	+ :ref:`Lesson 41: Apps for controlling external devices`
+    + :ref:`Lesson 42: Control panels`
+    + :ref:`Lesson 14: Testing and test-driven development`
+    + :ref:`Lesson 15: Examples of TDD`
+    + :ref:`Lesson 29: Dashboards`

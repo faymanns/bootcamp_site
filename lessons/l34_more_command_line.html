@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lesson 34: More about the command line &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesson 35: Regular expressions" href="l35_regular_expressions.html" />
+    <link rel="prev" title="Lesson 31: Introduction to scripting" href="l31_intro_to_scripting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l16_style.html">Lesson 16: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l17_intro_to_pandas.html">Lesson 17: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l18_split_apply_combine.html">Lesson 18: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l19_plotting.html">Lesson 19: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l20_high_level_plotting.html">Lesson 20: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l21_intro_to_numpy_and_scipy.html">Lesson 21: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l22_plotting_time_series_generated_data.html">Lesson 22: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l23_random_number_generation.html">Lesson 23: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l24_comprehensions.html">Lesson 24: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l25_hackerstats_1.html">Lesson 25: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l26_hackerstats_2.html">Lesson 26: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l27_holoviews.html">Lesson 27: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l28_overplotting.html">Lesson 28: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l38_intro_to_image_processing.html">Lesson 38: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l39_segmentation.html">Lesson 39: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l32_other_packages_and_languages.html">Lesson 32: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l33_bootcamp_recap.html">Lesson 33: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="l30_javascript_for_bokeh.html">Lesson 30: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l31_intro_to_scripting.html">Lesson 31: Introduction to scripting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 34: More about the command line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#man">man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tee">tee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Pipes-(|)-and-redirects-(&gt;)">Pipes (|) and redirects (&gt;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#echo">echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grep">grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#^C,-^Z,-bg,-fg,-ps,-top,-kill">^C, ^Z, bg, fg, ps, top, kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Environment-variables">Environment variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#PATH">PATH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conda">conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Conclusions">Conclusions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l35_regular_expressions.html">Lesson 35: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l36_intro_to_oop.html">Lesson 36: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l37_algorithmic_complexity.html">Lesson 37: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l40_serial.html">Lesson 40: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l41_serial_apps.html">Lesson 41. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l42_control_panels.html">Lesson 42: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l14_testing_and_tdd.html">Lesson 14: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l15_examples_of_tdd.html">Lesson 15: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l29_dashboards.html">Lesson 29: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lesson 34: More about the command line</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lessons/l34_more_command_line.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Lesson-34:-More-about-the-command-line">
+<h1>Lesson 34: More about the command line<a class="headerlink" href="#Lesson-34:-More-about-the-command-line" title="Permalink to this headline">¶</a></h1>
+<p>This lesson was prepared in collaboration with Axel Müller and Shyam Saladi.</p>
+<hr><p>In this lesson, we will continue introducing techniques to navigate the command line. Like we have said before, you will feel empowered controlling your computer as you master command line skills. We will go through a set of commands and skills.</p>
+<p>To start, let’s navigate into the folder we created in our <a class="reference internal" href="l02_basic_command_line_skills.html"><span class="doc">first command line lesson</span></a>. Fire up a terminal and cd into the directory <code class="docutils literal notranslate"><span class="pre">~/bootcamp/command_line_tutorial</span></code> and let’s get going!</p>
+<p>(Reminder: There may be differences between Windows Powershell and what we present here, which is for Linux and macOS. We will try to make note of and differences.)</p>
+<div class="section" id="man">
+<h2>man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h2>
+<p><strong>Windows users</strong>: Powershell does not have <code class="docutils literal notranslate"><span class="pre">man</span></code>. You can instead use <a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help">Get-help</a>.</p>
+<p>Most commands have a manual that can be accessed right from the terminal itself. Last time we explored the command <code class="docutils literal notranslate"><span class="pre">more</span></code>. Note, try this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man more
+</pre></div>
+</div>
+<p>The manual usually has a description of the command, a synopsis which informs you about the syntax, and a list of options.</p>
+</div>
+<div class="section" id="tee">
+<h2>tee<a class="headerlink" href="#tee" title="Permalink to this headline">¶</a></h2>
+<p><strong>Windows users</strong>: In Powershell you can use <a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/tee-object">Tee-object</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tee</span></code> will tell you:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tee - read from standard input and write to standard output and files.
+</pre></div>
+</div>
+<p>Try this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tee testing_tee.txt
+</pre></div>
+</div>
+<p>start typing some text and press return. Repeat the process if you like. When you are done press <code class="docutils literal notranslate"><span class="pre">ctrl-c</span></code>. Have a look at what you just created (use, <code class="docutils literal notranslate"><span class="pre">cat</span></code> or <code class="docutils literal notranslate"><span class="pre">less</span></code> or <code class="docutils literal notranslate"><span class="pre">more</span></code>).</p>
+</div>
+<div class="section" id="Pipes-(|)-and-redirects-(&gt;)">
+<h2>Pipes (|) and redirects (&gt;)<a class="headerlink" href="#Pipes-(|)-and-redirects-(>)" title="Permalink to this headline">¶</a></h2>
+<p>Shells are very good at stringing commands together. Let’s look at an example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls | tee contents.txt
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code> lists all the files and folders of the current directory and prints the information to the standard output. By adding the <strong>pipe</strong> character (<code class="docutils literal notranslate"><span class="pre">|</span></code>) we tell the shell to feed this information into the next command instead.</p>
+<p>Compare this to</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls &gt; contents_again.txt
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> character redirects from the standard output to a file. When using the tee command the same happens but the information is still passed to the standard output (meaning that it is displayed on your screen). When redirecting the information is just passed on to the file.</p>
+<p>Note that redirecting with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> to a file will overwrite the file’s original content. Using <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> instead will append the output to the file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls &gt;&gt; contents_again.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="echo">
+<h2>echo<a class="headerlink" href="#echo" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">echo</span></code> simply prints a line of text to the standard output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;Thanks for all the fish!&quot;
+</pre></div>
+</div>
+<p>It can be quite useful in combination with redirects</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;Thanks for all the fish&quot; &gt; hitchhiker_quotes.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="grep">
+<h2>grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<p><strong>Windows users</strong>: The Powershell version of <code class="docutils literal notranslate"><span class="pre">grep</span></code> is <a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string">Select-String</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span></code> searches the input for lines containing a match of a given expression. For example, to find the descriptor line in a FASTA file, you can do this.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep &quot;&gt;&quot; sequences/1z98.fasta
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> symbol is in quotes because we are telling the shell to interpret it literally, as opposed to a redirect.</p>
+<p>If you want to find lines that do <em>not</em> have a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, use the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag with <code class="docutils literal notranslate"><span class="pre">grep</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -v &quot;&gt;&quot; sequences/1z98.fasta
+</pre></div>
+</div>
+<p>If you want to ignore case, use the <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag. For example,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep &quot;sequence&quot; sequences/1z98.fasta
+</pre></div>
+</div>
+<p>will not have any hits, but</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -i &quot;sequence&quot; sequences/1z98.fasta
+</pre></div>
+</div>
+<p>will.</p>
+<p>If you provide a wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code> for the file name, <code class="docutils literal notranslate"><span class="pre">grep</span></code> will search all files in a directory. Remember that we had some PDB files in the <code class="docutils literal notranslate"><span class="pre">~git/bootcamp/data/</span></code> directory. We could find them (assuming we are in the <code class="docutils literal notranslate"><span class="pre">~/git/bootcamp/command_line_tutorial/</span></code> directory) by using</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls ../data/*.pdb
+</pre></div>
+</div>
+<p>But if we are concerned that we might not have the right suffixes on all of our file names, we could use <code class="docutils literal notranslate"><span class="pre">grep</span></code> to get the name of all <em>files</em> that contain a string common to PDB files, like <code class="docutils literal notranslate"><span class="pre">ATOM</span></code>. To do this, we use the <code class="docutils literal notranslate"><span class="pre">-l</span></code> flag. We can combine that with the case-insensitivity (<code class="docutils literal notranslate"><span class="pre">-i</span></code>) flag.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -li &quot;ATOM&quot; ../data/*
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span></code> is also very useful when combined with other commands. Try this one:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat sequences/*.fasta | grep &quot;&gt;&quot;
+</pre></div>
+</div>
+<p>The word count command (<code class="docutils literal notranslate"><span class="pre">wc</span></code>) works particularly well with <code class="docutils literal notranslate"><span class="pre">grep</span></code>. Try:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat sequences/*.fasta | grep &quot;&gt;&quot; | wc -l
+</pre></div>
+</div>
+<p>(<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">wc</span></code> will tell you more about this useful little command.) Let’s looks at that command we just did in more detail. First, <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">sequences/*.fasta</span></code> outputs the entire text of all files in the directory <code class="docutils literal notranslate"><span class="pre">sequences</span></code> that have the <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> suffix. That is piped to <code class="docutils literal notranslate"><span class="pre">grep</span></code>, meaning that the output of the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command does not go to the screen, but to <code class="docutils literal notranslate"><span class="pre">grep</span></code>. So, we now take all that text from those files and use <code class="docutils literal notranslate"><span class="pre">grep</span></code> to give all lines that start with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>. Those lines are then
+piped into <code class="docutils literal notranslate"><span class="pre">wc</span></code>, which, with the <code class="docutils literal notranslate"><span class="pre">-l</span></code> flag, gives the number of lines. Thus, we get a count of the total number of sequences in our FASTA files. Pretty slick!</p>
+</div>
+<div class="section" id="^C,-^Z,-bg,-fg,-ps,-top,-kill">
+<h2>^C, ^Z, bg, fg, ps, top, kill<a class="headerlink" href="#^C,-^Z,-bg,-fg,-ps,-top,-kill" title="Permalink to this headline">¶</a></h2>
+<p>There is a tiny python script called <code class="docutils literal notranslate"><span class="pre">fibonacci.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">command_line_tutorial</span></code> directory. Have a look at it. It features an endless loop which is perfect for illustrating a number of commands. Start the program by typing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python fibonacci.py
+</pre></div>
+</div>
+<p>This will print Fibonacci numbers to the screen forever. Once you have enough you can terminate the script with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
+<p>Let’s rerun the script and pipe the output to a file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python fibonacci.py &gt; fibs
+</pre></div>
+</div>
+<p>This too runs forever. Instead of terminating the script, we can suspend it. To do this, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>^Z
+</pre></div>
+</div>
+<p>Next typing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bg
+</pre></div>
+</div>
+<p>(for “background”) allows the process to be resumed in the background. To bring it back to the foreground, type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fg
+</pre></div>
+</div>
+<p>and now we can terminate it again with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
+<p>Another way to kill a program is the kill command. For this we need to find out the process id. First, let’s start it up and put it in the background.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python fibonacci.py &gt; fibs
+^Z
+bg
+</pre></div>
+</div>
+<p>Now that it’s running in the background, we would like to know what process it is. Actually, we can find out all processes that are running. One way to do this is using the <code class="docutils literal notranslate"><span class="pre">ps</span></code> command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ps
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ps -ax
+</pre></div>
+</div>
+<p>Another useful command that shows you what is going on is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>top
+</pre></div>
+</div>
+<p>Either command will reveal the process ID. Once you know the process ID,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kill &lt;process ID&gt;
+</pre></div>
+</div>
+<p>(where you substitute <code class="docutils literal notranslate"><span class="pre">&lt;process</span> <span class="pre">ID&gt;</span></code> with the number you got from <code class="docutils literal notranslate"><span class="pre">ps</span></code> or <code class="docutils literal notranslate"><span class="pre">top</span></code>) will stop the process. Now, it might be a good idea to delete the <code class="docutils literal notranslate"><span class="pre">fibs</span></code> file.</p>
+</div>
+<div class="section" id="Environment-variables">
+<h2>Environment variables<a class="headerlink" href="#Environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>An environment variable is a dynamic value that can affect the way running processes behave.”</p>
+<p>The command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>env
+</pre></div>
+</div>
+<p>(or <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">env:</span></code> for Powershell useres) will show you which environment variables have been set. One particularly important environment variable is <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<div class="section" id="PATH">
+<h3>PATH<a class="headerlink" href="#PATH" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable tells the system which directories the shell has to search for executable files. This is called the <strong>search path</strong>. It’s a list of absolute paths separated by colons.</p>
+<p>To check what has been already added to PATH we can issue the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;$PATH&quot;
+</pre></div>
+</div>
+<p>(Windows users use <code class="docutils literal notranslate"><span class="pre">$env:path</span></code>.) To see how this works, make sure you are in the <code class="docutils literal notranslate"><span class="pre">~/bootcamp/command_line_tutorial/</span></code> directory. There is a little shell script there called <code class="docutils literal notranslate"><span class="pre">remind_me.sh</span></code>. To run it, do the following.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./remind_me.sh
+</pre></div>
+</div>
+<p>Now, try running it without the <code class="docutils literal notranslate"><span class="pre">./</span></code> at the beginning.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>remind_me.sh
+</pre></div>
+</div>
+<p>The second one does not work. This is because whenever you ask the shell to execute something, it searches the directories in <code class="docutils literal notranslate"><span class="pre">PATH</span></code> to find something with that name, unless you give the full path when invoking the executable. Note that <code class="docutils literal notranslate"><span class="pre">./remind_me.sh</span></code> is the full path because <code class="docutils literal notranslate"><span class="pre">./</span></code> aliases to the working directory.</p>
+<p>Now, we sometimes want the shell to find items in specific directories, so we can change the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable.</p>
+<p>One way to do this is to execute</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:/complete/path/to/be/included
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">/complete/path/to/be/included</span></code> is the name of the directory you want to be added to the search path. This will be used for the remainder of the session. Once you close your terminal it’s gone. To make changes permanently we need to add this to the end of the relevent rc file (<code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> for Bash and <code class="docutils literal notranslate"><span class="pre">.zsh</span></code> for Zsh).</p>
+</div>
+</div>
+<div class="section" id="conda">
+<h2>conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h2>
+<p>Conda is the package and environment manager that comes with your Anaconda installation. It allows you to install packages and makes sure that all dependencies are installed as well and it helps you keeping your installed packages up to date.</p>
+<p>Have a look at this <a class="reference external" href="http://conda.pydata.org/docs/_downloads/conda-cheatsheet.pdf">cheat sheet</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code> can also create environments in which specified packages are active. This is important because the requirements of one package may conflict with those of another. For example, say we want to create an environment that we will do other installations in, say related to <a class="reference external" href="https://mc-stan.org">Stan</a>, a sophisticated package used in statistical applications.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create --name stan anaconda
+</pre></div>
+</div>
+<p>Now, we want to switch to this package and install PyStan, for example. To activate the environment <code class="docutils literal notranslate"><span class="pre">stan</span></code> execute the following.</p>
+<p>On Linux and Mac:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>source activate stan
+</pre></div>
+</div>
+<p>On Windows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>activate stan
+</pre></div>
+</div>
+<p>Then, we can make our installations that are specific to this environment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install pystan
+</pre></div>
+</div>
+<p>If we want to switch back to our default environment, we do</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="Conclusions">
+<h2>Conclusions<a class="headerlink" href="#Conclusions" title="Permalink to this headline">¶</a></h2>
+<p>There is still much more to learn about using the command line effectively. However, given your basic command line knowledge and Python programming skills, you are already well on your way to being empowered for effectively use your computer as a research tool.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="l35_regular_expressions.html" class="btn btn-neutral float-right" title="Lesson 35: Regular expressions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="l31_intro_to_scripting.html" class="btn btn-neutral float-left" title="Lesson 31: Introduction to scripting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 25, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
