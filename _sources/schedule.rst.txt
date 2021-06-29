@@ -49,8 +49,8 @@ Daily schedule
 	+ **9:45** - :ref:`Lesson 17: Introduction to Pandas`
         + **10:45** - BREAK
 	+ **11:00** - :ref:`Lesson 18: Tidy data and split-apply-combine`
-        + **12:00** - :ref:`Exercise 5`
-        + **13:15** - BREAK
+        + **12:00** - BREAK
+        + **13:00** - :ref:`Exercise 5`
 	+ **14:15** - :ref:`Lesson 19: Making plots`
 	+ **15:15** - :ref:`Lesson 20: High level plotting`
 	+ **16:15** - :ref:`Exercise 6` (& leftovers :ref:`Exercise 5`)
@@ -62,11 +62,11 @@ Daily schedule
 	+ **9:45** - :ref:`Lesson 21: Introduction to Numpy and Scipy`
         + **10:45** - BREAK
 	+ **11:00** - :ref:`Lesson 22: Plotting time series and generated data`
-	+ **11:30** - :ref:`Lesson 23: Random number generation`
-	+ **12:15** - :ref:`Lesson 24: Comprehensions`
-        + **13:00** - BREAK
-	+ **14:00** - :ref:`Lesson 25: Hacker stats I`
-	+ **15:00** - :ref:`Lesson 26: Hacker stats II`
+	+ **11:20** - :ref:`Lesson 23: Random number generation`
+	+ **12:05** - :ref:`Lesson 24: Comprehensions`
+        + **12:45** - BREAK
+	+ **13:45** - :ref:`Lesson 25: Hacker stats I`
+	+ **14:45** - :ref:`Lesson 26: Hacker stats II`
 	+ **15:30** - :ref:`Exercise 7` & :ref:`Exercise 8`
 
 
