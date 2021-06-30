@@ -68,6 +68,7 @@ Daily schedule
 	+ **13:45** - :ref:`Lesson 25: Hacker stats I`
 	+ **14:45** - :ref:`Lesson 26: Hacker stats II`
 	+ **15:30** - :ref:`Exercise 7` & :ref:`Exercise 8`
+        + **16:00** - Justin Bois on Zoom
 
 
 - **Day 5: Friday, July 2**
