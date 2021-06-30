@@ -1,0 +1,1109 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 4.1: Pathogenicity islands &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 4.2: ORF detection" href="exercise_4.2_solution.html" />
+    <link rel="prev" title="Exercise 4 solutions" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_style.html">Lesson 16: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_intro_to_pandas.html">Lesson 17: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_split_apply_combine.html">Lesson 18: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_plotting.html">Lesson 19: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_high_level_plotting.html">Lesson 20: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_intro_to_numpy_and_scipy.html">Lesson 21: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_plotting_time_series_generated_data.html">Lesson 22: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_random_number_generation.html">Lesson 23: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_comprehensions.html">Lesson 24: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_hackerstats_1.html">Lesson 25: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_hackerstats_2.html">Lesson 26: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_holoviews.html">Lesson 27: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_overplotting.html">Lesson 28: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_intro_to_image_processing.html">Lesson 38: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_segmentation.html">Lesson 39: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_other_packages_and_languages.html">Lesson 32: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_bootcamp_recap.html">Lesson 33: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_javascript_for_bokeh.html">Lesson 30: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_intro_to_scripting.html">Lesson 31: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_more_command_line.html">Lesson 34: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_regular_expressions.html">Lesson 35: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_intro_to_oop.html">Lesson 36: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_algorithmic_complexity.html">Lesson 37: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_serial.html">Lesson 40: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_serial_apps.html">Lesson 41. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_control_panels.html">Lesson 42: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_testing_and_tdd.html">Lesson 14: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_examples_of_tdd.html">Lesson 15: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_dashboards.html">Lesson 29: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercise solutions</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_2/index.html">Exercise 2 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3 solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 4 solutions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 4.1: Pathogenicity islands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_4.2_solution.html">Exercise 4.2: ORF detection</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 4 solutions</a> &raquo;</li>
+        
+      <li>Exercise 4.1: Pathogenicity islands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercise_solutions/exercise_4/exercise_4.1_solution.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-4.1:-Pathogenicity-islands">
+<h1>Exercise 4.1: Pathogenicity islands<a class="headerlink" href="#Exercise-4.1:-Pathogenicity-islands" title="Permalink to this headline">¶</a></h1>
+<p>This exercise was inspired by <a class="reference external" href="https://www.cs.hmc.edu/CFB">Libeskind-Hadas and Bush, Computing for Biologists, Cambridge University Press, 2014</a>.</p>
+<hr><p>For this and the <a class="reference external" href="exercise_4.2.ipynb">next problem</a>, we will work with real data from the <em>Salmonella enterica</em> genome. The section of the genome we will work with is in the file <code class="docutils literal notranslate"><span class="pre">~git/bootcamp/data/salmonella_spi1_region.fna</span></code>. I cut it out of the <a class="reference external" href="http://www.ncbi.nlm.nih.gov/nucleotide/821161554">full genome</a>. It contains <em>Salmonella</em> pathogenicity island I (SPI1), which contains genes for surface receptors for host-pathogen interactions.</p>
+<p>Pathogenicity islands are often marked by different GC content than the rest of the genome. We will try to locate the pathogenicity island(s) in our section of the <em>Salmonella</em> genome by computing GC content.</p>
+<p><strong>a)</strong> Use principles of TDD to write a function that divides a sequence into blocks and computes the GC content for each block, returning a tuple. The function signature should look like</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gc_blocks(seq, block_size)
+</pre></div>
+</div>
+<p>To be clear, if <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">=</span> <span class="pre">'ATGACTACGT'</span></code> and <code class="docutils literal notranslate"><span class="pre">block_size</span> <span class="pre">=</span> <span class="pre">4</span></code>, the blocks to be considered are</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ATGA
+CTAC
+</pre></div>
+</div>
+<p>and the function should return <code class="docutils literal notranslate"><span class="pre">(0.25,</span> <span class="pre">0.5)</span></code>. Note that the blocks are non-overlapping and that we don’t bother with the fact that end of the sequence that does not fit completely in a block.</p>
+<p><strong>b)</strong> Write a function that takes as input a sequence, block size, and a threshold GC content, and returns the original sequence where every base in a block with GC content above threshold is capitalized and every base below the threshold is lowercase. You would call the function like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mapped_seq = gc_map(seq, block_size, gc_thresh)
+</pre></div>
+</div>
+<p>For example,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gc_map(&#39;ATGACTACGT&#39;, 4, 0.4)
+</pre></div>
+</div>
+<p>returns <code class="docutils literal notranslate"><span class="pre">'atgaCTAC'</span></code>. Note that bases not included in GC blocks (in this case the <code class="docutils literal notranslate"><span class="pre">GT</span></code> at the end of the sequence) are not included in the output sequence. Again, use principles of TDD.</p>
+<p><strong>c)</strong> Use the <code class="docutils literal notranslate"><span class="pre">gc_map()</span></code> function to generate a GC content map for the <em>Salmonella</em> sequence with <code class="docutils literal notranslate"><span class="pre">block_size</span> <span class="pre">=</span> <span class="pre">1000</span></code> and <code class="docutils literal notranslate"><span class="pre">gc_thresh</span> <span class="pre">=</span> <span class="pre">0.45</span></code>. Where do you think the pathogenicity island is?</p>
+<p><strong>d)</strong> Write the GC-mapped sequence (with upper and lower characters) to a new FASTA file. Use the same description line (which began with a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> in the original FASTA file), and have line breaks every 60 characters in the sequence.</p>
+<div class="section" id="Solution">
+<h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
+<hr><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+<p><strong>a)</strong> First let’s write our tests. In writing the tests, I am making the design decision that I will count the characters <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> as contributing to GC content, and that I will not check to make sure the sequence is valid. I also make the design decision that an empty sequence has zero GC content.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">test_gc_content</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;gcgcgc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;aaatatata&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;ggatcggcga&#39;</span><span class="p">),</span> <span class="mf">0.7</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">gc_content</span><span class="p">(</span><span class="s1">&#39;attgggggcaatta&#39;</span><span class="p">),</span> <span class="mi">3</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The function is fairly simple. We loop through the sequence with a stride equal to the block size, computing the GC content for each subsequence of that length. We start with a function to compute GC content for a sequence.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;GC content of a given sequence&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seq</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now let’s test it.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test_gc_content</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Passage! Next, we write the looping function, starting with its tests.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">test_gc_blocks</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgcgcgcg&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgcgcg&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,)</span>
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgcgcgc&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgcgcgcat&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="n">test_tuple</span> <span class="o">=</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgagcgcat&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">test_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.75</span><span class="p">)</span> <span class="ow">and</span> <span class="n">test_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgtagagc&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgtagagc&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">gc_blocks</span><span class="p">(</span><span class="s1">&#39;gcgtagagc&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<p>Now let’s write our function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">gc_blocks</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">block_size</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Divide sequence into non-overlapping blocks</span>
+<span class="sd">    and compute GC content of each block.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">blocks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">%</span> <span class="n">block_size</span><span class="p">),</span> <span class="n">block_size</span><span class="p">):</span>
+        <span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>And the tests….</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test_gc_blocks</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Success! Let’s take this function for a spin, looking at 1000-base blocks. We will use the FASTA reader function from a previous exercise to read in the <em>Salmonella</em> genome fragment.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">read_fasta</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read a sequence in from a FASTA file containing a single sequence.</span>
+
+<span class="sd">    We assume that the first line of the file is the descriptor and all</span>
+<span class="sd">    subsequent lines are sequence.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># Read in descriptor</span>
+        <span class="n">descriptor</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+        <span class="c1"># Read in sequence, stripping the whitespace from each line</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">line</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">seq</span> <span class="o">+=</span> <span class="n">line</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">descriptor</span><span class="p">,</span> <span class="n">seq</span>
+
+
+<span class="n">descriptor</span><span class="p">,</span> <span class="n">seq</span> <span class="o">=</span> <span class="n">read_fasta</span><span class="p">(</span><span class="s1">&#39;data/salmonella_spi1_region.fna&#39;</span><span class="p">)</span>
+
+<span class="n">gc_blocks</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(0.521,
+ 0.556,
+ 0.54,
+ 0.498,
+ 0.551,
+ 0.508,
+ 0.563,
+ 0.484,
+ 0.58,
+ 0.557,
+ 0.523,
+ 0.524,
+ 0.621,
+ 0.556,
+ 0.481,
+ 0.57,
+ 0.581,
+ 0.614,
+ 0.603,
+ 0.526,
+ 0.524,
+ 0.591,
+ 0.563,
+ 0.596,
+ 0.563,
+ 0.6,
+ 0.613,
+ 0.594,
+ 0.486,
+ 0.554,
+ 0.566,
+ 0.592,
+ 0.563,
+ 0.537,
+ 0.575,
+ 0.501,
+ 0.54,
+ 0.555,
+ 0.487,
+ 0.416,
+ 0.423,
+ 0.371,
+ 0.394,
+ 0.48,
+ 0.454,
+ 0.474,
+ 0.434,
+ 0.396,
+ 0.37,
+ 0.456,
+ 0.409,
+ 0.457,
+ 0.4,
+ 0.405,
+ 0.475,
+ 0.47,
+ 0.479,
+ 0.494,
+ 0.497,
+ 0.516,
+ 0.444,
+ 0.433,
+ 0.471,
+ 0.458,
+ 0.53,
+ 0.458,
+ 0.56,
+ 0.427,
+ 0.47,
+ 0.438,
+ 0.465,
+ 0.473,
+ 0.46,
+ 0.399,
+ 0.426,
+ 0.359,
+ 0.469,
+ 0.433,
+ 0.425,
+ 0.504,
+ 0.578,
+ 0.576,
+ 0.553,
+ 0.531,
+ 0.57,
+ 0.599,
+ 0.562,
+ 0.555,
+ 0.595,
+ 0.586,
+ 0.55,
+ 0.56,
+ 0.545,
+ 0.553,
+ 0.537,
+ 0.519,
+ 0.519,
+ 0.567,
+ 0.551,
+ 0.548,
+ 0.559,
+ 0.527,
+ 0.559,
+ 0.529,
+ 0.49,
+ 0.533,
+ 0.58,
+ 0.545,
+ 0.558,
+ 0.575,
+ 0.555,
+ 0.49,
+ 0.567,
+ 0.515,
+ 0.518,
+ 0.485,
+ 0.38,
+ 0.461,
+ 0.568,
+ 0.575,
+ 0.567,
+ 0.57,
+ 0.472,
+ 0.513,
+ 0.582,
+ 0.476,
+ 0.505,
+ 0.524,
+ 0.51,
+ 0.512,
+ 0.391,
+ 0.463,
+ 0.57,
+ 0.546,
+ 0.535,
+ 0.525,
+ 0.525,
+ 0.529,
+ 0.58,
+ 0.555,
+ 0.558,
+ 0.563,
+ 0.525,
+ 0.505,
+ 0.557,
+ 0.554,
+ 0.484,
+ 0.525,
+ 0.567,
+ 0.467,
+ 0.527,
+ 0.55,
+ 0.577,
+ 0.554,
+ 0.538,
+ 0.429,
+ 0.507,
+ 0.557,
+ 0.592,
+ 0.595,
+ 0.554,
+ 0.521,
+ 0.539,
+ 0.521,
+ 0.45,
+ 0.608,
+ 0.489,
+ 0.477,
+ 0.552,
+ 0.508,
+ 0.544,
+ 0.495,
+ 0.543,
+ 0.56,
+ 0.596,
+ 0.547,
+ 0.581,
+ 0.548,
+ 0.537,
+ 0.529,
+ 0.513,
+ 0.499,
+ 0.545,
+ 0.567,
+ 0.52,
+ 0.545,
+ 0.548,
+ 0.522,
+ 0.533,
+ 0.558,
+ 0.586,
+ 0.469,
+ 0.516,
+ 0.509,
+ 0.511,
+ 0.569,
+ 0.575,
+ 0.559,
+ 0.545,
+ 0.502)
+</pre></div></div>
+</div>
+<p>We get a tuple of GC content, which is hard to look at on screen, but this is useful for plotting GC content over the course of a sequence. We will learn how to plot later in the bootcamp.</p>
+<p><strong>b)</strong> We just use our already-written <code class="docutils literal notranslate"><span class="pre">gc_content()</span></code> function to decide how to modify the string of the sequence. First, the tests. We make the design decision that we will truncate the sequence if the 3’-most end is shorter than the block length.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">test_gc_map</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;ATATATATA&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;atatatat&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;GCGCGCGCG&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;GCGCGCGC&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;GATCGATCC&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;GATCGATC&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;GATCGATCC&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;gatcgatc&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;GATCGATCC&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;gatCGATCC&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;GATCGATCC&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;gatcgatcc&#39;</span>
+    <span class="k">assert</span> <span class="n">gc_map</span><span class="p">(</span><span class="s1">&#39;GATCGATCC&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;GATCGATCC&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>Now the function….</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">gc_map</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">gc_thresh</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Give back seq with lowercase letters where GC content is low.&quot;&quot;&quot;</span>
+    <span class="n">out_seq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="c1"># Determine GC content of each block and change string accordingly</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">%</span> <span class="n">block_size</span><span class="p">),</span> <span class="n">block_size</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">gc_thresh</span><span class="p">:</span>
+            <span class="n">out_seq</span> <span class="o">+=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out_seq</span> <span class="o">+=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">out_seq</span>
+</pre></div>
+</div>
+</div>
+<p>And the tests.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test_gc_map</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Passage! We can now use these functions to analyze sequences of interest.</p>
+<p><strong>c)</strong> Let’s do it for <em>Salmonella</em>!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sal_gcmap</span> <span class="o">=</span> <span class="n">gc_map</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>To save on display space, we will not display the sequence here. Scrolling through the GC map file generated in the next part, the pathogenicity island appears to occur about a quarter of the way into this subsequence.</p>
+<p><strong>d)</strong> To write the file out, we use the fact that we conveniently kept the description text when we parsed the <em>Salmonella</em> FASTA file in the first place. We then just write the <code class="docutils literal notranslate"><span class="pre">sal_gcmap</span></code> string in blocks of 60. We have to make sure to get the last few bases as well.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Write the result</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;salmonella_spi1_region_gc_map.fna&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># Write description text</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">descriptor</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Write sequence in blocks of 60</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sal_gcmap</span><span class="p">)</span> <span class="o">-</span> <span class="mi">59</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sal_gcmap</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">60</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">60</span>
+
+    <span class="c1"># Write last line</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sal_gcmap</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We’ll take a quick look to see it worked out ok.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>head salmonella_spi1_region_gc_map.fna
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="o">!</span>tail salmonella_spi1_region_gc_map.fna
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&gt;gi|821161554|gb|CP011428.1| Salmonella enterica subsp. enterica strain YU39, complete genome, subsequence 3000000 to 3200000
+AAAACCTTAGTAACTGGACTGCTGGGATTTTTCAGCCTGGATACGCTGGTAGATCTCTTC
+ACGATGGACAGAAACTTCTTTCGGGGCGTTCACGCCAATACGCACCTGGTTGCCCTTCAC
+CCCTAAAACTGTCACGGTGACCTCATCGCCAATCATGAGGGTCTCACCAACTCGACGAGT
+CAGAATCAGCATTCTTTGCTCCTTGAAAGATTAAAAGAGTCGGGTCTCTCTGTATCCCGG
+CATTATCCATCATATAACGCCAAAAAGTAAGCGATGACAAACACCTTAGGTGTAAGCAGT
+CATGGCATTACATTCTGTTAAACCTAAGTTTAGCCGATATACAAAACTTCAACCTGACTT
+TATCGTTGTCGATAGCGTTGACGTAAACGCCGCAGCACGGGCTGCGGCGCCAACGAACGC
+TTATAATTATTGCAATTTTGCGCTGACCCAGCCTTGTACACTGGCTAACGCTGCAGGCAG
+AGCTGCCGCATCCGTACCACCGGCTTGCGCCATGTCCGGACGACCGCCACCCTTACCGCC
+...
+ACGCATTTCTCCCGTGCAGGTCACATTTGCCCGACACGGCGGGGCAAGAGGCTTGAACAG
+ACGTTCATTTTCCGTAAAACTGGCGTAATGTAAGCGTTTACCCACTATAGGTATTATCAT
+GGCGACCATAAAAGATGTAGCCCGACTGGCCGGTGTTTCAGTCGCCACCGTTTCTCGCGT
+TATTAACGATTCGCCAAAAGCCAGCGAAGCGTCCCGGCTGGCGGTAACCAGCGCAATGGA
+GTCCCTGAGCTATCACCCTAACGCCAACGCGCGCGCGCTGGCACAGCAGGCAACGGAAAC
+CCTCGGTCTGGTGGTCGGCGACGTTTCCGATCCTTTTTTCGGCGCGATGGTGAAAGCCGT
+TGAACAGGTGGCGTATCACACCGGCAATTTTTTACTGATTGGCAACGGGTATCATAACGA
+ACAAAAAGAGCGTCAGGCTATTGAACAGTTGATTCGTCATCGTTGCGCAGCGTTAGTGGT
+GCACGCCAAAATGATTCCGGATGCGGACCTGGCCTCATTAATGAAGCAAATCCCCGGCAT
+GGTGCTGATTAACCGCATTT
+</pre></div></div>
+</div>
+<p>Looks good!</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python implementation: CPython
+Python version       : 3.8.10
+IPython version      : 7.22.0
+
+numpy     : 1.20.2
+jupyterlab: 3.0.14
+
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="exercise_4.2_solution.html" class="btn btn-neutral float-right" title="Exercise 4.2: ORF detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Exercise 4 solutions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jun 29, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
