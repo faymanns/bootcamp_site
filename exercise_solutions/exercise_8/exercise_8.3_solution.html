@@ -1,0 +1,1088 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 8.3: Bootstrapping “theory” with hacker stats &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Schedule overview" href="../../schedule.html" />
+    <link rel="prev" title="Exercise 8.2: Hacker stats with bee sperm data" href="exercise_8.2_solution.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_style.html">Lesson 16: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_intro_to_pandas.html">Lesson 17: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_split_apply_combine.html">Lesson 18: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_plotting.html">Lesson 19: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_high_level_plotting.html">Lesson 20: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_intro_to_numpy_and_scipy.html">Lesson 21: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_plotting_time_series_generated_data.html">Lesson 22: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_random_number_generation.html">Lesson 23: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_comprehensions.html">Lesson 24: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_hackerstats_1.html">Lesson 25: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_hackerstats_2.html">Lesson 26: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_holoviews.html">Lesson 27: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_overplotting.html">Lesson 28: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_intro_to_image_processing.html">Lesson 38: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_segmentation.html">Lesson 39: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_other_packages_and_languages.html">Lesson 32: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_bootcamp_recap.html">Lesson 33: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_javascript_for_bokeh.html">Lesson 30: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_intro_to_scripting.html">Lesson 31: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_more_command_line.html">Lesson 34: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_regular_expressions.html">Lesson 35: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_intro_to_oop.html">Lesson 36: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_algorithmic_complexity.html">Lesson 37: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_serial.html">Lesson 40: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_serial_apps.html">Lesson 41. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_control_panels.html">Lesson 42: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_testing_and_tdd.html">Lesson 14: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_examples_of_tdd.html">Lesson 15: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_dashboards.html">Lesson 29: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercise solutions</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_2/index.html">Exercise 2 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_4/index.html">Exercise 4 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_5/index.html">Exercise 5 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_6/index.html">Exercise 6 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_7/index.html">Exercise 7 solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 8 solutions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="exercise_8.1_solution.html">Exercise 8.1: Writing functions for bootstrap replicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_8.2_solution.html">Exercise 8.2: Hacker stats with bee sperm data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 8.3: Bootstrapping “theory” with hacker stats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 8 solutions</a> &raquo;</li>
+        
+      <li>Exercise 8.3: Bootstrapping “theory” with hacker stats</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercise_solutions/exercise_8/exercise_8.3_solution.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-8.3:-Bootstrapping-“theory”-with-hacker-stats">
+<h1>Exercise 8.3: Bootstrapping “theory” with hacker stats<a class="headerlink" href="#Exercise-8.3:-Bootstrapping-“theory”-with-hacker-stats" title="Permalink to this headline">¶</a></h1>
+<hr><p>Say we have a data set with <span class="math notranslate nohighlight">\(n\)</span> unique measurements. It can be shown that on average a fraction of <span class="math notranslate nohighlight">\((1-1/n)^n\)</span> of the measurements do not appear in a bootstrap sample. Note that for large samples, this is approximately <span class="math notranslate nohighlight">\(1/e \approx 1/2.7\)</span>, since</p>
+<p><span class="math">\begin{align}
+\lim_{n\to\infty} (1-1/n)^n = 1/e.
+\end{align}</span></p>
+<p>Use hacker stats to show that this is, indeed true. <em>Hint</em>: Think about a convenient “data set” to use for drawing samples.</p>
+<p>This is kind of fun; you’re investigating some theory behind hacker stats <em>with hacker stats</em>!</p>
+<div class="section" id="Solution">
+<h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">bokeh_catplot</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1001">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1001");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.0.2.min.js": "ufR9RFnRs6lniiaFvtJziE0YeidtAgBRH6ux2oUItHw5WTvE1zuk9uzhUU/FJXDp", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.2.min.js": "8QM/PGWBT+IssZuRcDcjzwIh1mkOmJSoNMmyYDZbCfXJg3Ap1lEvdVgFuSAwhb/J", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.2.min.js": "Jm8cH3Rg0P6UeZhVY5cLy1WzKajUT9KImCY+76hEqrcJt59/d8GPvFHjCkYgnSIn", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.0.2.min.js": "Ozhzj+SI7ywm74aOI/UajcWz+C0NjsPunEVyVIrxzYkB+jA+2tUw8x5xJCbVtK5I"};
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.0.2.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1001")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<p>We will generate a data set that is just <span class="math notranslate nohighlight">\(n\)</span> consecutive integers. Our statistic from our bootstrap sample is then</p>
+<p><span class="math">\begin{align}
+\text{fraction omitted} = 1 - \frac{\text{number of unique entries in the bootstrap sample}}{n}.
+\end{align}</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">frac_omitted</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We will draw a few thousand bootstrap replicates of this for several values of <span class="math notranslate nohighlight">\(n\)</span> and make a plot of the mean. To facilitate, we will use the <code class="docutils literal notranslate"><span class="pre">draw_bs_reps()</span></code> function we wrote in <a class="reference external" href="exercise_8.1.ipynb">Exercise 8.1</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">draw_bs_reps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">rg</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">mean_frac_omitted</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_bs_reps</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">bs_reps</span> <span class="o">=</span> <span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">frac_omitted</span><span class="p">,</span> <span class="n">rg</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_bs_reps</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bs_reps</span><span class="p">)</span>
+
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<span class="n">mean_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mean_frac_omitted</span><span class="p">(</span><span class="n">n_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">n_val</span> <span class="ow">in</span> <span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>Now that we have the mean fraction omitted for each value of <span class="math notranslate nohighlight">\(n\)</span>, we can plot it, together with the theoretical curve.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Compute theoretical curve</span>
+<span class="n">n_theor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">mean_f_theor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_theor</span><span class="p">)</span><span class="o">**</span><span class="n">n_theor</span>
+
+<span class="c1"># Set up figure</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
+    <span class="n">frame_height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">frame_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;mean fraction omitted&#39;</span><span class="p">,</span>
+    <span class="n">x_axis_type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span>
+    <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mi">1100</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Theoretical curve</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">n_theor</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">mean_f_theor</span><span class="p">,</span>
+    <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="c1"># Asymptotic result</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mi">1100</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Result from hacker stats</span>
+<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">mean_f</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span>
+<span class="p">)</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root" id="293f42b7-bf7f-4b6c-b221-f571d06d6c4a" data-root-id="1002"></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+(function(root) {
+  function embed_document(root) {
+
+  var docs_json = {"f65de748-c9a9-42e9-b916-b2d02845103b":{"roots":{"references":[{"attributes":{"below":[{"id":"1011"}],"center":[{"id":"1014"},{"id":"1018"}],"frame_height":250,"frame_width":350,"left":[{"id":"1015"}],"renderers":[{"id":"1036"},{"id":"1041"},{"id":"1046"}],"title":{"id":"1048"},"toolbar":{"id":"1026"},"x_range":{"id":"1003"},"x_scale":{"id":"1007"},"y_range":{"id":"1005"},"y_scale":{"id":"1009"}},"id":"1002","subtype":"Figure","type":"Plot"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1019"},{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"}]},"id":"1026","type":"Toolbar"},{"attributes":{"fill_color":{"value":"orange"},"line_color":{"value":"orange"},"x":{"field":"x"},"y":{"field":"y"}},"id":"1044","type":"Circle"},{"attributes":{"source":{"id":"1043"}},"id":"1047","type":"CDSView"},{"attributes":{"num_minor_ticks":10},"id":"1012","type":"LogTicker"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{"data_source":{"id":"1033"},"glyph":{"id":"1034"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1035"},"selection_glyph":null,"view":{"id":"1037"}},"id":"1036","type":"GlyphRenderer"},{"attributes":{"axis":{"id":"1011"},"ticker":null},"id":"1014","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"orange"},"line_alpha":{"value":0.1},"line_color":{"value":"orange"},"x":{"field":"x"},"y":{"field":"y"}},"id":"1045","type":"Circle"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"},{"attributes":{"axis":{"id":"1015"},"dimension":1,"ticker":null},"id":"1018","type":"Grid"},{"attributes":{"axis_label":"mean fraction omitted","formatter":{"id":"1051"},"ticker":{"id":"1016"}},"id":"1015","type":"LinearAxis"},{"attributes":{},"id":"1059","type":"Selection"},{"attributes":{"data":{"x":{"__ndarray__":"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","dtype":"float64","shape":[400]},"y":{"__ndarray__":"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","dtype":"float64","shape":[400]}},"selected":{"id":"1055"},"selection_policy":{"id":"1056"}},"id":"1033","type":"ColumnDataSource"},{"attributes":{},"id":"1060","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"1038"},"glyph":{"id":"1039"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1040"},"selection_glyph":null,"view":{"id":"1042"}},"id":"1041","type":"GlyphRenderer"},{"attributes":{"data":{"x":[0.9,1100],"y":[0.36787944117144233,0.36787944117144233]},"selected":{"id":"1057"},"selection_policy":{"id":"1058"}},"id":"1038","type":"ColumnDataSource"},{"attributes":{},"id":"1055","type":"Selection"},{"attributes":{},"id":"1058","type":"UnionRenderers"},{"attributes":{},"id":"1057","type":"Selection"},{"attributes":{"data":{"x":[1,2,3,4,5,6,7,8,9,10,12,14,16,19,22,25,29,33,39,44,51,59,68,79,91,104,120,138,159,184,212,244,281,323,372,429,494,568,655,754,868,1000],"y":{"__ndarray__":"AAAAAAAAAADecYqO5PLPP6l/I5TR29I/sp3vp8ZL1D8ON+DzwwjVP7Deu+DmZ9U/VFInoImw1T91kxgEVg7WP6Cq80ZxP9Y/1zTvOEVH1j8LRiV1AprWP7x/7/UzuNY/yJi7lpDP1j8cQ/004uHWP8kxhUWv59Y/ajo7GRwl1z+lxlBNFinXP5rkLl6cKtc/RmG+10471z/l+SsZ1EDXP4hKQGnFVNc/uWsJ+aBn1z92sGQtpGLXP3azlalEW9c/h98MfAhp1z/vycNCrWnXP3z69TChb9c//qYJTk511z+5GIv73XrXP4Hdhh0KeNc/veFb4/F51z/N0KiXHoTXP1ju7Mngg9c/vKTELCOC1z//ABZs74PXP26O0tvegtc/qgogyteH1z/MYXhLioTXPwK1bsrChtc/UjVFTIiG1z8SlHsyz4bXPz7x9+aShdc/","dtype":"float64","shape":[42]}},"selected":{"id":"1059"},"selection_policy":{"id":"1060"}},"id":"1043","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_dash":[6],"x":{"field":"x"},"y":{"field":"y"}},"id":"1040","type":"Line"},{"attributes":{"ticker":null},"id":"1053","type":"LogTickFormatter"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1025","type":"BoxAnnotation"},{"attributes":{"text":""},"id":"1048","type":"Title"},{"attributes":{"source":{"id":"1038"}},"id":"1042","type":"CDSView"},{"attributes":{},"id":"1056","type":"UnionRenderers"},{"attributes":{"source":{"id":"1033"}},"id":"1037","type":"CDSView"},{"attributes":{},"id":"1051","type":"BasicTickFormatter"},{"attributes":{"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1034","type":"Line"},{"attributes":{},"id":"1019","type":"PanTool"},{"attributes":{"end":1100,"start":0.9},"id":"1003","type":"Range1d"},{"attributes":{},"id":"1024","type":"HelpTool"},{"attributes":{},"id":"1020","type":"WheelZoomTool"},{"attributes":{"axis_label":"n","formatter":{"id":"1053"},"ticker":{"id":"1012"}},"id":"1011","type":"LogAxis"},{"attributes":{"overlay":{"id":"1025"}},"id":"1021","type":"BoxZoomTool"},{"attributes":{"line_color":"gray","line_dash":[6],"x":{"field":"x"},"y":{"field":"y"}},"id":"1039","type":"Line"},{"attributes":{},"id":"1005","type":"DataRange1d"},{"attributes":{},"id":"1007","type":"LogScale"},{"attributes":{},"id":"1022","type":"SaveTool"},{"attributes":{},"id":"1023","type":"ResetTool"},{"attributes":{"data_source":{"id":"1043"},"glyph":{"id":"1044"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1045"},"selection_glyph":null,"view":{"id":"1047"}},"id":"1046","type":"GlyphRenderer"},{"attributes":{},"id":"1009","type":"LinearScale"}],"root_ids":["1002"]},"title":"Bokeh Application","version":"2.0.2"}};
+  var render_items = [{"docid":"f65de748-c9a9-42e9-b916-b2d02845103b","root_ids":["1002"],"roots":{"1002":"293f42b7-bf7f-4b6c-b221-f571d06d6c4a"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script></div>
+</div>
+<p>The result closely matches theory!</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,pandas,bokeh,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPython 3.7.7
+IPython 7.13.0
+
+numpy 1.18.1
+pandas 0.24.2
+bokeh 2.0.2
+jupyterlab 1.2.6
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../schedule.html" class="btn btn-neutral float-right" title="Schedule overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="exercise_8.2_solution.html" class="btn btn-neutral float-left" title="Exercise 8.2: Hacker stats with bee sperm data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jul 01, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

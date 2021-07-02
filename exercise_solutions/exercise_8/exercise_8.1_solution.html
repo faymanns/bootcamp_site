@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Exercise 8.1: Writing functions for bootstrap replicates &mdash; Programming Bootcamp  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 8.2: Hacker stats with bee sperm data" href="exercise_8.2_solution.html" />
+    <link rel="prev" title="Exercise 8 solutions" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F1F2D8" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l00_configuring_your_computer.html">Lesson 0: Configuring your computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l01_welcome.html">Lesson 1: Welcome and Introduction to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l02_basic_command_line_skills.html">Lesson 2: Basic command line skills</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l03_variables_operators_types.html">Lesson 3: Variables, operators, and types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l04_more_operators_and_conditionals.html">Lesson 4: More operators and conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l05_lists_and_tuples.html">Lesson 5: Lists and tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l06_iteration.html">Lesson 6: Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l07_intro_to_functions.html">Lesson 7: Introduction to functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l08_string_methods.html">Lesson 8: String methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l09_dictionaries.html">Lesson 9: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l10_packages_and_modules.html">Lesson 10: Packages and modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l11_file_io.html">Lesson 11: File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l12_version_control_with_git.html">Lesson 12: Version control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l13_exceptions_and_error_handling.html">Lesson 13: Errors and Exception handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l16_style.html">Lesson 16: Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l17_intro_to_pandas.html">Lesson 17: Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l18_split_apply_combine.html">Lesson 18: Tidy data and split-apply-combine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l19_plotting.html">Lesson 19: Making plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l20_high_level_plotting.html">Lesson 20: High level plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l21_intro_to_numpy_and_scipy.html">Lesson 21: Introduction to Numpy and Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l22_plotting_time_series_generated_data.html">Lesson 22: Plotting time series and generated data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l23_random_number_generation.html">Lesson 23: Random number generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l24_comprehensions.html">Lesson 24: Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l25_hackerstats_1.html">Lesson 25: Hacker stats I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l26_hackerstats_2.html">Lesson 26: Hacker stats II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l27_holoviews.html">Lesson 27: High level plotting with HoloViews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l28_overplotting.html">Lesson 28: Dealing with overplotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l38_intro_to_image_processing.html">Lesson 38: Introduction to image processing with scikit-image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l39_segmentation.html">Lesson 39: Basic image quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l32_other_packages_and_languages.html">Lesson 32: Survey of other packages and languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l33_bootcamp_recap.html">Lesson 33: Bootcamp recap</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Auxiliary lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l30_javascript_for_bokeh.html">Lesson 30: JavaScript for stand-alone Bokeh apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l31_intro_to_scripting.html">Lesson 31: Introduction to scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l34_more_command_line.html">Lesson 34: More about the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l35_regular_expressions.html">Lesson 35: Regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l36_intro_to_oop.html">Lesson 36: Introduction to object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l37_algorithmic_complexity.html">Lesson 37: Algorithmic complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l40_serial.html">Lesson 40: Control of external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l41_serial_apps.html">Lesson 41. Apps for controlling external devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l42_control_panels.html">Lesson 42: Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l14_testing_and_tdd.html">Lesson 14: Testing and test-driven development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l15_examples_of_tdd.html">Lesson 15: Examples of TDD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/l29_dashboards.html">Lesson 29: Dashboards</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercises</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_1/index.html">Exercise 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_2/index.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_3/index.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_4/index.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_5/index.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_6/index.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_7/index.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_8/index.html">Exercise 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_9/index.html">Exercise 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/exercise_10/index.html">Exercise 10</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Exercise solutions</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercise_1/index.html">Exercise 1 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_2/index.html">Exercise 2 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_3/index.html">Exercise 3 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_4/index.html">Exercise 4 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_5/index.html">Exercise 5 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_6/index.html">Exercise 6 solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_7/index.html">Exercise 7 solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercise 8 solutions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exercise 8.1: Writing functions for bootstrap replicates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_8.2_solution.html">Exercise 8.2: Hacker stats with bee sperm data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_8.3_solution.html">Exercise 8.3: Bootstrapping “theory” with hacker stats</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Schedule</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#daily-schedule">Daily schedule</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Scientific Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-instruction">Online instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#griffin-chure-s-templates-for-reproducible-publishing">Griffin Chure’s templates for reproducible publishing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Programming Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Exercise 8 solutions</a> &raquo;</li>
+        
+      <li>Exercise 8.1: Writing functions for bootstrap replicates</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/exercise_solutions/exercise_8/exercise_8.1_solution.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exercise-8.1:-Writing-functions-for-bootstrap-replicates">
+<h1>Exercise 8.1: Writing functions for bootstrap replicates<a class="headerlink" href="#Exercise-8.1:-Writing-functions-for-bootstrap-replicates" title="Permalink to this headline">¶</a></h1>
+<hr><p>It will be useful to have some functions in your arsenal to do statistical inference with bootstrapping. In this exercise, you will write some handy functions. You should test these functions out on real data. Doing full TDD with functions like this can be tricky because of the random number generation involved. You can skip that here for bootcamp purposes, but, as always, testing is very important for code used in real research.</p>
+<p><strong>a)</strong> In the lessons, we wrote a function, <code class="docutils literal notranslate"><span class="pre">draw_bs_rep()</span></code> to draw a single bootstrap replicate out of a single set of repeated measurements. Update this function to have a <code class="docutils literal notranslate"><span class="pre">size</span></code> keyword argument so that you can draw many bootstrap replicates and return a Numpy array of the replicates. Here are step-by-step instructions.</p>
+<ol class="arabic simple">
+<li><p>Define a function with call signature <code class="docutils literal notranslate"><span class="pre">draw_bs_reps(data,</span> <span class="pre">func,</span> <span class="pre">rg,</span> <span class="pre">size=1,</span> <span class="pre">args=())</span></code>, where <code class="docutils literal notranslate"><span class="pre">func</span></code> is a function that takes in an array and returns a statistic; it has call signature <code class="docutils literal notranslate"><span class="pre">func(data,</span> <span class="pre">*args)</span></code>. Examples that could be passed in as <code class="docutils literal notranslate"><span class="pre">func</span></code> are <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, <code class="docutils literal notranslate"><span class="pre">np.median</span></code>, or a user-defined function. <code class="docutils literal notranslate"><span class="pre">rg</span></code> is an instance of a Numpy random number generator. <code class="docutils literal notranslate"><span class="pre">size</span></code> is the number of replicates to generate.</p></li>
+<li><p>Write a good doc string.</p></li>
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">n</span></code> to be the length of the input <code class="docutils literal notranslate"><span class="pre">data</span></code> array.</p></li>
+<li><p>Use a list comprehension to compute a list of bootstrap replicates.</p></li>
+<li><p>Return the replicates as a Numpy array.</p></li>
+</ol>
+<p><strong>b)</strong> Write a function analogous to the one in part (a) except for pairs bootstrap. The call signature should be <code class="docutils literal notranslate"><span class="pre">draw_bs_pairs(data1,</span> <span class="pre">data2,</span> <span class="pre">func,</span> <span class="pre">rg,</span> <span class="pre">size=1,</span> <span class="pre">args=())</span></code>, where <code class="docutils literal notranslate"><span class="pre">func</span></code> has call signature <code class="docutils literal notranslate"><span class="pre">func(data1,</span> <span class="pre">data2,</span> <span class="pre">*args)</span></code>.</p>
+<p>You will want to include these in a module so you can use it over and over again. I will not be providing this functionality in the <code class="docutils literal notranslate"><span class="pre">bootcamp_utils</span></code> module; I want you to write this yourself. (Or, you can install the <a class="reference external" href="https://github.com/justinbois/dc_stat_think">dc_stat_think module</a> that I wrote using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, which has this and many other useful functions for bootstrapping.)</p>
+<div class="section" id="Solution">
+<h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<p><strong>a)</strong> I show the function below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">draw_bs_reps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">rg</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate bootstrap replicates out of `data` using `func`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : array_like</span>
+<span class="sd">        One-dimensional array of data.</span>
+<span class="sd">    func : function</span>
+<span class="sd">        Function, with call signature `func(data, *args)` to compute</span>
+<span class="sd">        replicate statistic from resampled `data`.</span>
+<span class="sd">    rg : random number generator instance</span>
+<span class="sd">        Either `np.random` or the result of `np.random.default_rng()`.</span>
+<span class="sd">    size : int, default 1</span>
+<span class="sd">        Number of bootstrap replicates to generate.</span>
+<span class="sd">    args : tuple, default ()</span>
+<span class="sd">        Arguments to be passed to `func`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : ndarray</span>
+<span class="sd">        Bootstrap replicates computed from `data` using `func`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">func</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s try this function out on the beak depth data from 1975 to get bootstrap replicates of the mean.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/grant_complete.csv&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">inds</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1975</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;scandens&#39;</span><span class="p">)</span>
+<span class="n">bd_1975</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">inds</span><span class="p">,</span> <span class="s1">&#39;beak depth (mm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Compute replicates</span>
+<span class="n">bs_reps</span> <span class="o">=</span> <span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">bd_1975</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">rg</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="c1"># 95% confidence interval</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">bs_reps</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[8.8439023  9.07713506]
+</pre></div></div>
+</div>
+<p>Nice!</p>
+<p><strong>b)</strong> I show the function below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">draw_bs_pairs</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">rg</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform pairs bootstrap for single statistic.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data1 : array_like</span>
+<span class="sd">        First data set. Must be same length as `data2`.</span>
+<span class="sd">    data2 : array_like</span>
+<span class="sd">        Second data set. Must be same length as `data1`.</span>
+<span class="sd">    func : function</span>
+<span class="sd">        Function, with call signature `func(data1, data2, *args)` to</span>
+<span class="sd">        compute replicate statistic from pairs bootstrap sample. It</span>
+<span class="sd">        must return a single, scalar value.</span>
+<span class="sd">    rg : random number generator instance</span>
+<span class="sd">        Either `np.random` or the result of `np.random.default_rng()`.</span>
+<span class="sd">    size : int, default 1</span>
+<span class="sd">        Number of pairs bootstrap replicates to draw.</span>
+<span class="sd">    args : tuple, default ()</span>
+<span class="sd">        Arguments to be passed to `func`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : ndarray</span>
+<span class="sd">        Bootstrap replicates.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+
+    <span class="c1"># Set up array of indices to sample from</span>
+    <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># Initialize replicates</span>
+    <span class="n">bs_replicates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+    <span class="c1"># Generate replicates</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">bs_inds</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">inds</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">bs_1</span><span class="p">,</span> <span class="n">bs_2</span> <span class="o">=</span> <span class="n">data1</span><span class="p">[</span><span class="n">bs_inds</span><span class="p">],</span> <span class="n">data2</span><span class="p">[</span><span class="n">bs_inds</span><span class="p">]</span>
+        <span class="n">bs_replicates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">bs_1</span><span class="p">,</span> <span class="n">bs_2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">bs_replicates</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s take it for a spin with the correlation coefficient between the length and depth of beaks in 1975.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bl_1975</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">inds</span><span class="p">,</span> <span class="s1">&#39;beak length (mm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="k">def</span> <span class="nf">corrcoef</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">):</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">cov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+
+<span class="c1"># Compute replicates</span>
+<span class="n">bs_reps</span> <span class="o">=</span> <span class="n">draw_bs_pairs</span><span class="p">(</span><span class="n">bd_1975</span><span class="p">,</span> <span class="n">bl_1975</span><span class="p">,</span> <span class="n">corrcoef</span><span class="p">,</span> <span class="n">rg</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="c1"># 95% confidence interval</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">bs_reps</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.45807328 0.74779532]
+</pre></div></div>
+</div>
+<p>Looks good!</p>
+</div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,pandas,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPython 3.7.7
+IPython 7.13.0
+
+numpy 1.18.1
+pandas 0.24.2
+jupyterlab 1.2.6
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="exercise_8.2_solution.html" class="btn btn-neutral float-right" title="Exercise 8.2: Hacker stats with bee sperm data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Exercise 8 solutions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <span class="lastupdated">
+        Last updated on Jul 01, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65442910-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
